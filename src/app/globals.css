@@ -5,12 +5,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --main: #ffffff;
+  --main-c: #171717;
+  --sedondary: red;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    --main: black;
+    --main-c: white;
+    --secondary: red; 
   }
 }
 
@@ -18,4 +26,8 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+a:hover{
+  color: rgb(202, 62, 62);
 }
