@@ -1,25 +1,30 @@
 import { MainButton } from "@/components/button";
-import Image from "next/image";
+import Header from "@/components/header";
 
 export default function Home() {
 
 
 
   return (
-    <div className="flex flex-col items-center">
+    <>
+    <Header active="home"></Header>
+    <div className="flex flex-col items-center overflow-x-hidden">
       {/* Home */}
-      <div className="w-[80vw] grid grid-cols-[1fr_1fr] items-center border-4 my-32">
-        <div className="px-4">
-          <div className="text-4xl my-4">Welcome to PERMIKA Nasional</div>
-          <div className="text-xl mb-16">Tagline or catchphrase</div>
-          <MainButton className="my-4" text="Join our Community"></MainButton>
-        </div>
-        <div className="flex justify-center">
-          <div style={{width: '30vw', height: '30vw' , background: 'lightcoral'}}>{/* ILLUSTRATION */}
-          <p>ILLUSTRATION</p>
+      <div className="w-[100vw] grid grid-cols-[1fr_1fr] items-center my-[5rem]">
+        <div className="pl-[12rem]">
+          <img className="ml-[-1.1rem]" src="/home_title.png" alt="title permika nasional" />
+          <div>
+            <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Egestas quisque sem, sodales pulvinar aenean habitasse euismod ullamcorper habitant. Risus proin nec habitasse orci risus ridiculus morbi at.</p>
           </div>
+          <button className="text-[var(--main-5)] mt-4 px-8 py-3 rounded-full border-solid border-2 border-[var(--main-5)]">Join Our Community</button>
+        </div>
+        <div className="grid">
+          <img className="row-start-1 col-start-1 ml-auto mt-[4.2rem]" src="/home_temples_bg.svg" alt="temples bg"/>
+          <img className="row-start-1 col-start-1" src="/home_temples.svg" alt="temples"/>
+          <img className="row-start-1 col-start-1 ml-auto" src="/home_temples_leaf.svg" alt="temples leaf"/>
         </div>
       </div>
     </div>
+    </>
   )
 }

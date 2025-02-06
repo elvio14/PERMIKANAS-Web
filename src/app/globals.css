@@ -3,15 +3,84 @@
 @tailwind utilities;
 
 :root {
+/* DECLARE COLORS as in order in figma */
+  --main-1: #FDF4E8;
+  --main-2: #E3B971;
+  --main-3: #CD5A48;
+  --main-4: #AD442C;
+  --main-5: #803124;
+  --main-6: #533624;
+  --main-7: #212020;
+
+  --neutral-1: #F9FAFB;
+  --neutral-2: #E5E7EB;
+  --neutral-3: #9CA3AF;
+  --neutral-4: #4B5563;
+  --neutral-5: var(--main-7);
+
+  --alert-1: #F9DEDC;
+  --alert-2: #FEF3C7;
+  --alert-3: #ECF5EF;
+  --alert-4: #DBEAFE;
+  --alert-5: #E2E8F0;
+
+
   --background: #ffffff;
   --foreground: #171717;
 
   --main: #ffffff;
   --main-c: #171717;
   --sedondary: red;
+
+
+  /* FONTS. Imported in layout.jsx */
+
+  .font-a {
+    font-family: "Berkshire Swash", serif;
+    font-weight: 400;
+    font-style: 48px;
+  }
+
+    
+  .manrope-h2 {
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  .manrope-h3{
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 32px;
+    font-style: normal;
+  }
+  .manrope-h4{
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 20px;
+    font-style: normal;
+  }
+  .manrope-body{
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+  }
+
+  .manrope-body-bold{
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 16px;
+    font-style: normal;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
@@ -20,14 +89,19 @@
     --main-c: white;
     --secondary: red; 
   }
-}
+} */
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Manrope-body: */
+  font-family: "Manrope", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 16px;
+  font-style: normal;
 }
 
 a:hover{
-  color: rgb(202, 62, 62);
+  color: var(--main-2);
 }
