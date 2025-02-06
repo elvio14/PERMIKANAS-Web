@@ -1,27 +1,46 @@
 "use client"
 import {MainButton, SecondaryButton} from '@/components/button.jsx'
 import Dropdown from './dropdown'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useRouter } from "next/navigation"
+import { ref } from 'vue'
 
-export default function Header(){
+export default function Header({active = "home"}){
 
-    const [triggerResources, setTriggerResources] = useState(false)
+    const [activePage, setActivePage] = useState("")
+
+    const router = useRouter()
+
+    const goToPage = (path) => {
+        console.log("Running goToPage " + path)
+        router.push(path)
+    }
+
+    useEffect(()=> {
+        setActivePage(active)
+    }, [])
 
     return (
-        <div className="w-full h-20 bg-[var(--main)] text-white grid grid-cols-[1fr_1.4fr] items-center px-6 shadow-md">
-            <div style={{paddingLeft: '3rem'}}>   
-                <img style={{ borderRadius: '5rem'}} src="/dummy_logo.jpg" alt="Permkanas Logo" width={64}></img>
+        <div className="w-full h-[4.2rem] bg-[var(--main-3)] grid grid-cols-[1fr_2fr_1fr] items-center shadow-md">
+            <div className='flex justify-center'>   
+                <img style={{ borderRadius: '5rem'}} src="/permikanas_logo.png" alt="Permkanas Logo" width={80}></img>
             </div>
             <div style={{paddingRight: '3rem'}}>
-                <nav className="flex gap-4 justify-end">
-                  <SecondaryButton text='About Us'></SecondaryButton>
-                  <SecondaryButton text='Events'></SecondaryButton>
+                <nav className="flex gap-4 justify-center">
+                  <SecondaryButton text='Home' color='white' isActive={activePage == "home"} onClick={()=>goToPage("/")}></SecondaryButton>
+                  <SecondaryButton text='About Us' color='white' isActive={activePage == "about"} onClick={()=>goToPage("/about")}></SecondaryButton>
                   <Dropdown onMouseEnter={() => console.log('Mouse enter parent')}
                     text='Resources'
-                    dropTexts={['Before & Upon Arrival', 'Survival Tips']}></Dropdown>
-                  <SecondaryButton text='Communities'></SecondaryButton>
-                  <MainButton text='Contact'></MainButton>
+                    dropTexts={['Before & Upon Arrival', 'Survival Tips']}
+                    color='white'
+                    isActive={activePage == "resources"}
+                    ></Dropdown>
+                  <SecondaryButton text='Events' color='white' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton>
+                  <SecondaryButton text='Communities' color='white' isActive={activePage == "communities"} onClick={()=>goToPage("/communities")}></SecondaryButton>
                 </nav>
+            </div>
+            <div className="flex justify-center">
+            <MainButton text='Contact Us'></MainButton>
             </div>
         </div>
     )

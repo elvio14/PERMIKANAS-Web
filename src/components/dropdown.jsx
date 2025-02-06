@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react"
 import { SecondaryButton } from "./button"
 
-export default function Dropdown({text = "Button", dropTexts= ["Drop1", "Drop2"]}){
+export default function Dropdown({text = "Button", dropTexts= ["Drop1", "Drop2"], color = "var(--main-5)"}){
 
     const [isActive, setActive] = useState(false)
 
@@ -29,10 +29,10 @@ export default function Dropdown({text = "Button", dropTexts= ["Drop1", "Drop2"]
 
     return (
         <div ref={containerRef} className="relative">
-            <SecondaryButton text={text}></SecondaryButton>
+            <SecondaryButton text={text} color={color}></SecondaryButton>
 
             {isActive && (
-                <div className="absolute top-[2rem] left-0 w-[16rem] rounded-[1rem] bg-[var(--main-c)] p-4 text-[var(--main)] flex flex-col gap-4">
+                <div className="absolute top-[2rem] left-0 w-[16rem] rounded-[2rem] bg-[var(--main-1)] p-4 text-[var(--main-3)] flex flex-col gap-4">
                 {dropTexts.map((item, index) => (
                   <a key={index} style={{cursor: 'pointer'}}>{item}</a>
                 ))}
