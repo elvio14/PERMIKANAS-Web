@@ -3,7 +3,7 @@ export default function Events() {
     return (
         <>
         <Header active="events"></Header>
-        Eventss
+        <div className="h-[100vh]">EVENTS</div>
         </>
     )
 }
