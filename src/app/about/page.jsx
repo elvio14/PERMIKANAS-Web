@@ -4,7 +4,7 @@ export default function About() {
     return (
         <>
         <Header active="about"></Header>
-            ABOUT
+        <div className="h-[100vh]">ABOUT</div>
         </>
     )
 }

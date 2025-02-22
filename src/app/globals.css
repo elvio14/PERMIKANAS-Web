@@ -105,3 +105,12 @@ body {
 a:hover{
   color: var(--main-2);
 }
+
+.hover-red{
+  border: solid 1px transparent;
+}
+.hover-red:hover{
+  background: var(--main-3);
+  border-color: var(--main-1);
+  color: var(--main-1);
+}

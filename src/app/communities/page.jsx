@@ -3,7 +3,7 @@ export default function Events() {
     return (
         <>
         <Header active="communities"></Header>
-        Communities
+        <div className="h-[100vh]">COMM</div>
         </>
     )
 }

@@ -1,5 +1,7 @@
 import { MainButton } from "@/components/button";
 import Header from "@/components/header";
+import HomeMap from "@/components/homeMap";
+import HomeEvents from "@/components/homeEvents";
 
 export default function Home() {
 
@@ -25,6 +27,8 @@ export default function Home() {
         </div>
       </div>
     </div>
+    <HomeMap />
+    <HomeEvents />
     </>
   )
 }

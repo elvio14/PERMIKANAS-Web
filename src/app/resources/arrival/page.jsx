@@ -1,4 +1,4 @@
-function Article() {
+export default function Article() {
     return (
       <div className="article-container">
         {/* Header Section */}

@@ -1,9 +1,13 @@
+import FooterJoin from "./footerJoin";
+
 export default function Footer() {
     return (
-        <div className="bg-[var(--main-7)] px-[12rem] text-[var(--main-1)] mb-auto">
+        <>
+        <FooterJoin/>
+        <div className="bg-[var(--main-7)] px-[12rem] text-[var(--main-1)] mb-auto z-0 pt-[4rem]">
             <div className="h-[18rem] gap-12 grid grid-cols-[5fr_1.2fr_1.2fr_2fr_2fr_2fr]">
                 <div className="flex justify-center items-center" >
-                    <img className="h-[8rem]" src="/permikanas_logo.png" alt="permikanas logo" />
+                    <img className="h-[8rem]" src="/permikanas_logo_white.svg" alt="permikanas logo" />
                 </div>
                 <div className="flex flex-col mt-28">
                     <p className="manrope-body-bold">About Us</p>
@@ -35,5 +39,6 @@ export default function Footer() {
              @ Copyright by Web Team PERMIKANAS 2024/2025 All rights reserved
             </div>
         </div>
+        </>
     )
 }

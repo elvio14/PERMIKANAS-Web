@@ -1,6 +1,15 @@
 "use client"
 import { useState, useRef, useEffect } from "react"
 
+const hexToRgb = (hex) => {
+  hex = hex.replace(/^#/, "");
+  let bigint = parseInt(hex, 16);
+  let r = (bigint >> 16) & 255;
+  let g = (bigint >> 8) & 255;
+  let b = bigint & 255;
+  return `${r}, ${g}, ${b}`; 
+}
+
 export const MainButton = ({text = "Button", bgColor = "white", color="var(--main-4)"}) => {
     const [isActive, setActive] = useState(false)
 
@@ -18,44 +27,29 @@ export const MainButton = ({text = "Button", bgColor = "white", color="var(--mai
     )
 }
 
-export const SecondaryButton = ({text = "Button", color = "var(--main-5)", weight = "auto", isActive = false, onClick}) => {
+export const SecondaryButton = ({text = "Button", color = "white", bgActive = "#FFFFFF", weight = "auto", isActive = false, hoverable = true, onClick}) => {
     const [isHovered, setHovered] = useState(false)
     const containerRef = useRef(null)
-
-    useEffect(() => {
-        const handleMouseEnter = () => setHovered(true);
-        const handleMouseLeave = () => setHovered(false);
-    
-        const container = containerRef.current;
-        if (container) {
-          container.addEventListener('mouseenter', handleMouseEnter);
-          container.addEventListener('mouseleave', handleMouseLeave);
-        }
-    
-        return () => {
-          const container = containerRef.current;
-          if (container) {
-            container.removeEventListener('mouseenter', handleMouseEnter);
-            container.removeEventListener('mouseleave', handleMouseLeave);
-          }
-        };
-      }, [])
-
+    const handleMouseEnter = () => setHovered(true)
+    const handleMouseLeave = () => setHovered(false)
     
     return (
-        <div ref={containerRef}>
+        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <button 
                 onClick={onClick}
                 className="px-4 py-2"
                 style={{
-                    background: (isActive ? "rgba(255, 255, 255, 0.3)" : "transparent"),
+                    backgroundColor: (isActive
+                      ? `rgba(${hexToRgb(bgActive)}, 0.5)`
+                      : (isHovered && hoverable)
+                      ? `rgba(${hexToRgb(bgActive)}, 0.3)`
+                      : "transparent"),
                     borderRadius: "2rem", 
                     border: "transparent",
-                    color: (isHovered ? "var(--main-5)" : color),
+                    color: color,
                     width: "auto",
-                    fontWeight: weight
+                    fontWeight: (isActive ? 800 : weight)
                 }}>{text}</button>
         </div>
-
     )
 }
