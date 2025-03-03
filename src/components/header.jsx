@@ -64,9 +64,9 @@ export default function Header({active = "home"}){
                         
                         {dropdown && <div className='absolute top-[2.5rem] pl-8 py-4 rounded-b-xl bg-[var(--main-3)] w-[14rem] text-white shadow-lg' onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave}>
                             <h3>Before & Upon Arrival</h3>
-                            <h3 className='pl-4 py-2'>Applying Visa</h3>
-                            <h3 className='pl-4 py-2'>Documents to Bring</h3>
-                            <h3 className='pl-4 py-2'>Lapor Diri KJRI</h3>
+                            <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/visa")}>Applying Visa</h3>
+                            <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/docs")}>Documents to Bring</h3>
+                            <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/lapor")}>Lapor Diri KJRI</h3>
                         </div>} 
                         <SecondaryButton text='Resources' color='white' hoverable={false}></SecondaryButton>
                         {dropdown && <div className='border-t-2 absolute w-[7rem]'></div>}
