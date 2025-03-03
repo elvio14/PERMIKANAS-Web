@@ -4,7 +4,7 @@ export default function HomeMap() {
 
     return (
         <div className="grid bg-[var(--main-1)]">
-            <div className="row-start-1 col-start-1 absolute right-0 h-full w-[60vw] bg-red-100 z-10">
+            <div className="row-start-1 col-start-1 absolute right-0 h-full w-[60vw] z-10">
                 MAP 3D
             </div>
             <div className="row-start-1 col-start-1 grid grid-rows-3 h-full px-[12rem] pb-[8rem] pt-[2rem] z-20">

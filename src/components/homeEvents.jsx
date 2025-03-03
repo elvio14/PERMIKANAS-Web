@@ -11,7 +11,7 @@ export default function HomeEvents() {
 
     return (
         <div className="h-full py-[6rem]">
-            <div className="bg-red-100 px-[12rem] flex flex-col gap-4 justify-center items-center">
+            <div className="px-[12rem] flex flex-col gap-8 justify-center items-center">
                 <SubButton text="Events"></SubButton>
                 <h2 className="manrope-h2 text-4xl text-[--main-7]">Connecting Indonesian students accross Canada</h2>
                 <span className="w-[50vw] text-center">Lorem ipsum odor amet, consectetuer adipiscing elit. Egestas quisque sem, sodales pulvinar aenean habitasse euismod ullamcorper habitant. Risus proin nec habitasse orci risus ridiculus morbi at.</span>

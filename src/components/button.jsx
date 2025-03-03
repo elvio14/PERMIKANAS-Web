@@ -11,15 +11,18 @@ const hexToRgb = (hex) => {
 }
 
 export const MainButton = ({text = "Button", bgColor = "white", color="var(--main-4)"}) => {
-    const [isActive, setActive] = useState(false)
+    const [isHovered, setHovered] = useState(false)
+    const containerRef = useRef(null)
+    const handleMouseEnter = () => setHovered(true)
+    const handleMouseLeave = () => setHovered(false)
 
     return (
-        <button
+        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
         className="px-4 py-2"
         style={{
-            backgroundColor: bgColor, 
+            backgroundColor: (isHovered ? "var(--main-5)" : "white"), 
             borderRadius: "2rem",
-            color: color,
+            color: (isHovered ? "white" : color),
             fontWeight: 800,
             paddingLeft: "1.2rem",
             paddingRight: "1.2rem"
