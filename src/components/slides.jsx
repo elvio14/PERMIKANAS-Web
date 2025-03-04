@@ -8,9 +8,9 @@ export default function Slides({slides = [{title: "Default Title", image: "/Imag
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="h-full w-full flex flex-col justify-end p-4 bg-black/40 rounded-2xl">
-                <h3>{slide.date}</h3>
+                <h3 className="text-white text-xs truncate">{slide.date}</h3>
                 <div className=" overflow-hidden">
-                    <h2 className="manrope-body text-white text-l truncate">{slide.title}</h2>
+                    <h2 className="manrope-body text-white text-lg truncate">{slide.title}</h2>
                 </div>
               </div>
             </div>
