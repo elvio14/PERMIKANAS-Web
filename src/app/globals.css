@@ -125,3 +125,11 @@ a:hover{
 .hover-bold:hover{
   font-weight: 800;
 }
+
+.text-button{ 
+  cursor: pointer;
+}
+
+.text-button:hover{
+  text-decoration: underline;
+}
