@@ -111,19 +111,23 @@ body {
 
 a:hover{
   color: var(--main-2);
+  @apply transition duration-300; 
 }
 
 .hover-red{
   border: solid 1px transparent;
+  @apply transition duration-300;
 }
 .hover-red:hover{
   background: var(--main-3);
   border-color: var(--main-1);
   color: var(--main-1);
+  @apply transition duration-300;
 }
 
 .hover-bold:hover{
   font-weight: 800;
+  @apply transition duration-300;
 }
 
 .text-button{ 
@@ -132,6 +136,7 @@ a:hover{
 
 .text-button:hover{
   text-decoration: underline;
+  @apply transition duration-300;
 }
 
 /* Resources Page */

@@ -11,7 +11,7 @@ export default function FooterJoin() {
                     <div className="bg-white bg-opacity-25 mr-[9.8rem] h-[2rem] rounded-full flex">
                         <img src="/mail.svg" alt="mail icon" className="px-[1rem]"/>
                         <input type="text" className="text-[var(--main-1)] bg-transparent"></input>
-                        <button className="rounded-full bg-white px-[1.5rem] hover-red">Join</button>
+                        <button className="rounded-full bg-white px-[1.5rem] hover-red transition duration-300">Join</button>
                     </div>
 
                 </div>

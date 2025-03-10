@@ -4,7 +4,7 @@ export default function NotFound() {
     return (
         <>
             <Header />
-            <div className="h-[90vh] grid grid-cols-[1fr_1fr] gap-4 py-8 px-[12rem]">
+            <div className="h-[90vh] grid grid-cols-[1fr_1fr] gap-4 pt-8 px-[12rem] pb-24">
               <div className="flex flex-col items-center justify-center text-center gap-4 px-[5rem] text-[var(--main-5)]">
                 <h1 className="manrope-h2 text-9xl">404</h1>
                 <h2 className="manrope-h2 text-4xl">You're Here Early!</h2>
