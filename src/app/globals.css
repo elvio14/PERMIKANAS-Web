@@ -133,3 +133,87 @@ a:hover{
 .text-button:hover{
   text-decoration: underline;
 }
+
+/* Resources Page */
+.container {
+  @apply max-w-7xl mx-10 px-4 sm:px-6 lg:px-8;
+  
+}
+
+.h1-article {
+  font-family: "Manrope", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 40px; 
+}
+
+label-light {
+  font-family: "Manrope", serif; 
+  font-optical-sizing: auto;
+  font-size: 14px; 
+}
+
+a:hover{
+  color: var(--main-2);
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  font-family: 'Manrope', sans-serif;
+  color: #803124; 
+  text-decoration: none;
+}
+
+a:hover .back-button{
+  color: var(--main-2);
+}
+
+  /*  Styles Article */
+.article-subheader {
+  @apply text-lg font-extrabold mb-2;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.community-container {
+  @apply bg-gray-100 rounded-lg p-4;
+}
+
+.community-header {
+  font-size: 16px; 
+  @apply font-extrabold; 
+}
+
+.community-text {
+  font-size: 14px;
+}
+
+.divider-text {
+  color: #803124; 
+  font-size: 16px;  
+  font-weight: 400;
+}
+
+.article-title {
+  @apply text-3xl font-bold mt-8 mb-4;
+}
+
+.other-article-image {
+  @apply w-20 h-16 object-cover rounded-md mr-4;
+}
+
+.toc-list {
+  @apply list-none pl-0;
+}
+
+.link {
+  @apply text-red-500 hover:text-red-800;
+}
+
