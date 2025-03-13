@@ -1,6 +1,32 @@
-import FooterJoin from "./footerJoin";
+"use client"
+import FooterJoin from "./footerJoin"
+import { useEffect, useState } from 'react'
+import { useRouter } from "next/navigation"
 
 export default function Footer() {
+
+    const router = useRouter()
+    const [copyAlert, showCopyAlert] = useState(false)
+    const goToPage = (path) => {
+        console.log("Running goToPage " + path)
+        router.push(path)
+    }
+    const clickContact = async ()=> {
+        // COPY EMAIL
+        try{
+          const text = "contact.permikanasional@gmail.com"
+          await navigator.clipboard.writeText(text)
+          showCopyAlert(true)
+        }catch(err){
+          console.error(err)
+        }
+        
+        // POPUP ALERT for 5s
+        setTimeout(()=>{
+          showCopyAlert(false)
+        }, 5000)
+    }
+
     return (
         <>
         <FooterJoin/>
@@ -31,7 +57,10 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col mt-28">
                     <p className="manrope-body-bold">Contact Us</p>
-                    <p className="text-button flex items-center"><img src="/mail.svg" alt="mail icon" className="mr-1"/>permikanas@gmail.com</p>
+                    <div className="relative">
+                    <p className="text-button flex items-center" onClick={clickContact}><img src="/mail.svg" alt="mail icon" className="mr-1"/>permikanas@gmail.com </p>
+                    {copyAlert && <div className="absolute left-full bg-[var(--main-1)] text-black p-2 rounded-b-lg rounded-r-lg">Copied!</div>}
+                    </div>
                     <p className="mt-2 flex items-center">
                         <a href="https://www.facebook.com/permikanasional/" target="_blank"><img src="/Facebook.svg" alt="mail icon" className="mr-2 cursor-pointer hover:text-[var(--main-3)]"/></a>
                         <a href="https://www.instagram.com/permikanasional/" target="_blank"><img src="/Instagram.svg" alt="mail icon" className="mr-2 cursor-pointer"/></a>

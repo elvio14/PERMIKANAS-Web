@@ -8,12 +8,12 @@ export default function FooterJoin() {
                     <br />
                     <h3 className="text-[--main-1]">Fill in a short form to introduce yourself </h3>
                     <br />
-                    <div className="bg-white bg-opacity-25 mr-[9.8rem] h-[2rem] rounded-full flex">
+                    {/* <div className="bg-white bg-opacity-25 mr-[9.8rem] h-[2rem] rounded-full flex">
                         <img src="/mail.svg" alt="mail icon" className="px-[1rem]"/>
                         <input type="text" className="text-[var(--main-1)] bg-transparent"></input>
                         <button className="rounded-full bg-white px-[1.5rem] hover-red">Join</button>
-                    </div>
-
+                    </div> */}
+                    <button className="rounded-full bg-white px-4 py-2 hover-red">Join</button>
                 </div>
 
             </div>

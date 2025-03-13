@@ -10,18 +10,19 @@ const hexToRgb = (hex) => {
   return `${r}, ${g}, ${b}`; 
 }
 
-export const MainButton = ({text = "Button", bgColor = "white", color="var(--main-4)"}) => {
+export const MainButton = ({text = "Button", bgColor = "white", color="var(--main-4)", borderColor = "none", handleClick}) => {
     const [isHovered, setHovered] = useState(false)
-    const containerRef = useRef(null)
     const handleMouseEnter = () => setHovered(true)
     const handleMouseLeave = () => setHovered(false)
 
     return (
-        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+        <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={() => handleClick(true)}
         className="px-4 py-2"
         style={{
             backgroundColor: (isHovered ? "var(--main-5)" : "white"), 
             borderRadius: "2rem",
+            border: "solid 1px",
+            borderColor: borderColor,
             color: (isHovered ? "white" : color),
             fontWeight: 800,
             paddingLeft: "1.2rem",
@@ -32,7 +33,6 @@ export const MainButton = ({text = "Button", bgColor = "white", color="var(--mai
 
 export const SecondaryButton = ({text = "Button", color = "white", bgActive = "#FFFFFF", weight = "auto", isActive = false, hoverable = true, onClick}) => {
     const [isHovered, setHovered] = useState(false)
-    const containerRef = useRef(null)
     const handleMouseEnter = () => setHovered(true)
     const handleMouseLeave = () => setHovered(false)
     
