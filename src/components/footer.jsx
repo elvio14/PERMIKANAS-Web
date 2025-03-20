@@ -32,7 +32,7 @@ export default function Footer() {
         {mobile ?
         <div></div>
         ://------------------------------------------------------------------------------------------------------------------
-        <div>
+        <div className="relative">
             <FooterJoin/>
             <div className="bg-[var(--main-7)] px-[12rem] text-[var(--main-1)] mb-auto z-0 pt-[4rem]">
                 <div className="h-[18rem] gap-8 grid grid-cols-[5fr_1.2fr_1.2fr_2.8fr_2.8fr_2.8fr]">

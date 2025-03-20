@@ -1,6 +1,6 @@
 export default function FooterJoin() {
     return (
-        <div className="flex flex-col items-center mb-[-5rem] px-[12rem]">   
+        <div className="absolute translate-y-[-8rem] flex flex-col items-center px-[12rem]">   
             <div className="w-full h-[16rem] bg-[var(--main-3)] z-10 rounded-3xl grid grid-cols-[1fr_1fr]"> 
                 <img className="h-[20rem] mt-[-6rem] ml-[8rem]" src="/footer_join.png" alt="illustration join our community" />
                 <div className="px-[4rem] py-8 flex flex-col gap-4">
