@@ -14,7 +14,7 @@ export default function Article() {
         <div class="mb-24">
         <header>
           <a href="/articles" class="back-button">← Back to All Articles</a>
-          <h1 class="h1-article mt-5 mb-3 leading-tight">Landing in Canada: Lapor Diri in KJRI</h1>
+          <h1 class="h1-article mt-5 mb-3 leading-tight">Preparing Your Application: What Documents Should You Have?</h1>
           <p class="artcile-subtitle mb-5">22nd July 2024 • 6 minute read</p>
         </header>
   
