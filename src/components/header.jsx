@@ -102,7 +102,7 @@ export default function Header({active = "home"}){
         {floater && 
         <div className={`fixed top-[1rem] left-1/2 -translate-x-1/2 bg-white py-[0.5rem] w-[58vw] rounded-full shadow-lg z-50
                         grid grid-cols-[1fr_4fr_1fr]
-                        ${isFadingOut ? "animate-fade-out opacity-0" : "animate-fade-in opacity-100"}`}>
+                        ${isFadingOut ? "animate-fadeOut opacity-0" : "animate-fadeIn opacity-100"}`}>
             <div className='flex justify-center'>   
                 <img src="/permikanas_logo_black.svg" alt="Permkanas Logo" className='w-[4rem]'></img>
             </div>

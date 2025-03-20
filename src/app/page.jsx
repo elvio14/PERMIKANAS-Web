@@ -4,14 +4,18 @@ import Header from "@/components/header"
 import HomeMap from "@/components/homeMap"
 import HomeEvents from "@/components/homeEvents"
 import { useState } from "react"
-import isMobile from "@/components/isMobile"
+import useIsMobile from "@/components/isMobile"
 import HeaderMobile from "@/components/headerMobile"
 import HomeMapMobile from "@/components/homeMapMobile"
 import HomeEventsMobile from "@/components/homeEventsMobile"
 import HomeMobile from "@/components/homeMobile"
+import Loading from "@/components/loading"
 
 export default function Home() {
-  let mobile = isMobile()
+  let mobile = useIsMobile()
+  if (mobile === undefined) return <Loading/>
+
+  
   return (
     <>
     {mobile ? 

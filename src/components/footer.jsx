@@ -2,10 +2,10 @@
 import FooterJoin from "./footerJoin"
 import { useEffect, useState } from 'react'
 import { useRouter } from "next/navigation"
-import isMobile from "./isMobile"
+import useIsMobile from "./isMobile"
 
 export default function Footer() {
-    let mobile = isMobile()
+    let mobile = useIsMobile()
     const router = useRouter()
     const [copyAlert, showCopyAlert] = useState(false)
     const goToPage = (path) => {
@@ -29,7 +29,7 @@ export default function Footer() {
     }
     return (
         <>
-        {isMobile ?
+        {mobile ?
         <div></div>
         ://------------------------------------------------------------------------------------------------------------------
         <div>
