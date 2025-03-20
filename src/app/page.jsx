@@ -14,7 +14,6 @@ import Loading from "@/components/loading"
 export default function Home() {
   let mobile = useIsMobile()
   if (mobile === undefined) return <Loading/>
-
   
   return (
     <>
