@@ -1,6 +1,6 @@
 export default function HomeEventsMobile(){
     return (
-        <div>
+        <div className="h-[50vh]">
             EVENS=T
         </div>
     )
