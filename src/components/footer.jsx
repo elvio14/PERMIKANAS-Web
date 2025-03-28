@@ -30,7 +30,27 @@ export default function Footer() {
     return (
         <>
         {mobile ?
-        <div></div>
+        <div className="flex flex-col items-center gap-8 bg-[var(--main-7)] text-[var(--main-1)] py-16">
+            <div className="flex flex-col items-center gap-2">
+                <p className="manrope-h2">Resources</p>
+                <p className="text-button">Before & Upon Arrival</p>
+                <p className="text-button">Survival Tips</p>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+                <p className="manrope-h2">Contact Us</p>
+                <p className="text-button flex items-center" onClick={clickContact}><img src="/mail.svg" alt="mail icon" className="mr-1"/>permikanas@gmail.com </p>
+                        {copyAlert && <div className="absolute left-full bg-[var(--main-1)] text-black p-2 rounded-b-lg rounded-r-lg">Copied!</div>}
+            </div>
+            <div  className="mt-8 flex items-center gap-4">
+                <a href="https://www.facebook.com/permikanasional/" target="_blank"><img src="/Facebook.svg" alt="mail icon" className="mr-2 h-[2rem] cursor-pointer"/></a>
+                <a href="https://www.instagram.com/permikanasional/" target="_blank"><img src="/Instagram.svg" alt="mail icon" className="mr-2 h-[2rem] cursor-pointer"/></a>
+                <a href="https://www.linkedin.com/company/permikanasional/" target="_blank"><img src="/Linkedin.svg" alt="mail icon" className="mr-1 h-[2rem] cursor-pointer"/></a>
+
+            </div>
+            <div className="h-[5rem] border-t border-t-[var(--main-1)] py-4 mx-8 text-xs text-center">
+                 @ Copyright by Web Team PERMIKANAS 2024/2025 All rights reserved
+            </div>
+        </div>
         ://------------------------------------------------------------------------------------------------------------------
         <div className="relative">
             <FooterJoin/>

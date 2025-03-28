@@ -75,7 +75,7 @@ export default function Header({active = ""}){
                 <nav className="flex gap-4 justify-center">
                     <SecondaryButton text='Home' color='white' isActive={activePage == "home"} onClick={()=>goToPage("/")}></SecondaryButton>
                     <SecondaryButton text='About Us' color='white' isActive={activePage == "about"} onClick={()=>goToPage("/about")}></SecondaryButton>
-                    <div onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave} onClick={()=>goToPage("/resources")} className='relative'>
+                    <div onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave} className='relative'>
                         
                         {dropdown && <div className='absolute z-50 top-[2.5rem] pl-8 py-4 rounded-b-xl bg-[var(--main-3)] w-[14rem] text-white shadow-lg' onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave}>
                             <h3>Before & Upon Arrival</h3>
@@ -83,7 +83,7 @@ export default function Header({active = ""}){
                             <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/docs")}>Documents to Bring</h3>
                             <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/lapor")}>Lapor Diri KJRI</h3>
                         </div>} 
-                        <SecondaryButton text='Resources' color='white' hoverable={false}></SecondaryButton>
+                        <SecondaryButton text='Resources' color='white' hoverable={false} onClick={()=>goToPage("/resources")}></SecondaryButton>
                         {dropdown && <div className='border-t-2 absolute z-50 w-[7rem]'></div>}
                     </div>
                     <SecondaryButton text='Events' color='white' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton>
@@ -114,9 +114,9 @@ export default function Header({active = ""}){
                         
                         {dropdown && <div className='absolute top-[2.5rem] pl-8 py-4 rounded-b-xl bg-white w-[14rem] text-black shadow-lg' onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave}>
                             <h3>Before & Upon Arrival</h3>
-                            <h3 className='pl-4 py-2 cursor-pointer hover-bold'>Applying Visa</h3>
-                            <h3 className='pl-4 py-2 cursor-pointer hover-bold'>Documents to Bring</h3>
-                            <h3 className='pl-4 py-2 cursor-pointer hover-bold'>Lapor Diri KJRI</h3>
+                            <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/visa")}>Applying Visa</h3>
+                            <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/lapor")}>Documents to Bring</h3>
+                            <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/docs")}>Lapor Diri KJRI</h3>
                         </div>} 
                         <SecondaryButton text='Resources' color='var(--main-7)' hoverable={false}></SecondaryButton>
                         {dropdown && <div className='border-t-2 absolute w-[7rem]'></div>}

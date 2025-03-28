@@ -5,10 +5,9 @@ import HomeEvents from "@/components/homeEvents"
 import useIsMobile from "@/components/isMobile"
 import HeaderMobile from "@/components/headerMobile"
 import HomeMapMobile from "@/components/homeMapMobile"
-import HomeEventsMobile from "@/components/homeEventsMobile"
 import HomeMobile from "@/components/homeMobile"
 import Loading from "@/components/loading"
-import Sponsor from "@/components/sponsor"
+//import Sponsor from "@/components/sponsor"
 
 export default function Home() {
   let mobile = useIsMobile()
@@ -19,11 +18,11 @@ export default function Home() {
   return (
     <>
     {mobile ? 
-    <div className="overflow-y-scroll">
+    <div className="overflow-y-scroll overflow-x-hidden">
       <HeaderMobile></HeaderMobile>
       <HomeMobile></HomeMobile>
       <HomeMapMobile></HomeMapMobile>
-      <HomeEventsMobile></HomeEventsMobile>
+      <HomeEvents></HomeEvents>
       {/* <Sponsor></Sponsor> */}
     </div>
     //MOBILE
