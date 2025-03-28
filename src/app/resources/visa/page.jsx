@@ -23,7 +23,7 @@ export default function Article() {
         <img
           src="/Article_Image2.jpeg"
           alt="University campus in Canada"
-          class="rounded w-full"
+          class="rounded w-full h-auto aspect-[2/1]"
         />
   
         {/* Table of Contents */}
