@@ -78,8 +78,8 @@ export default function Header({active = ""}){
                     <div onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave} className='relative'>
                         
                         {dropdown && <div className='absolute z-50 top-[2.5rem] pl-8 py-4 rounded-b-xl bg-[var(--main-3)] w-[14rem] text-white shadow-lg' onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave}>
-                            <h3>Before & Upon Arrival</h3>
-                            <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/visa")}>Applying Visa</h3>
+                            {/* <h3>Before & Upon Arrival</h3>
+                            <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/visa")}>Applying Visa</h3> */}
                             <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/docs")}>Documents to Bring</h3>
                             <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/lapor")}>Lapor Diri KJRI</h3>
                         </div>} 
@@ -113,8 +113,8 @@ export default function Header({active = ""}){
               <div onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave} className='relative'>
                         
                         {dropdown && <div className='absolute top-[2.5rem] pl-8 py-4 rounded-b-xl bg-white w-[14rem] text-black shadow-lg' onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave}>
-                            <h3>Before & Upon Arrival</h3>
-                            <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/visa")}>Applying Visa</h3>
+                            {/* <h3>Before & Upon Arrival</h3>
+                            <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/visa")}>Applying Visa</h3> */}
                             <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/lapor")}>Documents to Bring</h3>
                             <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/docs")}>Lapor Diri KJRI</h3>
                         </div>} 

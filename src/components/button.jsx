@@ -17,7 +17,7 @@ export const MainButton = ({text = "Button", bgColor = "white", color="var(--mai
 
     return (
         <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={() => handleClick(true)}
-        className="px-4 py-2"
+        className="px-4 py-2 transition duration-300"
         style={{
             backgroundColor: (isHovered ? "var(--main-5)" : "white"), 
             borderRadius: "2rem",
@@ -40,7 +40,7 @@ export const SecondaryButton = ({text = "Button", color = "white", bgActive = "#
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <button 
                 onClick={onClick}
-                className="px-4 py-2"
+                className="px-4 py-2 transition duration-300"
                 style={{
                     backgroundColor: (isActive
                       ? `rgba(${hexToRgb(bgActive)}, 0.5)`

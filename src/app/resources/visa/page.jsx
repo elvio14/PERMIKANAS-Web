@@ -2,12 +2,14 @@ import { MainButton } from "@/components/button";
 import Header from "@/components/header";
 import HomeMap from "@/components/homeMap";
 import HomeEvents from "@/components/homeEvents";
+import useIsMobile from "@/components/isMobile"
+import Loading from "@/components/loading"
 
 export default function Article() {
+
     return (
       <div className="article-container">
         {/* Header Section */}
-      <>
         <Header active="resources"></Header>
         <main class="container py-8">
         {/* Article Section */}
@@ -103,7 +105,6 @@ export default function Article() {
         </aside>
       </div>
       </main>
-      </>
       </div>
     );
   };

@@ -19,7 +19,7 @@ export default function Home() {
   const router = useRouter()
   const goToPage = (path) => {
     console.log("Running goToPage " + path)
-    router.push(path)
+    router.push(path) 
   }
   
   return (

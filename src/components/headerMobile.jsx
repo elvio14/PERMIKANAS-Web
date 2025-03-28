@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 
-export default function HeaderMobile({active = "home"}) {
+export default function HeaderMobile({active = ""}) {
     const [showMenu, setShowMenu] = useState(false)
     const router = useRouter()
     const goToPage = (path) => {
@@ -36,7 +36,7 @@ export default function HeaderMobile({active = "home"}) {
                         <h1 className="text-3xl text-[var(--main-1)]" onClick={() => toggleRes()}>Resources</h1>
                         {openRes &&
                             <div className="p-4 flex flex-col gap-4">
-                                <h2 className="text-2xl text-[var(--main-1)]" onClick={() => goToPage("/resources/visa")}>Applying Visa</h2>
+                                {/* <h2 className="text-2xl text-[var(--main-1)]" onClick={() => goToPage("/resources/visa")}>Applying Visa</h2> */}
                                 <h2 className="text-2xl text-[var(--main-1)]" onClick={() => goToPage("/resources/docs")}>Documents to Bring</h2>
                                 <h2 className="text-2xl text-[var(--main-1)]" onClick={() => goToPage("/resources/lapor")}>Lapor KJRI</h2>
                             </div>

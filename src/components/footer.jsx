@@ -36,8 +36,10 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-8 bg-[var(--main-7)] text-[var(--main-1)] py-16">
             <div className="flex flex-col items-center gap-2">
                 <p className="manrope-h2">Resources</p>
-                <p className="text-button">Before & Upon Arrival</p>
-                <p className="text-button">Survival Tips</p>
+                {/* <p className="text-button">Before & Upon Arrival</p>
+                <p className="text-button">Survival Tips</p> */}
+                <p className="text-button" onClick={() => goToPage("/resources/docs")}>Documents to Bring</p>
+                <p className="text-button" onClick={() => goToPage("/resources/lapor")}>Lapor KJRI</p>
             </div>
             <div className="flex flex-col items-center gap-2">
                 <p className="manrope-h2">Contact Us</p>
@@ -64,24 +66,24 @@ export default function Footer() {
                         <img className="h-[8rem]" src="/permikanas_logo_white.svg" alt="permikanas logo" />
                     </div>
                     <div className="flex flex-col mt-28">
-                        <p className="manrope-body-bold" onClick={() => goToPage("/about")}>About Us</p>
+                        {/* <p className="manrope-body-bold" onClick={() => goToPage("/about")}>About Us</p>
                         <p className="text-button">Visi Misi</p>
-                        <p className="text-button">Our Team</p>
+                        <p className="text-button">Our Team</p> */}
                     </div>
                     <div className="flex flex-col mt-28">
-                        <p className="manrope-body-bold">Events</p>
+                        {/* <p className="manrope-body-bold">Events</p>
                         <p className="text-button">Internal</p>
-                        <p className="text-button">External</p>
+                        <p className="text-button">External</p> */}
                     </div>
                     <div className="flex flex-col mt-28">
-                        <p className="manrope-body-bold">Resources</p>
+                        {/* <p className="manrope-body-bold">Resources</p>
                         <p className="text-button">Before & Upon Arrival</p>
-                        <p className="text-button">Survival Tips</p>
+                        <p className="text-button">Survival Tips</p> */}
                     </div>
                     <div className="flex flex-col mt-28">
-                        <p className="manrope-body-bold">Communities</p>
+                        {/* <p className="manrope-body-bold">Communities</p>
                         <p className="text-button">Permika Chapters</p>
-                        <p className="text-button">ISA/PPI Canada</p>
+                        <p className="text-button">ISA/PPI Canada</p> */}
                     </div>
                     <div className="flex flex-col mt-28">
                         <p className="manrope-body-bold">Contact Us</p>
