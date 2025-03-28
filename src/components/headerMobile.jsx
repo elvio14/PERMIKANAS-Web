@@ -18,13 +18,13 @@ export default function HeaderMobile() {
             </div>
             {showMenu &&
             <div>
-                <div className="fixed h-full ml-[4rem] w-full shadow-xl bg-[var(--main-1)] z-50 p-8 flex flex-col gap-8">
-                    <h1 className="manrope-h2 text-4xl text-right mr-16" onClick={() => setShowMenu(false)}>{'>'}</h1>
-                    <h1 className="manrope-h2 text-2xl" onClick={() => goToPage("/")}>Home</h1>
-                    <h1 className="manrope-h2 text-2xl" onClick={() => goToPage("/about")}>About Us</h1>
-                    <h1 className="manrope-h2 text-2xl" onClick={() => goToPage("/resources")}>Resources</h1>
-                    <h1 className="manrope-h2 text-2xl" onClick={() => goToPage("/events")}>Events</h1>
-                    <h1 className="manrope-h2 text-2xl" onClick={() => goToPage("/communities")}>Communities</h1>
+                <div className="shadow-[10px_0_15px_rgba(0,0,0,0.25)] fixed h-full ml-[4rem] w-full bg-[var(--main-3)] z-50 p-8 flex flex-col gap-8 overflow-visible">
+                    <h1 className="text-4xl text-[var(--main-1)] text-right mr-16" onClick={() => setShowMenu(false)}>{'>'}</h1>
+                    <h1 className="text-3xl text-[var(--main-1)]" onClick={() => goToPage("/")}>Home</h1>
+                    <h1 className="text-3xl text-[var(--main-1)]" onClick={() => goToPage("/about")}>About Us</h1>
+                    <h1 className="text-3xl text-[var(--main-1)]" onClick={() => goToPage("/resources")}>Resources</h1>
+                    <h1 className="text-3xl text-[var(--main-1)]" onClick={() => goToPage("/events")}>Events</h1>
+                    <h1 className="text-3xl text-[var(--main-1)]" onClick={() => goToPage("/communities")}>Communities</h1>
                 </div>
             </div>}
         </>

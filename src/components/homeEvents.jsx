@@ -10,11 +10,11 @@ export default function HomeEvents() {
     ]
 
     return (
-        <div className="h-full pt-[6rem] pb-[12rem]">
-            <div className="px-[12rem] flex flex-col gap-8 justify-center items-center">
+        <div className="h-full pt-[6rem] md:pb-[12rem]">
+            <div className="md:px-[12rem] px-8 flex flex-col gap-8 text-center justify-center items-center">
                 <SubButton text="Events"></SubButton>
-                <h2 className="manrope-h2 text-4xl text-[--main-7]">Connecting Indonesian students accross Canada</h2>
-                <span className="w-[50vw] text-center">Lorem ipsum odor amet, consectetuer adipiscing elit. Egestas quisque sem, sodales pulvinar aenean habitasse euismod ullamcorper habitant. Risus proin nec habitasse orci risus ridiculus morbi at.</span>
+                <h2 className="manrope-h2 md:text-4xl text-2xl text-[--main-7]">Connecting Indonesian students accross Canada</h2>
+                <span className="md:w-[50vw] text-center">Lorem ipsum odor amet, consectetuer adipiscing elit. Egestas quisque sem, sodales pulvinar aenean habitasse euismod ullamcorper habitant. Risus proin nec habitasse orci risus ridiculus morbi at.</span>
             </div>
             <Slides slides={slides}  />
         </div>
