@@ -14,9 +14,9 @@ export default function Article() {
         <div className="flex gap-6 py-6">
           <div className="w-3/4 mb-24">
         <header>
-          <a href="/articles" class="back-button">← Back to All Articles</a>
+          <a href="/articles" class="back-button transition duration-300">← Back to All Articles</a>
           <h1 class="h1-article mt-5 mb-3 leading-tight">Arriving In Canada: Registering as an Indonesian living in Canada</h1>
-          <p class="artcile-subtitle mb-5">22nd July 2024 • 6 minute read</p>
+          <p class="artcile-subtitle mb-5">28th March 2025 • 3 minute read</p>
         </header>
   
         {/* Header Image */}
@@ -25,46 +25,46 @@ export default function Article() {
           alt="University campus in Canada"
           class="rounded w-full"
         />
-  
-        {/* Table of Contents */}
 
-        <section class="article-container">
-          <h2 class="article-subheader mt-8">Table of Contents</h2>
-          <ul class="toc-list">
-            <li class="toc-item"><a href="#section1" class="link">Timeline & Deadlines</a></li>
-            <li class="toc-item"><a href="#section2" class="link">Section 1</a></li>
-            <li class="toc-item"><a href="#section3" class="link">Section 2</a></li>
-          </ul>
-          <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </section>
-  
         {/* Main Content */}
-        <article>
-        <section class="article-container mt-5">
-        <div class="flex items-center gap-8">
-        <img src="/Image_Placeholder.png" class="img-placeholder"></img>
-        <div class="w-2/3">
-        <h2 class="article-subheader" id="section1">Timeline & Deadlines</h2>
-          <ul class="mt-4">
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</li>
+        <article class="mb-24">
+        <section class="article-container">
+          <h2 class="article-subheader mt-8">Kewajiban Lapor Diri</h2>
+          <p class="mt-5">Sesuai dengan Undang-undang no.23 tahun 2006 tentang Administrasi Kependudukan, setiap Warga Negara Indonesia (WNI) yang berada di luar negeri <strong>wajib melaporkan keberadaan, kepindahan, perubahan alamat, status izin tinggal, serta kejadian penting lainnya</strong> (seperti kelahiran, perkawinan, perceraian, maupun kematian) kepada pemerintah setempat dan/atau Perwakilan RI yang meliputi tempat tinggalnya (Ps. 4 UU no.23/2006).</p> <br></br>
+          <p>Untuk itu setiap Warga Negara Indonesia (WNI) yang berada di luar negeri sangat diharapkan untuk melaporkan keberadaan dirinya kepada Perwakilan RI setempat apabila akan tinggal lebih dari 5 (lima) hari di negara yang dikunjungi.</p> <br></br>
+          <p>Lapor diri pada Perwakilan RI setempat sangat besar manfaatnya. Tentunya sangat diharapkan agar setiap WNI yang berada di luar negeri menjaga dirinya masing-masing dan senantiasa dijauhi dari kesulitan dan berbagai hambatan. Namun, apabila terjadi hal yang tidak diharapkan pada diri seorang WNI, maka tentunya akan jauh lebih mudah bagi Perwakilan RI (dalam hal ini Bagian Konsuler) untuk membantunya jika WNI tersebut sudah mendaftarkan/melaporkan data dirinya di Perwakilan RI. Proses dan prosedur untuk lapor diri sangat mudah, cepat dan tidak dipungut bayaran apapun.</p> <br></br>
+          <p>Pendaftaran / Lapor Diri wajib bagi Warga Negara Indonesia (WNI) yang berada di wilayah kerja KJRI Vancouver (Provinsi British Columbia, Provinsi Alberta, Northwest Territories dan Yukon Territory), KJRI Toronto (Provinsi Manitoba, Provinsi Ontario, Provinsi Saskatchewan, dan Provinsi Nunavut)</p>
+
+          <p class="my-3"> <strong>Untuk melakukan Pendaftaran / Lapor Diri silahkan klik link: <a href="https://peduliwni.kemlu.go.id/beranda.html" class="underline text-blue-500">Pendaftaran / Lapor Diri WNI Online</a></strong></p>
+
+          <h2 class="article-subheader mt-8">Vancouver</h2>
+          <iframe class="rounded" width="560" height="315" src="https://www.youtube.com/embed/UuKxh-hsD68?si=bwjJ8PQyHygjqWeC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+          <h2 class="article-subheader mt-8">Toronto</h2>
+          <ul>
+            <li class="mb-1">Prosedur</li>
+            <li>• Mengisi formulir lapor diri online <a href="https://peduliwni.kemlu.go.id/beranda.html" class="underline text-blue-500">Pendaftaran / Lapor Diri WNI Online</a> dan meng-upload file: foto diri, salinan paspor, ​​dan salinan ijin tinggal (Permanent Resident Card, Working Permit, Study Permit, Visa).</li>
+            <li>• Atau bisa secara langsung dengan datang ke Loket Konsuler KJRI Toronto (129 Jarvis Street, Toronto, ON M5C 2H6) atau mengirimkan file-file tersebut dan data diri ke email: consular@indonesiatoronto.org</li>
+            <li>• Proses lapor diri tidak dikenai biaya.</li>
+            <li>• Data yang Anda isikan akan dipergunakan untuk pengurusan dokumen ​keimigrasian, seperti perpanjangan paspor, legalisasi.</li>
           </ul>
-        <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-        </div>
-        </div>
-        </section>
 
-        <section>
-        <h2 class="article-subheader mt-5" id="section2">Header</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> <br></br>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </section>
+          <h2 class="article-subheader mt-8">Ottawa</h2>
+          <div class="grid grid-cols-2 gap-4 p-4">
+    <div>
+      <img src="/Ottawa_Lapor_Diri1.jpg" alt="Poster Prosedur 1" class="w-full h-auto rounded-lg"></img>
+    </div>
+    <div>
+      <img src="/Ottawa_Lapor_Diri2.jpg" alt="Poster Prosedur 2" class="w-full h-auto rounded-lg"></img>
+    </div>
+    <div>
+      <img src="/Ottawa_Lapor_Diri3.jpg" alt="Poster Prosedur 3" class="w-full h-auto rounded-lg"></img>
+    </div>
+    <div>
+      <img src="/Ottawa_Lapor_Diri4.jpg" alt="Poster Prosedur 4" class="w-full h-auto rounded-lg"></img>
+    </div>
+  </div>
 
-        <section>
-        <h2 class="article-subheader mt-5" id="section3">Header</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> <br></br>
         </section>
         </article>
         </div>
@@ -73,8 +73,8 @@ export default function Article() {
         <aside className="w-1/4"> {/* Changed to w-1/4 */}
                 <div className="sticky top-[60px] z-10">
                   <div className="community-container">
-            <h2 class="community-header">Join our community to keep up to date on our latest resources</h2>
-            <p class="community-text mt-2 mb-3">Lorem ipsum odor amet, consectetuer adipiscing elit. Egestas quisque sem.</p>
+            <h2 class="community-header">Join our community!</h2>
+            <p class="community-text mt-2 mb-3">Fill our short form and keep up to date on our latest resources.</p>
             <button className="rounded-full bg-[#CD5A48] px-[1.5rem] hover:bg-[#803124] transition duration-300 py-1 text-white text-[14px]">Join Now</button>
         </div>
 
@@ -86,16 +86,16 @@ export default function Article() {
         <div class="flex items-center">
           <img src="/Article_Image3.jpeg" alt="Article1 Thumbnail" class="other-article-image"></img>
           <div class="w-2/3">
-          <h3><a href="#" class="text-black font-bold hover:text-[#CD5A48]">Documents to Bring</a></h3>
-              <p class="text-secondary text-sm">Lorem ipsum odor amet, consectetuer adip elit.</p>
+          <h3><a href="src/app/resources/docs/page.jsx" class="text-black font-bold hover:text-[#CD5A48] transition duration-300">Documents to Bring</a></h3>
+              <p class="text-secondary text-sm">Checklist for Documents to bring from Indonesia</p>
           </div>
         </div>
         
         <div class="flex items-center pt-5">
-          <img src="/Article_Image4.jpeg" alt="Article1 Thumbnail" class="other-article-image"></img>
+          <img src="/Article_Image2.jpeg" alt="Article1 Thumbnail" class="other-article-image"></img>
           <div class="w-2/3">
-          <h3><a href="#" class="text-black font-bold hover:text-[#CD5A48]">Lapor Diri to KJRI</a></h3>
-              <p class="text-secondary text-sm">Lorem ipsum odor amet, consectetuer adip elit. </p>
+          <h3><a href="src/app/resources/lapor/page.jsx" class="text-black font-bold hover:text-[#CD5A48] transition duration-300">Applying for Visa</a></h3>
+              <p class="text-secondary text-sm">All you need to know on Student & Work Visa</p>
           </div>
           </div>
           </div>

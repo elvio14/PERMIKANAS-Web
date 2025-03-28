@@ -16,7 +16,7 @@ export default function Article() {
         <header>
           <a href="/articles" class="back-button">← Back to All Articles</a>
           <h1 class="h1-article mt-5 mb-3 leading-tight">Documents to Prepare: <br></br> Your All in One Checklist</h1>
-          <p class="artcile-subtitle mb-5">28th March 2025 • 3 minute read</p>
+          <p class="artcile-subtitle mb-5">28th March 2025 • 2 minute read</p>
         </header>
   
         {/* Header Image */}
