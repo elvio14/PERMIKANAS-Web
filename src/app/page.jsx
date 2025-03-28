@@ -7,6 +7,7 @@ import HeaderMobile from "@/components/headerMobile"
 import HomeMapMobile from "@/components/homeMapMobile"
 import HomeMobile from "@/components/homeMobile"
 import Loading from "@/components/loading"
+import { useRouter } from "next/navigation"
 //import Sponsor from "@/components/sponsor"
 
 export default function Home() {
@@ -14,12 +15,18 @@ export default function Home() {
   if (mobile === undefined){
     return (<div className="pb-[12rem]"><Loading/></div>)
   }
+
+  const router = useRouter()
+  const goToPage = (path) => {
+    console.log("Running goToPage " + path)
+    router.push(path)
+  }
   
   return (
     <>
     {mobile ? 
     <div className="overflow-y-scroll overflow-x-hidden">
-      <HeaderMobile></HeaderMobile>
+      <HeaderMobile active="home"></HeaderMobile>
       <HomeMobile></HomeMobile>
       <HomeMapMobile></HomeMapMobile>
       <HomeEvents></HomeEvents>
@@ -39,7 +46,7 @@ export default function Home() {
             <h2 className="manrope-h2 text-xl my-2 text-[var(--main-5)]">"Unite, Ignite, and Reach New Heights”</h2>
             <p>PERMIKA Nasional is more than a network—it’s a home away from home for Indonesian students across Canada. We foster academic growth, professional excellence, and lifelong connections while celebrating our rich culture and heritage. From your first step in Canada to building your future, we are here to empower, support, and connect every Indonesian student.</p>
           </div>
-          <button className="text-[var(--main-5)] mt-4 px-8 py-3 rounded-full border-solid border-2 border-[var(--main-5)] hover:bg-[var(--main-5)] hover:text-white">Join Our Community</button>
+          <button onClick={() => goToPage("/form")} className="text-[var(--main-5)] mt-4 px-8 py-3 rounded-full border-solid border-2 border-[var(--main-5)] hover:bg-[var(--main-5)] hover:text-white">Join Our Community</button>
         </div>
         <div className="grid">
           <img className="row-start-1 col-start-1 ml-auto mt-[4.2rem]" src="/home_temples_bg.svg" alt="temples bg"/>

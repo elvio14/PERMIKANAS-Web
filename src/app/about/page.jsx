@@ -13,7 +13,7 @@ export default function About() {
 
     return (
         <>
-        {mobile ? <HeaderMobile></HeaderMobile> : <Header active="about"></Header>}
+        {mobile ? <HeaderMobile active="about"></HeaderMobile> : <Header active="about"></Header>}
         <NotFound></NotFound>
         </>
     )

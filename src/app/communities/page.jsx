@@ -12,7 +12,7 @@ export default function Communities() {
 
     return (
         <>
-        {mobile ? <HeaderMobile></HeaderMobile> : <Header active="communities"></Header>}
+        {mobile ? <HeaderMobile active="communities"></HeaderMobile> : <Header active="communities"></Header>}
         <NotFound></NotFound>
         </>
     )

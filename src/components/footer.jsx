@@ -1,8 +1,9 @@
 "use client"
 import FooterJoin from "./footerJoin"
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useRouter } from "next/navigation"
 import useIsMobile from "./isMobile"
+import FooterJoinMobile from "./footerJoinMobile"
 
 export default function Footer() {
     let mobile = useIsMobile()
@@ -30,6 +31,8 @@ export default function Footer() {
     return (
         <>
         {mobile ?
+        <>
+        <FooterJoinMobile></FooterJoinMobile>
         <div className="flex flex-col items-center gap-8 bg-[var(--main-7)] text-[var(--main-1)] py-16">
             <div className="flex flex-col items-center gap-2">
                 <p className="manrope-h2">Resources</p>
@@ -51,6 +54,7 @@ export default function Footer() {
                  @ Copyright by Web Team PERMIKANAS 2024/2025 All rights reserved
             </div>
         </div>
+        </>
         ://------------------------------------------------------------------------------------------------------------------
         <div className="relative">
             <FooterJoin/>
@@ -60,7 +64,7 @@ export default function Footer() {
                         <img className="h-[8rem]" src="/permikanas_logo_white.svg" alt="permikanas logo" />
                     </div>
                     <div className="flex flex-col mt-28">
-                        <p className="manrope-body-bold">About Us</p>
+                        <p className="manrope-body-bold" onClick={() => goToPage("/about")}>About Us</p>
                         <p className="text-button">Visi Misi</p>
                         <p className="text-button">Our Team</p>
                     </div>
