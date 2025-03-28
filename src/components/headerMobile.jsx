@@ -1,7 +1,13 @@
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 export default function HeaderMobile() {
     const [showMenu, setShowMenu] = useState(false)
+    const router = useRouter()
+    const goToPage = (path) => {
+        console.log("Running goToPage " + path)
+        router.push(path)
+    }
 
     return (
         <>
@@ -14,11 +20,11 @@ export default function HeaderMobile() {
             <div>
                 <div className="fixed h-full ml-[4rem] w-full shadow-xl bg-[var(--main-1)] z-50 p-8 flex flex-col gap-8">
                     <h1 className="manrope-h2 text-4xl text-right mr-16" onClick={() => setShowMenu(false)}>{'>'}</h1>
-                    <h1 className="manrope-h2 text-2xl">Home</h1>
-                    <h1 className="manrope-h2 text-2xl">About Us</h1>
-                    <h1 className="manrope-h2 text-2xl">Resources</h1>
-                    <h1 className="manrope-h2 text-2xl">Events</h1>
-                    <h1 className="manrope-h2 text-2xl">Communities</h1>
+                    <h1 className="manrope-h2 text-2xl" onClick={() => goToPage("/")}>Home</h1>
+                    <h1 className="manrope-h2 text-2xl" onClick={() => goToPage("/about")}>About Us</h1>
+                    <h1 className="manrope-h2 text-2xl" onClick={() => goToPage("/resources")}>Resources</h1>
+                    <h1 className="manrope-h2 text-2xl" onClick={() => goToPage("/events")}>Events</h1>
+                    <h1 className="manrope-h2 text-2xl" onClick={() => goToPage("/communities")}>Communities</h1>
                 </div>
             </div>}
         </>

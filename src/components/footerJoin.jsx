@@ -1,4 +1,11 @@
+import { useRouter } from "next/navigation"
+
 export default function FooterJoin() {
+    const router = useRouter()
+    const goToPage = (path) => {
+        console.log("Running goToPage " + path)
+        router.push(path)
+    }
     return (
         <div className="absolute translate-y-[-8rem] flex flex-col items-center px-[12rem]">   
             <div className="w-full h-[16rem] bg-[var(--main-3)] z-10 rounded-3xl grid grid-cols-[1fr_1fr]"> 
@@ -11,7 +18,7 @@ export default function FooterJoin() {
                         <input type="text" className="text-[var(--main-1)] bg-transparent"></input>
                         <button className="rounded-full bg-white px-[1.5rem] hover-red">Join</button>
                     </div> */}
-                    <div className="inline-flex w-fit items-center py-[0.2rem] pl-4 pr-1 bg-[var(--main-7)] text-white rounded-full cursor-pointer">Fill in our short form
+                    <div onClick={() => goToPage("/form")} className="inline-flex w-fit items-center py-[0.2rem] pl-4 pr-1 bg-[var(--main-7)] text-white rounded-full cursor-pointer">Fill in our short form
                         <div className="bg-white ml-4 px-4 py-2 scale-[80%] rounded-full text-[var(--main-3)] text-xl font-bold">{'>'}</div>
                     </div>
                 </div>

@@ -4,7 +4,6 @@ import SubButton from "@/components/subButton"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
@@ -22,7 +21,8 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-  
+import { createMember } from "../actions"
+import { useRouter } from "next/navigation"
 
 const provinces = [
     "AB", // Alberta
@@ -54,9 +54,7 @@ const formSchema = z.object({
   email: z.string().email().min(2, {
     message: "Username must be at least 2 characters.",
   }),
-  occupation: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  occupation: z.string(),
   institution: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
@@ -68,29 +66,44 @@ const formSchema = z.object({
 
 
 export default function PermikaForm() {
+    const router = useRouter()
+    const goToPage = (path) => {
+      console.log("Running goToPage " + path)
+      router.push(path)
+    }
+
 
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-          username: "",
+          occupation: "undergrad",
         },
       })
      
-    const onSubmit = (values) => {
-        console.log(values)
+    const onSubmit = async (values) => {
+      console.log("submitting")
+      console.log(values)
+      try{
+        await createMember(values).then(() => goToPage("/form/submitted"))
+      }catch(err){
+        console.log(err)
+        goToPage("/form")
+      }finally{
+
+      }
     }
 
     return (
         <>
         <Header/>
-        <div className="bg-gradient-to-br from-[var(--main-1)] flex flex-col items-center gap-8 py-16">
+        <div className="bg-gradient-to-br from-[var(--main-1)] flex flex-col items-center gap-8 pt-16 pb-[12rem]">
             <SubButton text="Form"/>
             <h1 className="manrope-h2 md:text-3xl">Fill in this short questionnaire!</h1>
             <div className="rounded-xl shadow-xl bg-white md:w-[50vw] flex flex-col items-center gap-8 md:py-8 md:mb-16">
                 <img src="/permikanas_logo_black.svg" alt="permikanas logo" className="h-16"/>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                    <div className="grid grid-cols-[1fr_3fr] gap-8 w-[40vw]">
+                    <div className="grid grid-cols-[1fr_3fr] items-center gap-8 w-[40vw]">
                         <div className="flex justify-end text-right">Name :</div>
                         <FormField
                           control={form.control}
@@ -122,11 +135,11 @@ export default function PermikaForm() {
                         <div className="flex justify-end text-right">Occupation :</div>
                         <FormField
                           control={form.control}
-                          name="email"
-                          render={({ field }) => (
+                          name="occupation"
+                          render={({field}) => (
                             <FormItem>
                               <FormControl>
-                                <Select>
+                                <Select onValueChange={field.onChange} value={field.value}>
                                   <SelectTrigger>
                                     <SelectValue placeholder="Select Occupation" />
                                   </SelectTrigger>
@@ -174,10 +187,10 @@ export default function PermikaForm() {
                         <FormField
                           control={form.control}
                           name="province"
-                          render={({ field }) => (
+                          render={({field}) => (
                             <FormItem>
                               <FormControl>
-                              <Select>
+                              <Select onValueChange={field.onChange} value={field.value}>
                                   <SelectTrigger>
                                     <SelectValue placeholder="Select Province" />
                                   </SelectTrigger>
@@ -186,16 +199,18 @@ export default function PermikaForm() {
                                         <SelectItem value={item} key={index}>{item}</SelectItem>
                                     ))}
                                   </SelectContent>
-                                </Select>
-                              </FormControl>
-                              <FormMessage />
+                              </Select>
+                            </FormControl>
+                            <FormMessage />
                             </FormItem>
                           )}
                         />
+                      <div className="col-span-2 flex flex-col w-full items-center justify-center">
+                        <button type="submit" className="text-[var(--main-5)] px-8 py-1 rounded-full border-solid border-2 border-[var(--main-5)] hover:bg-[var(--main-5)] hover:text-white">Submit</button>
+                      </div>
                     </div>
                   </form>
                 </Form>
-                <button type="submit" className="text-[var(--main-5)] px-8 py-1 rounded-full border-solid border-2 border-[var(--main-5)] hover:bg-[var(--main-5)] hover:text-white">Submit</button>
             </div>
         </div>
         </>

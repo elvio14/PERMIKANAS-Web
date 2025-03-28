@@ -1,9 +1,10 @@
 import Header from "@/components/header"
+import NotFound from "../not-found"
 export default function Events() {
     return (
         <>
         <Header active="events"></Header>
-        <div className="h-[100vh]">EVENTS</div>
+        <NotFound></NotFound>
         </>
     )
 }
