@@ -1,11 +1,13 @@
+
 export default function Slides({slides = [{title: "Default Title", image: "/Image_Placeholder.png"}]}) {
+
     return (
-        <div className="flex space-x-4 justify-center py-8">
+        <div className="flex space-x-4 md:justify-center md:px-0 overflow-x-scroll px-8 py-8">
           {slides.map((slide, index) => (
             <div
               key={index}
-              className="h-72 w-64 bg-cover bg-center rounded-2xl transition-all duration-300 hover:w-[32rem] cursor-pointer"
-              style={{ backgroundImage: `url(${slide.image})` }}
+              style={{ backgroundImage: `url(${slide.image})`}}
+              className="h-72 md:w-[18vw] w-[80vw] bg-cover bg-center rounded-2xl transition-all duration-300 md:hover:w-[30vw] cursor-pointer"
             >
               <div className="h-full w-full flex flex-col justify-end p-4 bg-black/40 rounded-2xl">
                 <h3 className="text-white text-xs truncate">{slide.date}</h3>

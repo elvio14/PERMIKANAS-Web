@@ -1,9 +1,18 @@
+"use client"
 import Header from "@/components/header"
 import NotFound from "../not-found"
-export default function Events() {
+import useIsMobile from "@/components/isMobile"
+import Loading from "@/components/loading"
+import HeaderMobile from "@/components/headerMobile"
+export default function Communities() {
+      let mobile = useIsMobile()
+      if (mobile === undefined){
+        return (<div className="pb-[12rem]"><Loading/></div>)
+      } 
+
     return (
         <>
-        <Header active="communities"></Header>
+        {mobile ? <HeaderMobile></HeaderMobile> : <Header active="communities"></Header>}
         <NotFound></NotFound>
         </>
     )
