@@ -13,7 +13,7 @@ export default function Events() {
 
     return (
         <>
-        {mobile ? <HeaderMobile></HeaderMobile> : <Header active="events"></Header>}
+        {mobile ? <HeaderMobile active="events"></HeaderMobile> : <Header active="events"></Header>}
         <NotFound></NotFound>
         </>
     )

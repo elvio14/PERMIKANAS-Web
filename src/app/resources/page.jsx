@@ -13,7 +13,7 @@ export default function Resources() {
 
     return (
         <>
-        {mobile ? <HeaderMobile></HeaderMobile> : <Header active="resources"></Header>}
+        {mobile ? <HeaderMobile active="resources"></HeaderMobile> : <Header active="resources"></Header>}
         <NotFound></NotFound>
         </>
     )
