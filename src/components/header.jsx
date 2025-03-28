@@ -3,13 +3,13 @@ import {MainButton, SecondaryButton} from '@/components/button.jsx'
 import { useEffect, useState } from 'react'
 import { useRouter } from "next/navigation"
 
-export default function Header({active = "home"}){
+export default function Header({active = ""}){
 
     const [activePage, setActivePage] = useState("")
     const [copyAlert, showCopyAlert] = useState(false)
     const router = useRouter()
 
-    //const [scrollY, setScrollY] = useState(window.scrollY)  DEBUG SCROLL
+    //const [scrollY, setScrollY] = useState(window.scrollY)  //DEBUG SCROLL
     const [dropdown, setDropdown] = useState(false)
     const [floater, setFloater] = useState(false)
     const [isFadingOut, setFadeOut] = useState(false)
@@ -19,7 +19,7 @@ export default function Header({active = "home"}){
 
     useEffect(() => {
         const handleScroll = () => {
-            //setScrollY(window.scrollY)  DEBUG SCROLL
+            //setScrollY(window.scrollY)  //DEBUG SCROLL
             if(window.scrollY >= 99){
                 setFloater(true)
                 setFadeOut(false)
@@ -77,14 +77,14 @@ export default function Header({active = "home"}){
                     <SecondaryButton text='About Us' color='white' isActive={activePage == "about"} onClick={()=>goToPage("/about")}></SecondaryButton>
                     <div onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave} onClick={()=>goToPage("/resources")} className='relative'>
                         
-                        {dropdown && <div className='absolute top-[2.5rem] pl-8 py-4 rounded-b-xl bg-[var(--main-3)] w-[14rem] text-white shadow-lg' onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave}>
+                        {dropdown && <div className='absolute z-50 top-[2.5rem] pl-8 py-4 rounded-b-xl bg-[var(--main-3)] w-[14rem] text-white shadow-lg' onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave}>
                             <h3>Before & Upon Arrival</h3>
                             <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/visa")}>Applying Visa</h3>
                             <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/docs")}>Documents to Bring</h3>
                             <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/lapor")}>Lapor Diri KJRI</h3>
                         </div>} 
                         <SecondaryButton text='Resources' color='white' hoverable={false}></SecondaryButton>
-                        {dropdown && <div className='border-t-2 absolute w-[7rem]'></div>}
+                        {dropdown && <div className='border-t-2 absolute z-50 w-[7rem]'></div>}
                     </div>
                     <SecondaryButton text='Events' color='white' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton>
                     <SecondaryButton text='Communities' color='white' isActive={activePage == "communities"} onClick={()=>goToPage("/communities ")}></SecondaryButton>
@@ -97,6 +97,7 @@ export default function Header({active = "home"}){
                     <div className='absolute w-[12rem] top-[3rem] left-1/2 -translate-x-1/2 bg-[var(--main-3)] text-[var(--main-1)] p-2 shadow-md rounded'>Email copied!<br></br> Send us an email!</div>
                 }
             </div>
+            {/* <div className='fixed'>{scrollY}</div> */}
         </div>
         {/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
         {floater && 
