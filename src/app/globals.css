@@ -148,11 +148,9 @@ a:hover{
   text-decoration: none;
 }
 
-<<<<<<< Updated upstream
 a:hover{
   color: var(--main-2);
   @apply transition duration-300; 
-=======
 /*  Styles Article */
 .article-subheader {
   @apply text-lg font-extrabold mb-2;
@@ -288,7 +286,6 @@ a:hover{
 
 .footer-bottom {
     @apply text-center mt-8;
->>>>>>> Stashed changes
 }
 
 .hover-red{
