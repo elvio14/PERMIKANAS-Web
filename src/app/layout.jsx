@@ -29,9 +29,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* {children}
-        <Footer></Footer> */}
-        <NotFound/>
+        {children}
+        <Footer></Footer> 
+        {/* <NotFound/> */}
       </body>
     </html>
   )
