@@ -12,10 +12,6 @@ export default function CommHomeComponent() {
     const targetCity = 7
     const targetSA = 8
 
-    const cityAndSA = () => {
-
-    }
-
     useEffect(() => {
         const incrementStudent = targetStudent / (1500 / 16) // Approximate 60 FPS
         const incrementCity = targetCity / (1500 / 16)
@@ -101,7 +97,7 @@ export default function CommHomeComponent() {
             <div>
                 <div className="my-2 md:my-[2rem] border-l-4 border-[var(--main-3)] pl-8 w-[85vw] md:w-[28vw]">
                     <b className="hidden md:block">Select the pins on the map to learn more.<br></br> </b>
-                    <span>Lorem ipsum odor amet, consectetuer adipiscing elit. Egestas quisque sem, sodales pulvinar aenean habitasse euismod ullamcorper habitant. Risus proin nec habitasse orci risus ridiculus morbi at.</span>
+                    <span> Across Canada, 8 active PERMIKA chapters bring Indonesian students together, with 1 chapter currently on hiatus.</span>
                 </div>
             </div>
         </div>

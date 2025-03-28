@@ -4,9 +4,9 @@ import Slides from "./slides"
 export default function HomeEvents() {
 
     const slides = [
-        {title: "PERMIKANAS Goes to Vancouver", date: "October 1, 2024", image: "/Image_Placeholder.png"},
-        {title: "PERMIKANAS Event 2", date: "July 1, 2024", image: "/Image_Placeholder.png"},
-        {title: "PERMIKANAS Event 3", date: "January 1, 2024", image: "/Image_Placeholder.png"}
+        {title: "PERMIKA Summit 2024", date: "September 6-8, 2024", image: "/PERMIKA_Summit_2024.jpg"},
+        {title: "PESTA 2024", date: "August 17, 2024", image: "/PESTA.png"},
+        {title: "Warung Keliling 2025", date: "2025", image: "/warung_2025.png"}
     ]
 
     return (
