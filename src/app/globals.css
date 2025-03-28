@@ -32,8 +32,22 @@
   --main-c: #171717;
   --sedondary: red;
 
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    /* Manrope-body: */
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+  }
 
-  /* FONTS. Imported in layout.jsx */
+  .container {
+    @apply max-w-7xl mx-10 px-4 sm:px-6 lg:px-8;
+  }
+
+  /* FONTS */
 
   .font-a {
     font-family: "Berkshire Swash", serif;
@@ -41,6 +55,13 @@
     font-style: 48px;
   }
 
+ h1 {
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 40px; 
+  }
     
   .manrope-h2 {
     font-family: "Manrope", serif;
@@ -87,6 +108,22 @@
   }
 }
 
+.label-light {
+  font-family: "Manrope", serif; 
+  font-optical-sizing: auto;
+  font-size: 14px; 
+}
+
+a:hover{
+  color: var(--main-2);
+}
+
+/* MEDIA */ 
+
+.article-image {
+
+}
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -98,20 +135,160 @@
   }
 } */
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  /* Manrope-body: */
-  font-family: "Manrope", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
+ /* BUTTON */
+
+/* Back Button Article */
+.back-button {
+  display: flex;
+  align-items: center;
   font-size: 16px;
-  font-style: normal;
+  font-weight: bold;
+  font-family: 'Manrope', sans-serif;
+  color: #803124; 
+  text-decoration: none;
 }
 
+<<<<<<< Updated upstream
 a:hover{
   color: var(--main-2);
   @apply transition duration-300; 
+=======
+/*  Styles Article */
+.article-subheader {
+  @apply text-lg font-extrabold mb-2;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.community-container {
+  @apply bg-gray-100 rounded-lg p-4;
+}
+
+.divider-text {
+  color: #803124; 
+  font-size: 16px;  
+  font-weight: 300;
+}
+
+
+.article-title {
+  @apply text-3xl font-bold text-primary mt-8 mb-4;
+}
+
+.article-subtitle {
+  @apply text-gray-500 font-extrabold text-sm mb-4;
+}
+
+.text-primary {
+  @apply text-gray-800; /* Adjust color as needed */
+}
+
+.text-secondary {
+  @apply text-gray-600; /* Adjust color as needed */
+}
+
+.link {
+  @apply text-blue-500 hover:text-blue-700;
+}
+
+.button-primary {
+  @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded; /* Adjust color as needed */
+}
+
+/* Header Styles */
+.header {
+  @apply bg-white shadow;
+}
+
+.header-nav {
+  @apply flex items-center justify-between h-16;
+}
+
+.header-logo {
+  @apply text-lg font-bold;
+}
+
+.header-menu {
+  @apply flex space-x-4;
+}
+
+/* Article Styles */
+
+
+.article-image {
+  @apply rounded-lg shadow-md mb-4;
+}
+
+.article-content {
+  @apply text-secondary leading-relaxed;
+}
+
+/* Table of Contents */
+.article-container {
+  @apply rounded-lg pb-4 pt-4 mb-4;
+}
+
+.toc-list {
+  @apply list-none pl-0;
+}
+
+.toc-item {
+  @apply py-1;
+}
+
+/* Timeline Styles */
+.timeline-container {
+  @apply py-4;
+}
+
+/* Other Articles */
+
+.other-articles-title {
+  @apply text-lg font-semibold mb-2;
+}
+
+.other-article-item {
+  @apply flex items-center py-2 border-b border-gray-200 last:border-none;
+}
+
+.other-article-image {
+  @apply w-20 h-16 object-cover rounded-md mr-4;
+}
+
+.other-article-content {
+  @apply flex-1;
+}
+
+/* Footer Styles */
+.footer {
+    @apply bg-gray-800 text-white py-8; /* Or your dark background color */
+}
+
+.footer-links {
+    @apply flex flex-col md:flex-row justify-around;
+}
+
+.footer-section {
+    @apply mb-4 md:mb-0;
+}
+
+.footer-title {
+    @apply text-lg font-semibold mb-2;
+}
+
+.footer-list {
+    @apply list-none pl-0;
+}
+
+.footer-item {
+    @apply py-1;
+}
+
+.footer-bottom {
+    @apply text-center mt-8;
+>>>>>>> Stashed changes
 }
 
 .hover-red{
