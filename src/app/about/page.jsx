@@ -1,10 +1,20 @@
-import Header from "@/components/header";
+"use client"
+import Header from "@/components/header"
+import NotFound from "../not-found"
+import useIsMobile from "@/components/isMobile"
+import Loading from "@/components/loading"
+import HeaderMobile from "@/components/headerMobile"
 
 export default function About() {
+      let mobile = useIsMobile()
+      if (mobile === undefined){
+        return (<div className="pb-[12rem]"><Loading/></div>)
+      } 
+
     return (
         <>
-        <Header active="about"></Header>
-        <div className="h-[100vh]">ABOUT</div>
+        {mobile ? <HeaderMobile></HeaderMobile> : <Header active="about"></Header>}
+        <NotFound></NotFound>
         </>
     )
 }

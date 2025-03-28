@@ -1,19 +1,20 @@
 "use client"
-import { MainButton } from "@/components/button"
 import Header from "@/components/header"
 import HomeMap from "@/components/homeMap"
 import HomeEvents from "@/components/homeEvents"
-import { useState } from "react"
 import useIsMobile from "@/components/isMobile"
 import HeaderMobile from "@/components/headerMobile"
 import HomeMapMobile from "@/components/homeMapMobile"
 import HomeEventsMobile from "@/components/homeEventsMobile"
 import HomeMobile from "@/components/homeMobile"
 import Loading from "@/components/loading"
+import Sponsor from "@/components/sponsor"
 
 export default function Home() {
   let mobile = useIsMobile()
-  if (mobile === undefined) return <Loading/>
+  if (mobile === undefined){
+    return (<div className="pb-[12rem]"><Loading/></div>)
+  }
   
   return (
     <>
@@ -23,6 +24,7 @@ export default function Home() {
       <HomeMobile></HomeMobile>
       <HomeMapMobile></HomeMapMobile>
       <HomeEventsMobile></HomeEventsMobile>
+      {/* <Sponsor></Sponsor> */}
     </div>
     //MOBILE
     : //----------------------------------------------------------------------------------------------------------------------------
@@ -35,7 +37,8 @@ export default function Home() {
         <div className="pl-[12rem]">
           <img className="ml-[-1.1rem]" src="/home_title.png" alt="title permika nasional" />
           <div>
-            <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Egestas quisque sem, sodales pulvinar aenean habitasse euismod ullamcorper habitant. Risus proin nec habitasse orci risus ridiculus morbi at.</p>
+            <h2 className="manrope-h2 text-xl my-2 text-[var(--main-5)]">"Unite, Ignite, and Reach New Heights”</h2>
+            <p>PERMIKA Nasional is more than a network—it’s a home away from home for Indonesian students across Canada. We foster academic growth, professional excellence, and lifelong connections while celebrating our rich culture and heritage. From your first step in Canada to building your future, we are here to empower, support, and connect every Indonesian student.</p>
           </div>
           <button className="text-[var(--main-5)] mt-4 px-8 py-3 rounded-full border-solid border-2 border-[var(--main-5)] hover:bg-[var(--main-5)] hover:text-white">Join Our Community</button>
         </div>
@@ -48,6 +51,7 @@ export default function Home() {
     </div>
     <HomeMap />
     <HomeEvents />
+    {/* <Sponsor /> */}
     </div>
     }
   </>
