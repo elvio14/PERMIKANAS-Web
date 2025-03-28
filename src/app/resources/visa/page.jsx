@@ -29,6 +29,7 @@ export default function Article() {
         {/* Table of Contents */}
 
         <section class="article-container">
+        <h2 class="article-subheader mt-8">[not done yet]</h2>
           <h2 class="article-subheader mt-8">Table of Contents</h2>
           <ul class="toc-list">
             <li class="toc-item"><a href="#section1" class="link">Timeline & Deadlines</a></li>
@@ -39,7 +40,7 @@ export default function Article() {
         </section>
   
         {/* Main Content */}
-        <article>
+        <article class="mb-24">
         <section class="article-container mt-5">
         <div class="flex items-center gap-8">
         <img src="/Image_Placeholder.png" class="img-placeholder"></img>
@@ -86,16 +87,16 @@ export default function Article() {
         <div class="flex items-center">
           <img src="/Article_Image3.jpeg" alt="Article1 Thumbnail" class="other-article-image"></img>
           <div class="w-2/3">
-          <h3><a href="#" class="text-black font-bold hover:text-[#CD5A48]">Documents to Bring</a></h3>
-              <p class="text-secondary text-sm">Lorem ipsum odor amet, consectetuer adip elit.</p>
+          <h3><a href="src/app/resources/docs/page.jsx" class="text-black font-bold hover:text-[#CD5A48]">Documents to Bring</a></h3>
+              <p class="text-secondary text-sm">Checklist for Documents to bring from Indonesia</p>
           </div>
         </div>
         
         <div class="flex items-center pt-5">
-          <img src="/Article_Image4.jpeg" alt="Article1 Thumbnail" class="other-article-image"></img>
+          <img src="/Article_Image3.JPG" alt="Article1 Thumbnail" class="other-article-image"></img>
           <div class="w-2/3">
-          <h3><a href="#" class="text-black font-bold hover:text-[#CD5A48]">Lapor Diri to KJRI</a></h3>
-              <p class="text-secondary text-sm">Lorem ipsum odor amet, consectetuer adip elit. </p>
+          <h3><a href="src/app/resources/lapor/page.jsx" class="text-black font-bold hover:text-[#CD5A48]">Lapor Diri to KJRI</a></h3>
+              <p class="text-secondary text-sm">Registering as an Indonesian Citizen living in Canada.</p>
           </div>
           </div>
           </div>
