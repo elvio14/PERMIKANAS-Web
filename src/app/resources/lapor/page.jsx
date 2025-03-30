@@ -1,13 +1,20 @@
 "use client"
-import Header from "@/components/header";
+import Header from "@/components/header"
 import useIsMobile from "@/components/isMobile"
 import Loading from "@/components/loading"
-import HeaderMobile from "@/components/headerMobile";
+import HeaderMobile from "@/components/headerMobile"
+import { useRouter } from "next/navigation"
 
 export default function Article() {
     let mobile = useIsMobile()
     if (mobile === undefined){
       return (<div className="pb-[12rem]"><Loading/></div>)
+    }
+
+    const router = useRouter()
+    const goToPage = (path) => {
+        console.log("Running goToPage " + path)
+        router.push(path)
     }
     return (
     <>
@@ -90,18 +97,18 @@ export default function Article() {
                 <div class="flex items-center">
                   <img src="/Article_Image3.jpeg" alt="Article1 Thumbnail" class="other-article-image"></img>
                   <div class="w-2/3">
-                  <h3><a href="src/app/resources/docs/page.jsx" class="text-black font-bold hover:text-[#CD5A48] transition duration-300">Documents to Bring</a></h3>
+                  <h3><p onClick={() => goToPage("/resources/docs")} class="text-black font-bold hover:text-[#CD5A48] transition duration-300">Documents to Bring</p></h3>
                       <p class="text-secondary text-sm">Checklist for Documents to bring from Indonesia</p>
                   </div>
                 </div>
             
-                <div class="flex items-center pt-5">
+                {/* <div class="flex items-center pt-5">
                   <img src="/Article_Image2.jpeg" alt="Article1 Thumbnail" class="other-article-image"></img>
                   <div class="w-2/3">
                   <h3><a href="src/app/resources/lapor/page.jsx" class="text-black font-bold hover:text-[#CD5A48] transition duration-300">Applying for Visa</a></h3>
                       <p class="text-secondary text-sm">All you need to know on Student & Work Visa</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </aside>}
           </div>
