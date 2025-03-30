@@ -108,18 +108,18 @@ export default function Article() {
                 <div class="border-b border-red-800 w-full max-w-md"></div>
               </div>
 
-              <div class="flex items-center">
+              {/* <div class="flex items-center">
                 <img src="/Article_Image2.jpeg" alt="Article1 Thumbnail" class="other-article-image"></img>
                 <div class="w-2/3">
                 <h3><a href="src/app/resources/visa/page.jsx" class="text-black font-bold hover:text-[#CD5A48]">Applying Visa</a></h3>
                     <p class="text-secondary text-sm">All you need to know on Student & Work Visa</p>
                 </div>
-              </div>
+              </div> */}
 
               <div class="flex items-center pt-5">
                 <img src="/Article_Image3.JPG" alt="Article1 Thumbnail" class="other-article-image"></img>
                 <div class="w-2/3">
-                  <h3><a href="src/app/resources/lapor/page.jsx" class="text-black font-bold hover:text-[#CD5A48]">Lapor Diri to KJRI</a></h3>
+                  <h3><p onClick={() => goToPage("/resources/lapor")} class="text-black font-bold hover:text-[#CD5A48]">Lapor Diri to KJRI</p></h3>
                   <p class="text-secondary text-sm">Registering as an Indonesian Citizen living in Canada</p>
                 </div>
               </div>

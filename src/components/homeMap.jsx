@@ -1,5 +1,5 @@
 import CommHomeComponent from "./commHomeComponent"
-import Spline from '@splinetool/react-spline';
+import Spline from '@splinetool/react-spline'
 
 export default function HomeMap() {
 
