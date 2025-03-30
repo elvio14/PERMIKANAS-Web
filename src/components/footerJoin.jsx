@@ -11,8 +11,8 @@ export default function FooterJoin() {
             <div className="w-full h-[16rem] bg-[var(--main-3)] z-10 rounded-3xl grid grid-cols-[1fr_1fr]"> 
                 <img className="h-[20rem] mt-[-6rem] ml-[8rem]" src="/footer_join.png" alt="illustration join our community" />
                 <div className="px-[4rem] py-8 flex flex-col gap-4">
-                    <h2 className="manrope-h2 text-2xl text-[--main-1]">Join our community to keep up to date on our latest activities</h2>
-                    <h3 className="text-[--main-1]">Lorem ipsum odor amet, consectetuer adipiscing elit.  </h3>
+                    <h2 className="manrope-h2 text-2xl text-[--main-1]">Register to our community of Indonesian Students!</h2>
+                    <h3 className="text-[--main-1]">By registering, you allow us to collect your information, which helps us plan events, improve our services, and deliver information.</h3>
                     {/* <div className="bg-white bg-opacity-25 mr-[9.8rem] h-[2rem] rounded-full flex">
                         <img src="/mail.svg" alt="mail icon" className="px-[1rem]"/>
                         <input type="text" className="text-[var(--main-1)] bg-transparent"></input>
