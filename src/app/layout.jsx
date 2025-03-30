@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
-import NotFound from "./not-found";
+//import NotFound from "./not-found";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Permika Nasional",
   description: "The official website of Permika Nasional. Persatuan Mahasiswa Indonesia di Kanada Nasional",
+  icons: {
+    icon: "/favicon.png",
+  }
 };
 
 export default function RootLayout({ children }) {
