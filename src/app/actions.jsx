@@ -11,6 +11,7 @@ async function createMember(member){
         email: member.email,
         occupation: member.occupation,
         institution: member.institution,
+        institutionOther: member.institutionOther,
         city: member.city,
         province: member.province
       })
