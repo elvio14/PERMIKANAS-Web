@@ -13,7 +13,8 @@ async function createMember(member){
         institution: member.institution,
         institutionOther: member.institutionOther,
         city: member.city,
-        province: member.province
+        province: member.province,
+        timeAdded: Date.now()
       })
       console.log("User doc written with docref: ", member)
     }catch(e){
