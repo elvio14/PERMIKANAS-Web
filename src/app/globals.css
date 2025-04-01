@@ -315,6 +315,10 @@ label-light {
   font-size: 14px; 
 }
 
+a {
+  cursor: pointer;
+}
+
 a:hover{
   color: var(--main-2);
   @apply transition duration-300; 
