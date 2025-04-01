@@ -28,7 +28,7 @@ export default function Article() {
           <div className="md:w-3/4 w-full mb-24">
             <header>
               {/* <a href="/articles" class="back-button">← Back to All Articles</a> */}
-              <h1 class="md:h1-article mt-5 mb-3 leading-tight font-bold text-3xl">Documents to Prepare: <br></br> Your All in One Checklist</h1>
+              <h1 class="h1-article mt-2 mb-3 leading-tight">Documents to Prepare: <br></br> Your All in One Checklist</h1>
               <p class="artcile-subtitle mb-5">28th March 2025 • 2 minute read</p>
             </header>
     
@@ -43,22 +43,22 @@ export default function Article() {
             <article class="mb-24">
               <section class="article-container">
                 <h2 class="article-subheader mt-8">Passport</h2>
-                <p class="mt-5">Ensure that the passport is valid for the duration of your stay in Canada. It's a good idea to have extra passport-sized photos as well.</p>
+                <p class="mt-2">Ensure that the passport is valid for the duration of your stay in Canada. It's a good idea to have extra passport-sized photos as well.</p>
 
                 <h2 class="article-subheader mt-8">Study Permit</h2>
-                <p class="mt-5">This is the most important document allowing you to study in Canada. Ensure you have the official document and a copy of the approval notice.</p>
+                <p class="mt-2">This is the most important document allowing you to study in Canada. Ensure you have the official document and a copy of the approval notice.</p>
 
                 <h2 class="article-subheader mt-8">Letter of Acceptance</h2>
-                <p class="mt-5">A letter from the Canadian educational institution confirming your enrollment.</p>
+                <p class="mt-2">A letter from the Canadian educational institution confirming your enrollment.</p>
 
                 <h2 class="article-subheader mt-8">Visa (if applicable)</h2>
-                <p class="mt-5">Depending on your nationality, you may need a visitor visa in addition to your study permit. Indonesian students typically need a study permit, but ensure you have checked the specific visa requirements.</p>
+                <p class="mt-2">Depending on your nationality, you may need a visitor visa in addition to your study permit. Indonesian students typically need a study permit, but ensure you have checked the specific visa requirements.</p>
 
                 <h2 class="article-subheader mt-8">Transcripts and Diplomas</h2>
-                <p class="mt-5">Original and translated academic transcripts, which can include certificates, report cards from highschool and such that proves you were a student.</p>
+                <p class="mt-2">Original and translated academic transcripts, which can include certificates, report cards from highschool and such that proves you were a student.</p>
 
                 <h2 class="article-subheader mt-8">Financial Proof</h2>
-                <p class="mt-5">Documents showing that you have sufficient funds to cover your tuition, living expenses, and return travel. This can include:</p>
+                <p class="mt-2">Documents showing that you have sufficient funds to cover your tuition, living expenses, and return travel. This can include:</p>
                 <ol>
                   <li>•  Bank Statements</li>
                   <li>•  Scholarship Letters</li>
@@ -66,13 +66,13 @@ export default function Article() {
                 </ol>
 
                 <h2 class="article-subheader mt-8">Medical Exam Records</h2>
-                <p class="mt-5">If required, a medical exam report may be necessary depending on your country of origin and the length of stay.</p>
+                <p class="mt-2">If required, a medical exam report may be necessary depending on your country of origin and the length of stay.</p>
 
                 <h2 class="article-subheader mt-8">Language Proficiency Test Scores</h2>
-                <p class="mt-5">If applicable, scores from English or French language proficiency tests like IELTS, TOEFL, or TEF (Test d’évaluation de français).</p>
+                <p class="mt-2">If applicable, scores from English or French language proficiency tests like IELTS, TOEFL, or TEF (Test d’évaluation de français).</p>
 
                 <h2 class="article-subheader mt-8">Travel Arrangements</h2>
-                <p class="mt-5">Printouts of flight tickets, accommodation confirmations, and travel insurance details.</p>
+                <p class="mt-2">Printouts of flight tickets, accommodation confirmations, and travel insurance details.</p>
 
 
               <div class="flex items-center gap-8 mt-8">

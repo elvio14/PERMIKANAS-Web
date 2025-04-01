@@ -13,10 +13,10 @@ export default function Home() {
           <div className="pl-[12rem]">
             <img className="ml-[-1.1rem]" src="/home_title.png" alt="title permika nasional" />
             <div>
-              <h2 className="manrope-h2 text-xl my-2 text-[var(--main-5)]">"Unite, Ignite, and Reach New Heights”</h2>
-              <p>PERMIKA Nasional is more than a network—it’s a home away from home for Indonesian students across Canada. We foster academic growth, professional excellence, and lifelong connections while celebrating our rich culture and heritage. From your first step in Canada to building your future, we are here to empower, support, and connect every Indonesian student.</p>
+              <h2 className="manrope-h2 text-xl my-2 text-[var(--main-5)]">Unite, Ignite, and Reach New Heights</h2>
+              <p>PERMIKA Nasional is a home away from home for Indonesian students across Canada. From your first step in Canada to building your future, we foster academic growth, professional excellence, and lifelong connections for all.</p>
             </div>
-            <button onClick={() => goToPage("/form")} className="text-[var(--main-5)] mt-4 px-8 py-3 rounded-full border-solid border-2 border-[var(--main-5)] hover:bg-[var(--main-5)] hover:text-white">Join Our Community</button>
+            <button onClick={() => goToPage("/form")} className="text-[var(--main-5)] mt-4 px-8 py-3 rounded-full border-solid border-2 border-[var(--main-5)] hover:bg-[var(--main-5)] hover:text-white transition duration-300">Join Our Community</button>
           </div>
           <div className="grid">
             <img className="row-start-1 col-start-1 ml-auto mt-[4.2rem]" src="/home_temples_bg.svg" alt="temples bg"/>

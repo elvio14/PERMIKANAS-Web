@@ -10,7 +10,7 @@ export default function HomeEvents() {
     ]
 
     return (
-        <div className="h-full pt-[6rem] md:pb-[12rem]">
+        <div className="h-full pt-[6rem] md:pb-[12rem] mb-24">
             <div className="md:px-[12rem] px-8 flex flex-col gap-8 text-center justify-center items-center">
                 <SubButton text="Events"></SubButton>
                 <h2 className="manrope-h2 md:text-4xl text-2xl text-[--main-7]">Connecting Indonesian students accross Canada</h2>
