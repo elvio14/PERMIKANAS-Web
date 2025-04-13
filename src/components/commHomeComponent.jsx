@@ -63,7 +63,7 @@ export default function CommHomeComponent() {
     })
 
     return (
-        <div className="grid grid-rows-3 h-[45vh] md:h-full z-20
+        <div className="flex flex-col gap-8 z-20
                         px-4 py-8
                         md:px-[12rem] md:pb-[8rem] md:pt-[2rem] 
                         ">
