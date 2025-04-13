@@ -9,7 +9,7 @@ export default function Slides({slides = [{title: "Default Title", image: "/Imag
               style={{ backgroundImage: `url(${slide.image})`}}
               className="h-72 md:w-[18vw] w-[80vw] bg-cover bg-center rounded-2xl transition-all duration-300 md:hover:w-[30vw] cursor-pointer"
             >
-              <div className="h-full w-full flex flex-col justify-end p-4 bg-black/40 rounded-2xl">
+              <div className="h-full w-full flex flex-col justify-end p-4 bg-gradient-to-b from-black/0 to-black/30 rounded-2xl">
                 <h3 className="text-white text-xs truncate">{slide.date}</h3>
                 <div className=" overflow-hidden">
                     <h2 className="manrope-body text-white text-lg truncate">{slide.title}</h2>
