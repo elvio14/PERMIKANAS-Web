@@ -8,7 +8,7 @@ export default function HomeMobile() {
       router.push(path) 
     }
     return (
-        <div className="flex flex-col gap-4 items-center mb-16">  
+        <div className="flex flex-col gap-4 items-center mb-16 text-center">  
             <div className="grid mx-16 mt-32">
                 <img className="row-start-1 col-start-1 ml-auto" src="/home_temples_bg_mobile.svg" alt="temples bg"/>
                 <img className="row-start-1 col-start-1 mt-[4rem]" src="/home_temples.svg" alt="temples"/>
