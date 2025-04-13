@@ -27,9 +27,11 @@ export default function ArticleDocs() {
           {/* Article Section */}
           <div className="md:w-3/4 w-full mb-24">
             <header>
-              {/* <a href="/articles" className="back-button">← Back to All Articles</a> */}
-              <h1 className="h1-article mt-5 mb-3 leading-tight">Documents to Prepare: <br></br> Your All in One Checklist</h1>
-              <p className="artcile-subtitle mb-5">28th March 2025 • 2 minute read</p>
+
+              {/* <a href="/articles" class="back-button">← Back to All Articles</a> */}
+              <h1 class="h1-article mt-2 mb-3 leading-tight">Documents to Prepare: <br></br> Your All in One Checklist</h1>
+              <p class="artcile-subtitle mb-5">28th March 2025 • 2 minute read</p>
+
             </header>
     
             {/* Header Image */}
@@ -64,7 +66,6 @@ export default function ArticleDocs() {
                   <li>•  Scholarship Letters</li>
                   <li>•  Sponsorship Letters (If applicable)</li>
                 </ol>
-
                 <h2 className="article-subheader mt-8">Medical Exam Records</h2>
                 <p className="mt-5">If required, a medical exam report may be necessary depending on your country of origin and the length of stay.</p>
 

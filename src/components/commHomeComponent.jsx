@@ -67,7 +67,7 @@ export default function CommHomeComponent() {
                         px-4 py-8
                         md:px-[12rem] md:pb-[8rem] md:pt-[2rem] 
                         ">
-            <div className="flex flex-col gap-4 justify-center">
+            <div className="flex flex-col gap-4 justify-center mt-10">
                 <SubButton text="Communities"/>
                 <h2 className="manrope-h2 text-xl md:text-4xl text-[--main-7]">Building communities as homes<br></br>to Indonesian students abroad</h2>
             </div>
