@@ -69,7 +69,7 @@ export default function Header({active = ""}){
         <>
         <div className="w-full h-[4.2rem] bg-[var(--main-3)] grid grid-cols-[1fr_2fr_1fr] items-center shadow-md z-40">
             <div className='flex justify-center'>   
-                <img src="/permikanas_logo_white.svg" alt="Permkanas Logo" width={80}></img>
+                <img onClick={()=>goToPage("/")} src="/permikanas_logo_white.svg" alt="Permkanas Logo" width={80}></img>
             </div>
             <div style={{paddingRight: '3rem'}}>
                 <nav className="flex gap-4 justify-center">
@@ -105,7 +105,7 @@ export default function Header({active = ""}){
                         grid grid-cols-[1fr_4fr_1fr]
                         ${isFadingOut ? "animate-fadeOut opacity-0" : "animate-fadeIn opacity-100"}`}>
             <div className='flex justify-center'>   
-                <img src="/permikanas_logo_black.svg" alt="Permkanas Logo" className='w-[4rem]'></img>
+                <img onClick={()=>goToPage("/")} src="/permikanas_logo_black.svg" alt="Permkanas Logo" className='w-[4rem]'></img>
             </div>
             <nav className="flex gap-4 justify-center">
               <SecondaryButton text='Home' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "home"} onClick={()=>goToPage("/")}></SecondaryButton>

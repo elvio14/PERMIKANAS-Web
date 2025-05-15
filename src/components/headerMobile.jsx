@@ -36,7 +36,7 @@ export default function HeaderMobile({active = ""}) {
     return (
         <>
             <div className="fixed top-0 left-0 w-full bg-[var(--main-3)] z-40 grid grid-cols-[1fr_6fr_1fr] items-center">
-                <img src="/permikanas_logo_white.svg" alt="Permkanas Logo" className="w-[4rem] ml-8 py-2"></img>
+                <img onClick={()=>goToPage("/")} src="/permikanas_logo_white.svg" alt="Permkanas Logo" className="w-[4rem] ml-8 py-2"></img>
                 <div></div>
                 <img src="/menu.svg" alt="menu button" className="h-[2.5rem]" onClick={() => setShowMenu(true)}/>
             </div>
