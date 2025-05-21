@@ -6,7 +6,7 @@ export default function HomeMap() {
     return (
         <div className="relative bg-[var(--main-1)]">
             
-            <div className="absolute right-0 h-full w-[60vw] right-[-7rem] z-10">
+            <div className="absolute right-0 h-full w-[60vw] right-[-7rem] z-10 cursor-pointer">
                 {/* MAP 3D */}
                 <Spline 
                     scene="https://prod.spline.design/Xao3S9XZmSLC0tqy/scene.splinecode" 

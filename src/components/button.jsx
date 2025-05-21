@@ -19,7 +19,7 @@ export const MainButton = ({text = "Button", bgColor = "white", color="var(--mai
         <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={() => handleClick(true)}
         className="px-4 py-2 transition duration-300"
         style={{
-            backgroundColor: (isHovered ? "var(--main-5)" : "white"), 
+            backgroundColor: (isHovered ? "#CD5A48" : "white"), 
             borderRadius: "2rem",
             border: "solid 1px",
             borderColor: borderColor,

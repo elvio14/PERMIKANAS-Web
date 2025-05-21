@@ -96,7 +96,7 @@ export default function CommHomeComponent() {
             </div>
             <div>
                 <div className="my-2 md:my-[2rem] border-l-4 border-[var(--main-3)] pl-8 w-[85vw] md:w-[28vw]">
-                    <b className="hidden md:block">Select the pins on the map to learn more.<br></br> </b>
+                    <b className="hidden md:block text-[#803124]">Select the pins on the map to learn more.<br></br> </b>
                     <span> Across Canada, 8 active PERMIKA chapters bring Indonesian students together, with 1 chapter currently on hiatus.</span>
                 </div>
             </div>

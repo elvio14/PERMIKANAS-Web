@@ -18,7 +18,7 @@ export default function FooterJoin() {
                         <input type="text" className="text-[var(--main-1)] bg-transparent"></input>
                         <button className="rounded-full bg-white px-[1.5rem] hover-red">Join</button>
                     </div> */}
-                    <div onClick={() => goToPage("/form")} className="inline-flex w-fit items-center py-[0.2rem] pl-4 pr-1 bg-[var(--main-7)] text-white rounded-full cursor-pointer">Fill in our short form
+                    <div onClick={() => goToPage("/form")} className="inline-flex w-fit items-center py-[0.2rem] pl-4 pr-1 bg-[var(--main-7)] hover:bg-transparent border border-transparent hover:border-white text-white rounded-full cursor-pointer">Fill in our short form
                         <div className="bg-white ml-4 px-4 py-2 scale-[80%] rounded-full text-[var(--main-3)] text-xl font-bold">{'>'}</div>
                     </div>
                 </div>
