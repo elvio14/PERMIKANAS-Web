@@ -62,7 +62,7 @@ export default function Footer() {
             <FooterJoin/>
             <div className="bg-[var(--main-7)] px-[12rem] text-[var(--main-1)] mb-auto z-0 pt-[4rem]">
                 <div className="h-[18rem] gap-8 grid grid-cols-[5fr_1.2fr_1.2fr_2.8fr_2.8fr_2.8fr]">
-                    <div className="flex justify-center items-center" >
+                    <div className="flex justify-center items-center pt-8" >
                         <img className="h-[8rem]" src="/permikanas_logo_white.svg" alt="permikanas logo" />
                     </div>
                     <div className="flex flex-col mt-28">
@@ -85,10 +85,10 @@ export default function Footer() {
                         <p className="text-button">Permika Chapters</p>
                         <p className="text-button">ISA/PPI Canada</p> */}
                     </div>
-                    <div className="flex flex-col mt-28">
+                    <div className="flex flex-col mt-28 gap-4">
                         <p className="manrope-body-bold">Contact Us</p>
                         <div className="relative">
-                        <p className="text-button flex items-center" onClick={clickContact}><img src="/mail.svg" alt="mail icon" className="mr-1"/>contact.permikanasional@gmail.com </p>
+                        <p className="text-button flex items-center" onClick={clickContact}><img src="/mail.svg" alt="mail icon" className="mr-1"/>permikanas@gmail.com </p>
                         {copyAlert && <div className="absolute left-full bg-[var(--main-1)] text-black p-2 rounded-b-lg rounded-r-lg">Copied!</div>}
                         </div>
                         <p className="mt-2 flex items-center">
