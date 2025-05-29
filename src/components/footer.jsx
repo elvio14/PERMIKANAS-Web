@@ -88,7 +88,7 @@ export default function Footer() {
                     <div className="flex flex-col mt-28 gap-4">
                         <p className="manrope-body-bold">Contact Us</p>
                         <div className="relative">
-                        <p className="text-button flex items-center" onClick={clickContact}><img src="/mail.svg" alt="mail icon" className="mr-1"/>contact.permikanasional@gmail.com </p>
+                        <p className="text-button flex items-center" onClick={clickContact}><img src="/mail.svg" alt="mail icon" className="mr-1"/>permikanas@gmail.com </p>
                         {copyAlert && <div className="absolute left-full bg-[var(--main-1)] text-black p-2 rounded-b-lg rounded-r-lg">Copied!</div>}
                         </div>
                         <p className="mt-2 flex items-center">
