@@ -16,10 +16,6 @@ export default function About() {
     return (
         <>
         {mobile ? <HeaderMobile active="about"></HeaderMobile> : <Header active="about"></Header>}
-        
-        <EventsBanner/>
-        <EventsPast />
-        <EventsUpcoming />
         </>
     )
 }
