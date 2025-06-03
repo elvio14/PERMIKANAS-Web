@@ -45,7 +45,7 @@ export default function Article() {
         <article class="mb-24">
         <section class="article-container mt-5">
         <div class="flex items-center gap-8">
-        <img src="/Image_Placeholder.png" class="img-placeholder"></img>
+        <img src="/image_placeholder.png" class="img-placeholder"></img>
         <div class="w-2/3">
         <h2 class="article-subheader" id="section1">Timeline & Deadlines</h2>
           <ul class="mt-4">

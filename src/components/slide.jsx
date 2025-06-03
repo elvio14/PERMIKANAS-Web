@@ -5,7 +5,7 @@ import Loading from "./loading";
 export default function Slide({ title, date, image, isActive }) {
     title = title || "Default Title";
     date = date || "Jan 1, 2025"
-    image = image || "/Image_Placeholder.png";
+    image = image || "/image_placeholder.png";
     isActive = isActive !== undefined ? isActive : true;
 
     let mobile = useIsMobile()

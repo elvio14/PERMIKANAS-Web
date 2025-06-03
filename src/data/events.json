@@ -1,0 +1,58 @@
+[
+    {
+        "title": "Event 1",
+        "date": "2025-04-03T09:30:00-04:00",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Toronto",
+        "url": "https://permikato.com/event1"
+    },
+    {
+        "title": "Event 2",
+        "date": "2025-03-03T09:30:00-04:00",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Montreal",
+        "url": "https://permikato.com/event2"
+    },
+    {
+        "title": "Event 3",
+        "date": "2025-02-03T09:30:00-04:00",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Edmonton",
+        "url": "https://permikato.com/event3"
+    },
+    {
+        "title": "Event 4",
+        "date": "2025-01-03T09:30:00-04:00",
+        "image": "/image_placeholder.png",
+        "heldBy": "ISA UTM",
+        "url": "https://permikato.com/event4"
+    },
+    {
+        "title": "Event 5",
+        "date": "2025-07-03T09:30:00-04:00",
+        "image": "/image_placeholder.png",
+        "heldBy": "ISA Humber",
+        "url": "https://permikato.com/event5"
+    },
+    {
+        "title": "Event 6",
+        "date": "2025-08-03T09:30:00-04:00",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Vancouver",
+        "url": "https://permikato.com/event6"
+    },
+    {
+        "title": "Event 7",
+        "date": "2025-09-03T09:30:00-04:00",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Winnipeg",
+        "url": "https://permikato.com/event7"
+    },
+    {
+        "title": "Event 8",
+        "date": "2025-10-03T09:30:00-04:00",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Ottawa",
+        "url": "https://permikato.com/event8"
+    }
+]
