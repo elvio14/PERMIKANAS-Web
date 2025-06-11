@@ -16,6 +16,8 @@ export default function About() {
     return (
         <>
         {mobile ? <HeaderMobile active="about"></HeaderMobile> : <Header active="about"></Header>}
+
+        <div className="h-[50vh]"></div>
         </>
     )
 }

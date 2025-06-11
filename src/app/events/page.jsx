@@ -11,7 +11,7 @@ export default function Events() {
       let mobile = useIsMobile()
       if (mobile === undefined){
         return (<div className="pb-[12rem]"><Loading/></div>)
-      } 
+      }
 
     return (
         <>

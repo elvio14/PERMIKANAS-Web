@@ -1,5 +1,7 @@
 import events from "../data/events.json"
 import {useRef, useEffect,useState} from "react"
+import { MainButton } from "./button"
+import EventPanel from "./eventPanel"
 
 export default function EventsBanner(){
     const scrollRef = useRef(null)
@@ -11,7 +13,6 @@ export default function EventsBanner(){
         if (!el) return;
     
         const checkScroll = () => {
-          const snapThres = 200;
           const isAtEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
           setAtEnd(isAtEnd);
           const isAtStart = el.scrollLeft <= 1;
@@ -37,6 +38,12 @@ export default function EventsBanner(){
     return (
         <div className="grid grid-cols-[1fr_1.6fr] py-32 px-8 relative bg-gradient-to-t from-[var(--main-1)]">
             <div className="relative">
+                <div className="flex flex-col px-32 gap-4">
+                    <h4 className="manrope-thin text-[var(--main-5)]">EVENTS</h4>
+                    <h2 className="manrope-h2 text-4xl text-[var(--main-5)]">Upcoming Events Across Canada</h2>
+                    <p className="text-sm">Curated events for Indonesian students, presented by PERMIKA Chapters, ISAs, and PPIs.</p>
+                    <div className="w-fit pt-8"><MainButton text="See All Events" bgColor="transparent"  /></div>
+                </div>
                 {!atStart && <img 
                     src="/arrow-right.png" 
                     alt="arrow left" 
@@ -63,23 +70,7 @@ export default function EventsBanner(){
                 <div className="whitespace-nowrap scrollbar-hide">
                 {
                     events.map((ev, index) => {
-                        return (
-                            <div 
-                                key={index}
-                                className="aspect-square w-[20vw] mx-4 rounded-xl inline-block items-center justify-center bg-cover bg-center"
-                                style={{
-                                    backgroundImage: `url(${ev.image})`,
-                                    objectFit: "cover"
-                                }}
-                            >
-                                <div className="h-full w-full flex flex-col justify-end p-4 bg-gradient-to-b from-black/0 to-black/30 rounded-2xl">
-                                  <h3 className="text-white text-xs truncate">{ev.date}</h3>
-                                  <div className=" overflow-hidden">
-                                      <h2 className="manrope-body text-white text-lg truncate">{ev.title}</h2>
-                                  </div>
-                                </div>
-                            </div>
-                        )
+                        return (<EventPanel key={index} ev={ev} index={index} />)
                     })
                 }
                 </div>
