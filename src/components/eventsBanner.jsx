@@ -7,6 +7,11 @@ export default function EventsBanner(){
     const scrollRef = useRef(null)
     const [atEnd, setAtEnd] = useState(false)
     const [atStart, setAtStart] = useState(true)
+    const today = new Date()
+    const upcomingEvents = events.filter((event)=>{
+        const eventDate = new Date(event.date)
+        return eventDate >= new Date(today.getFullYear(), today.getMonth(), today.getDate())
+    })
 
     useEffect(() => {
         const el = scrollRef.current;
@@ -69,8 +74,8 @@ export default function EventsBanner(){
                   }}>
                 <div className="whitespace-nowrap scrollbar-hide">
                 {
-                    events.map((ev, index) => {
-                        return (<EventPanel key={index} ev={ev} index={index} />)
+                    upcomingEvents.map((ev, index) => {
+                        return (<EventPanel key={index} ev={ev} index={index} panelWidth={"20vw"} />)
                     })
                 }
                 </div>

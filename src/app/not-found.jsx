@@ -1,4 +1,4 @@
-"use clients"
+"use client"
 import useIsMobile from "@/components/isMobile"
 import Loading from "@/components/loading"
 

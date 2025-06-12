@@ -54,5 +54,61 @@
         "image": "/image_placeholder.png",
         "heldBy": "PERMIKA Ottawa",
         "url": "https://permikato.com/event8"
+    },
+    {
+        "title": "Event 9",
+        "date": "2025-10-03",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Ottawa",
+        "url": "https://permikato.com/event8"
+    },
+    {
+        "title": "Event 10",
+        "date": "2025-11-03",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Ottawa",
+        "url": "https://permikato.com/event8"
+    },
+    {
+        "title": "Event 11",
+        "date": "2025-01-08",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Ottawa",
+        "url": "https://permikato.com/event8"
+    },
+    {
+        "title": "Event 12",
+        "date": "2025-01-25",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Ottawa",
+        "url": "https://permikato.com/event8"
+    },
+    {
+        "title": "Event 13",
+        "date": "2025-01-03",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Newdoundland",
+        "url": "https://permikato.com/event8"
+    },
+    {
+        "title": "Event 14",
+        "date": "2025-05-03",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Alberta",
+        "url": "https://permikato.com/event8"
+    },
+    {
+        "title": "Event 15",
+        "date": "2025-04-03",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Nunavut",
+        "url": "https://permikato.com/event8"
+    },
+    {
+        "title": "Event 16",
+        "date": "2025-04-03",
+        "image": "/image_placeholder.png",
+        "heldBy": "PERMIKA Labrador",
+        "url": "https://permikato.com/event8"
     }
 ]
