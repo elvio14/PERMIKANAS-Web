@@ -1,12 +1,20 @@
 "use client"
 import { useRef, useEffect } from "react";
-export default function Input({ value, onChange, isActive }){
+export default function Input({ value, onChange, isActive, rowFilled, result ,notFound }) {
     const handleChange = (e) => {
         const val = e.target.value;
         if (onChange) {
             onChange(val);
         }
     };
+
+    const handleKeyDown = (e) => {
+        if ((e.key === "Backspace" || e.key === "Delete") && onChange) {
+            e.preventDefault();
+            onChange("");
+        }
+    };
+
     const inputRef = useRef(null);
 
     useEffect(() => {
@@ -19,7 +27,7 @@ export default function Input({ value, onChange, isActive }){
 
     return (
         <div
-            className="aspect-square w-[4rem] box-border bg-gray-100 border-2 border-red-800
+            className="aspect-square w-[4rem] box-border border-2 border-red-800
             rounded-xl flex items-center justify-center"
         >
             <input
@@ -27,15 +35,23 @@ export default function Input({ value, onChange, isActive }){
                 type="text"
                 maxLength={1}
                 className="w-full h-full text-center bg-transparent outline-none"
-                style={{ 
-                    fontSize: '2rem', 
-                    backgroundColor: isActive ? "lightblue" : "white"
+                style={{
+                    fontSize: '2rem',
+                    backgroundColor:
+                        notFound ? "red" :
+                        result === "correct" ? "darkseagreen" :
+                        result === "present" ? "sandybrown" :
+                        result === "absent" ? "dimgray" :
+                        isActive ? "white" :
+                        rowFilled ? "snow" :
+                        "papayawhip"
                 }}
                 value={value}
                 onChange={handleChange}
+                onKeyDown={handleKeyDown}
                 tabIndex={-1}
                 onMouseDown={e => e.preventDefault()}
             />
         </div>
-    )
+    );
 }
