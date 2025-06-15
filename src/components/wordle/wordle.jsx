@@ -1,8 +1,8 @@
 "use client"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect,useState } from "react"
 import Input from "./input"
 
-export default function Wordle({word}){
+export default function Wordle({word, onSignal}){
     const [activeRow, setActiveRow] = useState(0)
     const [activeCol, setActiveCol] = useState(0)
     const [filledRow, setFilledRow] = useState(null)   //Last filled row
@@ -21,6 +21,7 @@ export default function Wordle({word}){
         }
     },[wordNotFound])
 
+
     const checkAnswer = (row) => {
         console.log(word)
 
@@ -34,57 +35,38 @@ export default function Wordle({word}){
             setWordNotFound(true)
             setNotFoundRow(row)
             return;
+        }else if(word === answer){
+            onSignal("solved")
+            return
         }
 
-        let answerCorrect = true
         answer.split('').forEach((value, index) => {
+            let updated = panelResults
             if (value === word.charAt(index)) {      //Letter is in correct place
                 console.log("same hit")
-                setPanelResults(prev => {
-                    const updated = prev.map(arr => [...arr]);
-                    updated[row][index] = "correct";
-                    console.log(updated); // Log the updated state immediately
-                    return updated;
-                });
+                updated[row][index] = "correct";
+                console.log(updated); // Log the updated state immediately
+
             } else if (word.includes(value)) {    //Letter is present but in different place
-                setPanelResults(prev => {
-                    const updated = prev.map(arr => [...arr]);
-                    updated[row][index] = "present";
-                    console.log(updated)
-                    answerCorrect = false
-                    return updated;
-                });
+                updated[row][index] = "present";
+                console.log(updated)
             } else {   //Letter is absent in the word
-                setPanelResults(prev => {
-                    const updated = prev.map(arr => [...arr]);
-                    updated[row][index] = "absent";
-                    console.log(updated)
-                    answerCorrect = false
-                    return updated;
-                });
+                updated[row][index] = "absent";
+                console.log(updated)
             }
+            setPanelResults(updated)
         });
-
-        if(answerCorrect){
-            setActiveRow(Math.min(row+1, 5))
-            setActiveCol(0)
-        }
-
+        setActiveRow(Math.min(row+1, 5))
+        setActiveCol(0)
     }
 
     const handleInputChange = (row, col, value) => {
-        setPanelValues(prev => {
-            const updated = prev.map(arr => [...arr])
-            updated[row][col] = value
-            return updated
-        })
+        let updated = panelValues
+
+        updated[row][col] = value
         if(value === ""){
             setActiveCol(Math.max(0, col - 1))
-            setPanelValues(prev => {
-                const updated = prev.map(arr => [...arr])
-                updated[row][col-1] = ''
-                return updated
-            })
+            updated[row][col-1] = ''
         }else
         if(col < 5){
             setActiveCol(col+1)
@@ -94,10 +76,13 @@ export default function Wordle({word}){
             setFilledRow(row);
             console.log("Filled row updated");
         }
+
+        setPanelValues(updated)
     }
     const handleKeyDown = (e) => {
         if (e.key.toLowerCase() === "enter" && filledRow !== null) {
             console.log("Enter key pressed");
+            console.log(panelValues[0])
             checkAnswer(filledRow);
         }
     }
