@@ -45,7 +45,7 @@ export default function Wordle({word, onSignal}){
             if (value === word.charAt(index)) {      //Letter is in correct place
                 console.log("same hit")
                 updated[row][index] = "correct";
-                console.log(updated); // Log the updated state immediately
+                console.log(updated);
 
             } else if (word.includes(value)) {    //Letter is present but in different place
                 updated[row][index] = "present";
