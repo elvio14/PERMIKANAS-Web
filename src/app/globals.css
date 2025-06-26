@@ -55,21 +55,6 @@
     font-style: 48px;
   }
 
- h1 {
-    font-family: "Manrope", serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: normal;
-    font-size: 40px; 
-  }
-    
-  .manrope-h2 {
-    font-family: "Manrope", serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: normal;
-  }
-
   .manrope-thin {
     font-family: "Manrope", serif;
     font-optical-sizing: auto;
@@ -77,17 +62,33 @@
     font-style: normal;
   }
 
+  .manrope-h1 {
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 45px; 
+  }
+
+  .manrope-h2 {
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+  }
+
   .manrope-h3{
     font-family: "Manrope", serif;
     font-optical-sizing: auto;
-    font-weight: 800;
-    font-size: 32px;
+    font-weight: 700;
+    font-size: 26px;
     font-style: normal;
   }
   .manrope-h4{
     font-family: "Manrope", serif;
     font-optical-sizing: auto;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 20px;
     font-style: normal;
   }
@@ -150,7 +151,8 @@ a:hover{
 
 a:hover{
   color: var(--main-2);
-  @apply transition duration-300; 
+  @apply transition duration-300;
+}
 /*  Styles Article */
 .article-subheader {
   @apply text-lg font-extrabold mb-2;
