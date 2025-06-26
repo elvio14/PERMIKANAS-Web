@@ -1,11 +1,12 @@
 #!/bin/bash
 
-echo "Branch is: $VERCEL_GIT_BRANCH"
+echo "VERCEL_GIT_BRANCH is: '$VERCEL_GIT_BRANCH'"
 
-if [ "$VERCEL_GIT_BRANCH" = "main" ]; then
-  echo "On main — proceeding with build"
-  exit 1  # Exit with non-zero to run the build
+# If it's main, or if VERCEL_GIT_BRANCH is empty (manual deploy), proceed
+if [ "$VERCEL_GIT_BRANCH" = "main" ] || [ -z "$VERCEL_GIT_BRANCH" ]; then
+  echo "Proceeding with build"
+  exit 1  # Non-zero = DON'T skip build
 else
-  echo "Not main — skipping build"
-  exit 0  # Exit 0 to skip
+  echo "Skipping build because not on main"
+  exit 0  # Zero = SKIP build
 fi
