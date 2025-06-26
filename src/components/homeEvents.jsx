@@ -1,3 +1,4 @@
+"use client"
 import SubButton from "./subButton"
 import Slide from "./slide"
 import { useState, useEffect } from "react"
