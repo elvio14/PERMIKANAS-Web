@@ -73,7 +73,7 @@ export default function EventsPast() {
                 <div className="whitespace-nowrap scrollbar-hide">
                 {
                     pastEvents.map((ev, index) => {
-                        return (<EventPanel key={index} ev={ev} index={index} panelWidth={"17vw"} />)
+                        return (<EventPanel key={index} ev={ev} index={index} panelWidth={"15vw"} />)
                     })
                 }
                 </div>

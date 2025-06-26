@@ -1,4 +1,4 @@
-export default function EventsUpcoming() {
+export default function EventsAll() {
     return (
         <>
         </>

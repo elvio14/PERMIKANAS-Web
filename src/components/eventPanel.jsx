@@ -1,12 +1,13 @@
-export default function EventPanel({ev, index}){
+export default function EventPanel({ev, index, panelWidth = "17vw"}){
 
     return (
         <div 
             key={index}
-            className="aspect-square w-[20vw] mx-4 border border-transparent rounded-xl hover:border-2 hover:border-white inline-block items-center justify-center bg-cover bg-center cursor-pointer"
+            className="aspect-square mx-4 border border-transparent rounded-xl hover:border-2 hover:border-white inline-block items-center justify-center bg-cover bg-center cursor-pointer"
             style={{
                 backgroundImage: `url(${ev.image})`,
-                objectFit: "cover"
+                objectFit: "cover",
+                width: panelWidth
             }}
         >
             <div className="h-full w-full flex flex-col justify-end p-4 bg-gradient-to-b from-black/0 to-black/30 rounded-2xl">
