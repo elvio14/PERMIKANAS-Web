@@ -27,8 +27,17 @@ export default function HomeEvents() {
             <div className="flex space-x-4 md:justify-center md:px-0 overflow-x-scroll px-8 py-8">
                 {slides.map((slide, index) => {
                     return (
-                    <div key={index} onMouseEnter={() => handleMouseEnter(index)}>
-                        <Slide key={index} title={slide.title} date={slide.date} image={slide.image} isActive={index === activeSlide}/>
+                    <div
+                        key={index}
+                        onMouseEnter={() => handleMouseEnter(index)}
+                        onTouchStart={() => handleMouseEnter(index)}
+                    >
+                        <Slide
+                            title={slide.title}
+                            date={slide.date}
+                            image={slide.image}
+                            isActive={index === activeSlide}
+                        />
                     </div>
                     )
                 })}

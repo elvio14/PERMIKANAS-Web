@@ -17,7 +17,9 @@ export default function Slide({ title, date, image, isActive }) {
       <div
         style={{ 
           backgroundImage: `url(${image})`,
-          width: !mobile && isActive ? '30vw' : '18vw'
+          width: !mobile && isActive ? '30vw' : 
+                mobile && isActive ? '80vw' :
+                mobile && !isActive ? '50vw': '18vw'
         }}
         className="h-72 md:w-[18vw] w-[80vw] bg-cover bg-center rounded-2xl transition-all duration-300 cursor-pointer"
       >
