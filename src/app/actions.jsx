@@ -1,8 +1,9 @@
 "use server"
 
-import { db } from "./firebase"
+import { authPromise, db } from "./firebase"
 
 import { setDoc, doc } from "firebase/firestore"
+import { query, where, collection, getDocs } from "firebase/firestore"
 
 async function createMember(member){
   try{
@@ -23,11 +24,12 @@ async function createMember(member){
 }
 
 async function submitWordle(data){
+  await authPromise;
   try{
-    await setDoc(doc(db, "wordle", data.username), {
-      name: data.name,
+    await setDoc(doc(db, "wordleSubmissions", data.username), {
+      username: data.username,
       wordleNumber: data.wordleNumber,
-      wordleStats: data.wordleStats,
+      panelResults: data.panelResults,
       chapter: data.chapter,
       city: data.city,
       timeAdded: Date.now(),
@@ -37,4 +39,28 @@ async function submitWordle(data){
   }
 }
 
-export {createMember, submitWordle} 
+async function getAllSubmissions() {
+  const snapshot = await db.collection("wordleSubmissions").get()
+  const items = []
+  snapshot.forEach(doc => {
+    items.push({ id: doc.id, ...doc.data()})
+  })
+
+  return items
+}
+async function getWordleByNumber(number) {
+  await authPromise;
+  const q = query(
+    collection(db, "wordle"),
+    where("number", "==", number)
+  )
+  const querySnapshot = await getDocs(q)
+  if (!querySnapshot.empty) {
+    const docSnap = querySnapshot.docs[0]
+    return { id: docSnap.id, ...docSnap.data() }
+  } else {
+    return null
+  }
+}
+
+export {createMember, submitWordle, getAllSubmissions, getWordleByNumber} 

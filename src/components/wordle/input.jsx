@@ -1,5 +1,7 @@
 "use client"
 import { useRef, useEffect } from "react";
+import { ResultType } from "./resultTypes";
+
 export default function Input({ value, onChange, isActive, rowFilled, result ,notFound }) {
     const handleChange = (e) => {
         const val = e.target.value;
@@ -39,9 +41,9 @@ export default function Input({ value, onChange, isActive, rowFilled, result ,no
                     fontSize: '2rem',
                     backgroundColor:
                         notFound ? "red" :
-                        result === "correct" ? "darkseagreen" :
-                        result === "present" ? "sandybrown" :
-                        result === "absent" ? "dimgray" :
+                        result === ResultType.CORRECT ? "darkseagreen" :
+                        result === ResultType.PRESENT ? "sandybrown" :
+                        result === ResultType.ABSENT ? "dimgray" :
                         isActive ? "white" :
                         rowFilled ? "snow" :
                         "papayawhip"

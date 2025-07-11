@@ -1,13 +1,14 @@
 "use client"
 import React, { useEffect,useState } from "react"
 import Input from "./input"
+import { ResultType } from "./resultTypes"
 
-export default function Wordle({word, onSignal}){
+export default function Wordle({word, onSignal, onPanelResults}){
     const [activeRow, setActiveRow] = useState(0)
     const [activeCol, setActiveCol] = useState(0)
     const [filledRow, setFilledRow] = useState(null)   //Last filled row
     const [panelValues, setPanelValues] = useState(Array.from({ length: 6 }, () => Array(5).fill('')))
-    const [panelResults, setPanelResults] = useState(Array.from({ length: 6 }, () => Array(5).fill('')))
+    const [panelResults, setPanelResults] = useState(Array.from({ length: 6 }, () => Array(5).fill(ResultType.BLANK)))
     const [notFoundRow, setNotFoundRow] = useState(null)
     const [kbbiSet, setKbbiSet] = useState(new Set())
 
@@ -35,29 +36,37 @@ export default function Wordle({word, onSignal}){
             setWordNotFound(true)
             setNotFoundRow(row)
             return;
-        }else if(word === answer){
-            onSignal("solved")
-            return
         }
 
         answer.split('').forEach((value, index) => {
             let updated = panelResults
             if (value === word.charAt(index)) {      //Letter is in correct place
                 console.log("same hit")
-                updated[row][index] = "correct";
+                updated[row][index] = ResultType.CORRECT;
                 console.log(updated);
 
             } else if (word.includes(value)) {    //Letter is present but in different place
-                updated[row][index] = "present";
+                updated[row][index] = ResultType.PRESENT;
                 console.log(updated)
             } else {   //Letter is absent in the word
-                updated[row][index] = "absent";
+                updated[row][index] = ResultType.ABSENT;
                 console.log(updated)
             }
             setPanelResults(updated)
         });
-        setActiveRow(Math.min(row+1, 5))
-        setActiveCol(0)
+        if(word === answer){
+            onPanelResults(panelResults)
+            onSignal("solved")
+            return
+        }
+        if(row > 4){    //Case: on last row
+            onPanelResults(panelResults)
+            onSignal("failed")
+            return
+        }else{
+            setActiveRow(row+1)
+            setActiveCol(0)
+        }
     }
 
     const handleInputChange = (row, col, value) => {
