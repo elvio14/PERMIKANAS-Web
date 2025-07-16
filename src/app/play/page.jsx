@@ -4,11 +4,22 @@ import ResultImage from "@/components/wordle/resultImage";
 import { useState, useEffect } from "react";
 import { submitWordle, getAllSubmissions, getWordleByNumber } from "../actions";
 import { useRouter } from "next/navigation"
+import useIsMobile from "@/components/isMobile"
+import Loading from "@/components/loading"
+import HeaderMobile from "@/components/headerMobile"
+import Header from "@/components/header"
+import SubButton from "@/components/subButton";
+import { ResultType } from "@/components/wordle/resultTypes";
 
 export default function Play(){
     const [gameStatus, setGameStatus] = useState("load");
     const [curWordle, setCurWordle] = useState({})
     const [curPanelResults, setCurPanelResults] = useState([])
+    const router = useRouter()
+    const goToPage = (path) => {
+      console.log("Running goToPage " + path)
+      router.push(path)
+    }
 
     const handleSignalFromWordle = (status) => {
         console.log("Signal received from Wordle:", status);
@@ -20,10 +31,14 @@ export default function Play(){
         setCurPanelResults(panelResults)
     }
 
-    const router = useRouter()
-    const goToPage = (path) => {
-      console.log("Running goToPage " + path)
-      router.push(path)
+    const getScore = () => {
+        let score = 110
+        curPanelResults.forEach((row) => {
+            if(row[0] !== ResultType.BLANK){
+                score = score - 10
+            }
+        })
+        return score
     }
 
     const handleSolved = async () => {
@@ -31,6 +46,7 @@ export default function Play(){
             username: "dev",
             wordleNumber: curWordle.number,
             panelResults: JSON.stringify(curPanelResults),
+            score: getScore() ,
             chapter: "York",
             city: "Toronto"
         }
@@ -64,25 +80,34 @@ export default function Play(){
 
         fetchWordle()
     }, [])
+
+    let mobile = useIsMobile()
+    if (mobile === undefined){
+      return (<div className="pb-[12rem]"><Loading/></div>)
+    }
     return (
-        <div className="h-[100vh] pb-[12rem] h-fit">
+        <>{mobile ? <HeaderMobile/> : <Header/>}
+
+        <div className="h-[100vh] mt-24 md:mt-12 mb-[12rem] h-fit flex flex-col items-center justify-center">
+            <SubButton text="Wordle"/>
             {gameStatus === "play" && curWordle != null &&
                 <Wordle word={curWordle.word}
                 onSignal={handleSignalFromWordle}
                 onPanelResults={handlePanelResultsFromWordle}/>}
             
             {gameStatus === "solved" && 
-                <div className="bg-red-900 w-[50vw] h-[50vh] p-8">
+                <div className="bg-red-900 w-[50vw] h-[50vh] p-8 flex flex-col items-center justify-center">
                     <h2>Cakep!</h2>
                     <ResultImage panelResults={curPanelResults} widthPixels={200}/>
                 </div>
             }
 
             {gameStatus === "failed" &&
-                <div className="bg-['papayawhip'] w-[50vw]">
+                <div className="bg-['papayawhip'] w-[50vw] flex flex-col items-center justify-center">
                     <h2>Coba lagi besok!</h2>
                 </div>
             }
         </div>
+        </>
     )
 }

@@ -54,15 +54,15 @@ export default function Keyboard({request, onKeyClicked}){
     }, [request])
 
     return (
-        <div className="flex flex-col items-center gap-1">
-            <div className="flex gap-1">
+        <div className="flex flex-col py-8 items-center gap-2">
+            <div className="flex gap-2">
                 {keys.slice(0, 10).map((key, index) => (
                     <div
                         key={key.key}
                         className={`
-                            w-10 h-12 flex items-center justify-center rounded
+                            aspect-[2/3] h-12 md:w-10 flex items-center justify-center rounded
                             text-lg font-bold cursor-pointer select-none
-                            border border-1 border-transparent hover:border-black
+                            border border-2 border-transparent hover:border-red-800
                             ${key.status === ResultType.CORRECT ? "bg-[darkseagreen]" : ""}
                             ${key.status === ResultType.PRESENT ? "bg-[sandybrown]" : ""}
                             ${key.status === ResultType.ABSENT ? "bg-[dimgray]" : ""}
@@ -74,14 +74,14 @@ export default function Keyboard({request, onKeyClicked}){
                     </div>
                 ))}
             </div>
-            <div className="flex gap-1">
+            <div className="flex gap-2">
                 {keys.slice(10, 19).map((key, index) => (
                     <div
                         key={key.key}
                         className={`
-                            w-10 h-12 flex items-center justify-center rounded
+                            aspect-[2/3] h-12 md:w-10  flex items-center justify-center rounded
                             text-lg font-bold cursor-pointer select-none
-                            border border-1 border-transparent hover:border-black
+                            border border-2 border-transparent hover:border-red-800
                             ${key.status === ResultType.CORRECT ? "bg-[darkseagreen]" : ""}
                             ${key.status === ResultType.PRESENT ? "bg-[sandybrown]" : ""}
                             ${key.status === ResultType.ABSENT ? "bg-[dimgray]" : ""}
@@ -93,9 +93,9 @@ export default function Keyboard({request, onKeyClicked}){
                     </div>
                 ))}
             </div>
-            <div className="flex gap-1">
+            <div className="flex gap-2">
                 <div className={`w-fit px-2 h-12 flex items-center justify-center rounded text-lg font-bold cursor-pointer select-none bg-[lightgrey]
-                                border border-1 border-transparent hover:border-black`}
+                                border border-2 border-transparent hover:border-red-800`}
                 onClick={()=>handleClick('DEL')}>
                     Del
                 </div>
@@ -103,9 +103,9 @@ export default function Keyboard({request, onKeyClicked}){
                     <div
                         key={key.key}
                         className={`
-                            w-10 h-12 flex items-center justify-center rounded
+                            aspect-[2/3] h-12 md:w-10 flex items-center justify-center rounded
                             text-lg font-bold cursor-pointer select-none
-                            border border-1 border-transparent hover:border-black
+                            border border-2 border-transparent hover:border-red-800
                             ${key.status === ResultType.CORRECT ? "bg-[darkseagreen]" : ""}
                             ${key.status === ResultType.PRESENT ? "bg-[sandybrown]" : ""}
                             ${key.status === ResultType.ABSENT ? "bg-[dimgray]" : ""}
@@ -117,9 +117,9 @@ export default function Keyboard({request, onKeyClicked}){
                     </div>
                 ))}
                 <div className={`w-fit px-2 h-12 flex items-center justify-center rounded text-lg font-bold cursor-pointer select-none bg-[lightgrey]
-                                 border border-1 border-transparent hover:border-black`}
+                                border border-2 border-transparent hover:border-red-800`}
                 onClick={()=>handleClick('ENTER')}>
-                    Enter
+                    Ent
                 </div>
             </div>
         </div>

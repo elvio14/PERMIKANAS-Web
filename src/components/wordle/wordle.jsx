@@ -3,6 +3,7 @@ import React, { useEffect,useState } from "react"
 import { ResultType } from "./resultTypes"
 import LetterBox from "./letterBox"
 import Keyboard from "./keyboard"
+import Prompt from "./prompt"
 
 export default function Wordle({word, onSignal, onPanelResults}){
     const [activeRow, setActiveRow] = useState(0)
@@ -83,8 +84,10 @@ export default function Wordle({word, onSignal, onPanelResults}){
     const handleKeyClick = (key) => {
         console.log("Parent got key: " + key)
 
-        if(key ==="ENTER" && activeCol === 4){
-            checkAnswer()
+        if(key ==="ENTER"){
+            if(activeCol === 4){
+                checkAnswer()
+            }
             return
         }
         
@@ -135,7 +138,8 @@ export default function Wordle({word, onSignal, onPanelResults}){
     },[panelValues])
 
     return (
-        <div className="flex flex-col gap-1 m-4 w-fit" >
+        <div className="flex flex-col py-8 gap-1 m-4 w-fit items-center" >
+            <Prompt />
             {
                 panelValues.map((row, rowIndex) => (
                     <div className="flex flex-row gap-1" key={rowIndex}>
