@@ -1,8 +1,7 @@
 "use client"
 import React, { useEffect,useState } from "react"
-import Input from "./input"
 import { ResultType } from "./resultTypes"
-import Input2 from "./input_2"
+import LetterBox from "./letterBox"
 import Keyboard from "./keyboard"
 
 export default function Wordle({word, onSignal, onPanelResults}){
@@ -13,6 +12,7 @@ export default function Wordle({word, onSignal, onPanelResults}){
     const [panelResults, setPanelResults] = useState(Array.from({ length: 6 }, () => Array(5).fill(ResultType.BLANK)))
     const [notFoundRow, setNotFoundRow] = useState(null)
     const [kbbiSet, setKbbiSet] = useState(new Set())
+    const [keyReq, setKeyReg] = useState(null)
 
     const [wordNotFound, setWordNotFound] = useState(false)
     useEffect(()=> {
@@ -24,10 +24,14 @@ export default function Wordle({word, onSignal, onPanelResults}){
         }
     },[wordNotFound])
 
+    const sendReqToKeyboard = (req) => {
+        console.log(req)
+        setKeyReg(req)
+    }
 
-    const checkAnswer = (row) => {
+    const checkAnswer = () => {
         console.log(word)
-
+        const row = activeRow
         let answer = '';
         panelValues[row].forEach((value) => {
             answer += value
@@ -40,20 +44,22 @@ export default function Wordle({word, onSignal, onPanelResults}){
             setNotFoundRow(row)
             return;
         }
-
+        let keyboardRequest = []
         answer.split('').forEach((value, index) => {
             let updated = panelResults
             if (value === word.charAt(index)) {      //Letter is in correct place
                 console.log("same hit")
                 updated[row][index] = ResultType.CORRECT;
                 console.log(updated);
-
+                keyboardRequest.push({targetKey: value, newStatus: ResultType.CORRECT})
             } else if (word.includes(value)) {    //Letter is present but in different place
                 updated[row][index] = ResultType.PRESENT;
                 console.log(updated)
+                keyboardRequest.push({targetKey: value, newStatus: ResultType.PRESENT})
             } else {   //Letter is absent in the word
                 updated[row][index] = ResultType.ABSENT;
                 console.log(updated)
+                keyboardRequest.push({targetKey: value, newStatus: ResultType.ABSENT})
             }
             setPanelResults(updated)
         });
@@ -70,64 +76,44 @@ export default function Wordle({word, onSignal, onPanelResults}){
             setActiveRow(row+1)
             setActiveCol(0)
         }
-    }
 
-    const handleInputChange = (row, col, value) => {
-        let updated = panelValues
-
-        updated[row][col] = value
-        if(value === ""){
-            setActiveCol(Math.max(0, col - 1))
-            updated[row][col-1] = ''
-        }else
-        if(col < 5){
-            setActiveCol(col+1)
-        }
-
-        if (col === 4 && value !== "") {   // Last column filled with a non-empty value
-            setFilledRow(row);
-            console.log("Filled row updated");
-        }
-
-        setPanelValues(updated)
-    }
-    const handleKeyDown = (e) => {
-        if (e.key.toLowerCase() === "enter" && filledRow !== null) {
-            console.log("Enter key pressed");
-            console.log(panelValues[0])
-            checkAnswer(filledRow);
-        }
+        sendReqToKeyboard(keyboardRequest)
     }
 
     const handleKeyClick = (key) => {
         console.log("Parent got key: " + key)
-        // Create a deep copy to avoid mutating state directly
+
+        if(key ==="ENTER" && activeCol === 4){
+            checkAnswer()
+            return
+        }
+        
         let updated = panelValues.map(row => [...row])
+        
+        if(key ==="DEL"){
+            let isFilled = 1
+            if(updated[activeRow][activeCol] !== ""){
+                isFilled = 0
+            }
+            const prev = Math.max(0,activeCol-isFilled)
+            updated[activeRow][prev] = ""
+            setActiveCol(prev)
+            setPanelValues(updated)
+            return
+        }
+
         updated[activeRow][activeCol] = key
         setPanelValues(updated)
-        if (activeCol === 4) {   // Last column filled with a non-empty value
+        if (activeCol === 4) {    // If at last box
             setFilledRow(activeRow);
             console.log("Filled row updated");
-        }
+        }else
         if(activeCol < 4){
             setActiveCol(activeCol+1)
         }
     }
 
     useEffect(() => {
-        // const handleKeyDownWrapper = (e) => handleKeyDown(e);
-        // window.addEventListener("keydown", handleKeyDownWrapper);
-        // return () => window.removeEventListener("keydown", handleKeyDownWrapper);
-        checkAnswer(activeRow)
-    }, [filledRow])
-
-    const preventFocusLoss = (e) => {
-        e.preventDefault()
-    }
-
-    useEffect(() => {
-        document.addEventListener("mousedown", preventFocusLoss);
-
         fetch('/kata5huruf.txt')
             .then(response => {
             if (!response.ok) {
@@ -142,9 +128,6 @@ export default function Wordle({word, onSignal, onPanelResults}){
             console.log(kbbiSet);
             })
             .catch(err => console.error("Error fetching KBBI data:", err));
-        
-        
-        return () => document.removeEventListener("mousedown", preventFocusLoss);
     }, []);
 
     useEffect(() => {
@@ -157,16 +140,7 @@ export default function Wordle({word, onSignal, onPanelResults}){
                 panelValues.map((row, rowIndex) => (
                     <div className="flex flex-row gap-1" key={rowIndex}>
                         {row.map((val, colIndex) => (
-                            // <Input
-                            //     key={colIndex}
-                            //     value={val}
-                            //     onChange={val => handleInputChange(rowIndex, colIndex, val)}
-                            //     isActive={activeRow === rowIndex && activeCol === colIndex}
-                            //     rowFilled={filledRow === rowIndex}
-                            //     result={panelResults[rowIndex][colIndex]}
-                            //     notFound={notFoundRow === rowIndex}
-                            // />
-                            <Input2
+                            <LetterBox
                                 key={colIndex}
                                 value={val}
                                 isActive={activeRow === rowIndex && activeCol === colIndex}
@@ -178,7 +152,11 @@ export default function Wordle({word, onSignal, onPanelResults}){
                     </div>
                 ))
             }
-            <Keyboard onKeyClicked={(key) => handleKeyClick(key)}/>
+
+            <Keyboard
+                request={keyReq}
+                onKeyClicked={(key) => handleKeyClick(key)}
+            />
         </div>
     )
 }

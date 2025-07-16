@@ -34,9 +34,10 @@ export default function Keyboard({request, onKeyClicked}){
     const updateKeyStatus = (targetKey, newStatus) => {
         setKeys(prev =>
             prev.map(item =>
-                item.key === targetKey ? {...item, status: newStatus} : item
+                item.key.toLocaleLowerCase() === targetKey ? {...item, status: Math.max(newStatus, item.status)} : item
             )
         )
+        console.log("updateKeyStatus")
     }
 
     const handleClick = (key) => {
@@ -46,28 +47,81 @@ export default function Keyboard({request, onKeyClicked}){
 
     useEffect(()=>{
         if(request){
-            updateKeyStatus(request.targetKey, request.newStatus)
+            request.forEach(key => {
+                updateKeyStatus(key.targetKey, key.newStatus)
+            });
         }
     }, [request])
 
     return (
-        <div className="flex flex-wrap justify-center gap-1">
-            {keys.map((key, index) => (
-                <div
-                    key={index}
-                    className={`
-                        w-10 h-12 flex items-center justify-center rounded
-                        text-lg font-bold cursor-pointer select-none
-                        ${key.status === ResultType.CORRECT ? "bg-[darkseagreen]" : ""}
-                        ${key.status === ResultType.PRESENT ? "bg-[sandybrown]" : ""}
-                        ${key.status === ResultType.ABSENT ? "bg-[dimgray]" : ""}
-                        ${key.status === ResultType.BLANK ? "bg-[lightgrey]" : ""}
-                    `}
-                    onClick={()=>handleClick(key.key)}
-                >
-                    {key.key}
+        <div className="flex flex-col items-center gap-1">
+            <div className="flex gap-1">
+                {keys.slice(0, 10).map((key, index) => (
+                    <div
+                        key={key.key}
+                        className={`
+                            w-10 h-12 flex items-center justify-center rounded
+                            text-lg font-bold cursor-pointer select-none
+                            border border-1 border-transparent hover:border-black
+                            ${key.status === ResultType.CORRECT ? "bg-[darkseagreen]" : ""}
+                            ${key.status === ResultType.PRESENT ? "bg-[sandybrown]" : ""}
+                            ${key.status === ResultType.ABSENT ? "bg-[dimgray]" : ""}
+                            ${key.status === ResultType.BLANK ? "bg-[lightgrey]" : ""}
+                        `}
+                        onClick={()=>handleClick(key.key)}
+                    >
+                        {key.key}
+                    </div>
+                ))}
+            </div>
+            <div className="flex gap-1">
+                {keys.slice(10, 19).map((key, index) => (
+                    <div
+                        key={key.key}
+                        className={`
+                            w-10 h-12 flex items-center justify-center rounded
+                            text-lg font-bold cursor-pointer select-none
+                            border border-1 border-transparent hover:border-black
+                            ${key.status === ResultType.CORRECT ? "bg-[darkseagreen]" : ""}
+                            ${key.status === ResultType.PRESENT ? "bg-[sandybrown]" : ""}
+                            ${key.status === ResultType.ABSENT ? "bg-[dimgray]" : ""}
+                            ${key.status === ResultType.BLANK ? "bg-[lightgrey]" : ""}
+                        `}
+                        onClick={()=>handleClick(key.key)}
+                    >
+                        {key.key}
+                    </div>
+                ))}
+            </div>
+            <div className="flex gap-1">
+                <div className={`w-fit px-2 h-12 flex items-center justify-center rounded text-lg font-bold cursor-pointer select-none bg-[lightgrey]
+                                border border-1 border-transparent hover:border-black`}
+                onClick={()=>handleClick('DEL')}>
+                    Del
                 </div>
-            ))}
+                {keys.slice(19).map((key, index) => (
+                    <div
+                        key={key.key}
+                        className={`
+                            w-10 h-12 flex items-center justify-center rounded
+                            text-lg font-bold cursor-pointer select-none
+                            border border-1 border-transparent hover:border-black
+                            ${key.status === ResultType.CORRECT ? "bg-[darkseagreen]" : ""}
+                            ${key.status === ResultType.PRESENT ? "bg-[sandybrown]" : ""}
+                            ${key.status === ResultType.ABSENT ? "bg-[dimgray]" : ""}
+                            ${key.status === ResultType.BLANK ? "bg-[lightgrey]" : ""}
+                        `}
+                        onClick={()=>handleClick(key.key)}
+                    >
+                        {key.key}
+                    </div>
+                ))}
+                <div className={`w-fit px-2 h-12 flex items-center justify-center rounded text-lg font-bold cursor-pointer select-none bg-[lightgrey]
+                                 border border-1 border-transparent hover:border-black`}
+                onClick={()=>handleClick('ENTER')}>
+                    Enter
+                </div>
+            </div>
         </div>
     )
 }
