@@ -1,0 +1,73 @@
+import { useEffect, useState } from "react"
+import { ResultType } from "./resultTypes"
+
+export default function Keyboard({request, onKeyClicked}){
+    const [keys, setKeys] = useState([
+        { key: 'Q', status: ResultType.BLANK },
+        { key: 'W', status: ResultType.BLANK },
+        { key: 'E', status: ResultType.BLANK },
+        { key: 'R', status: ResultType.BLANK },
+        { key: 'T', status: ResultType.BLANK },
+        { key: 'Y', status: ResultType.BLANK },
+        { key: 'U', status: ResultType.BLANK },
+        { key: 'I', status: ResultType.BLANK },
+        { key: 'O', status: ResultType.BLANK },
+        { key: 'P', status: ResultType.BLANK },
+        { key: 'A', status: ResultType.BLANK },
+        { key: 'S', status: ResultType.BLANK },
+        { key: 'D', status: ResultType.BLANK },
+        { key: 'F', status: ResultType.BLANK },
+        { key: 'G', status: ResultType.BLANK },
+        { key: 'H', status: ResultType.BLANK },
+        { key: 'J', status: ResultType.BLANK },
+        { key: 'K', status: ResultType.BLANK },
+        { key: 'L', status: ResultType.BLANK },
+        { key: 'Z', status: ResultType.BLANK },
+        { key: 'X', status: ResultType.BLANK },
+        { key: 'C', status: ResultType.BLANK },
+        { key: 'V', status: ResultType.BLANK },
+        { key: 'B', status: ResultType.BLANK },
+        { key: 'N', status: ResultType.BLANK },
+        { key: 'M', status: ResultType.BLANK }
+    ])
+
+    const updateKeyStatus = (targetKey, newStatus) => {
+        setKeys(prev =>
+            prev.map(item =>
+                item.key === targetKey ? {...item, status: newStatus} : item
+            )
+        )
+    }
+
+    const handleClick = (key) => {
+        console.log("clicked " + key)
+        onKeyClicked(key)
+    }
+
+    useEffect(()=>{
+        if(request){
+            updateKeyStatus(request.targetKey, request.newStatus)
+        }
+    }, [request])
+
+    return (
+        <div className="flex flex-wrap justify-center gap-1">
+            {keys.map((key, index) => (
+                <div
+                    key={index}
+                    className={`
+                        w-10 h-12 flex items-center justify-center rounded
+                        text-lg font-bold cursor-pointer select-none
+                        ${key.status === ResultType.CORRECT ? "bg-[darkseagreen]" : ""}
+                        ${key.status === ResultType.PRESENT ? "bg-[sandybrown]" : ""}
+                        ${key.status === ResultType.ABSENT ? "bg-[dimgray]" : ""}
+                        ${key.status === ResultType.BLANK ? "bg-[lightgrey]" : ""}
+                    `}
+                    onClick={()=>handleClick(key.key)}
+                >
+                    {key.key}
+                </div>
+            ))}
+        </div>
+    )
+}

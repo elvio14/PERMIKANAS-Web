@@ -2,6 +2,8 @@
 import React, { useEffect,useState } from "react"
 import Input from "./input"
 import { ResultType } from "./resultTypes"
+import Input2 from "./input_2"
+import Keyboard from "./keyboard"
 
 export default function Wordle({word, onSignal, onPanelResults}){
     const [activeRow, setActiveRow] = useState(0)
@@ -30,6 +32,7 @@ export default function Wordle({word, onSignal, onPanelResults}){
         panelValues[row].forEach((value) => {
             answer += value
         })
+        answer = answer.toLocaleLowerCase()
 
         if (!kbbiSet.has(answer)) {
             console.log(answer + " not found in KBBI set");
@@ -96,10 +99,26 @@ export default function Wordle({word, onSignal, onPanelResults}){
         }
     }
 
+    const handleKeyClick = (key) => {
+        console.log("Parent got key: " + key)
+        // Create a deep copy to avoid mutating state directly
+        let updated = panelValues.map(row => [...row])
+        updated[activeRow][activeCol] = key
+        setPanelValues(updated)
+        if (activeCol === 4) {   // Last column filled with a non-empty value
+            setFilledRow(activeRow);
+            console.log("Filled row updated");
+        }
+        if(activeCol < 4){
+            setActiveCol(activeCol+1)
+        }
+    }
+
     useEffect(() => {
-        const handleKeyDownWrapper = (e) => handleKeyDown(e);
-        window.addEventListener("keydown", handleKeyDownWrapper);
-        return () => window.removeEventListener("keydown", handleKeyDownWrapper);
+        // const handleKeyDownWrapper = (e) => handleKeyDown(e);
+        // window.addEventListener("keydown", handleKeyDownWrapper);
+        // return () => window.removeEventListener("keydown", handleKeyDownWrapper);
+        checkAnswer(activeRow)
     }, [filledRow])
 
     const preventFocusLoss = (e) => {
@@ -128,16 +147,28 @@ export default function Wordle({word, onSignal, onPanelResults}){
         return () => document.removeEventListener("mousedown", preventFocusLoss);
     }, []);
 
+    useEffect(() => {
+        console.log("Panel values updated.")
+    },[panelValues])
+
     return (
         <div className="flex flex-col gap-1 m-4 w-fit" >
             {
                 panelValues.map((row, rowIndex) => (
                     <div className="flex flex-row gap-1" key={rowIndex}>
                         {row.map((val, colIndex) => (
-                            <Input
+                            // <Input
+                            //     key={colIndex}
+                            //     value={val}
+                            //     onChange={val => handleInputChange(rowIndex, colIndex, val)}
+                            //     isActive={activeRow === rowIndex && activeCol === colIndex}
+                            //     rowFilled={filledRow === rowIndex}
+                            //     result={panelResults[rowIndex][colIndex]}
+                            //     notFound={notFoundRow === rowIndex}
+                            // />
+                            <Input2
                                 key={colIndex}
                                 value={val}
-                                onChange={val => handleInputChange(rowIndex, colIndex, val)}
                                 isActive={activeRow === rowIndex && activeCol === colIndex}
                                 rowFilled={filledRow === rowIndex}
                                 result={panelResults[rowIndex][colIndex]}
@@ -147,6 +178,7 @@ export default function Wordle({word, onSignal, onPanelResults}){
                     </div>
                 ))
             }
+            <Keyboard onKeyClicked={(key) => handleKeyClick(key)}/>
         </div>
     )
 }
