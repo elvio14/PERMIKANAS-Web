@@ -88,7 +88,7 @@ export default function Play(){
     return (
         <>{mobile ? <HeaderMobile/> : <Header/>}
 
-        <div className="h-[100vh] mt-24 md:mt-12 mb-[12rem] h-fit flex flex-col items-center justify-center">
+        <div className="h-[100vh] mt-16 md:mt-12 mb-[12rem] flex flex-col items-center justify-center">
             <SubButton text="Wordle"/>
             {gameStatus === "play" && curWordle != null &&
                 <Wordle word={curWordle.word}

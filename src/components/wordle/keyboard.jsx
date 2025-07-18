@@ -60,7 +60,7 @@ export default function Keyboard({request, onKeyClicked}){
                     <div
                         key={key.key}
                         className={`
-                            aspect-[2/3] h-12 md:w-10 flex items-center justify-center rounded
+                            aspect-[2/3] h-11 md:w-10 flex items-center justify-center rounded
                             text-lg font-bold cursor-pointer select-none
                             border border-2 border-transparent hover:border-red-800
                             ${key.status === ResultType.CORRECT ? "bg-[darkseagreen]" : ""}
@@ -79,7 +79,7 @@ export default function Keyboard({request, onKeyClicked}){
                     <div
                         key={key.key}
                         className={`
-                            aspect-[2/3] h-12 md:w-10  flex items-center justify-center rounded
+                            aspect-[2/3] h-11 md:w-10  flex items-center justify-center rounded
                             text-lg font-bold cursor-pointer select-none
                             border border-2 border-transparent hover:border-red-800
                             ${key.status === ResultType.CORRECT ? "bg-[darkseagreen]" : ""}
@@ -94,16 +94,16 @@ export default function Keyboard({request, onKeyClicked}){
                 ))}
             </div>
             <div className="flex gap-2">
-                <div className={`w-fit px-2 h-12 flex items-center justify-center rounded text-lg font-bold cursor-pointer select-none bg-[lightgrey]
+                <div className={`px-2 h-11 text-2xl flex items-center justify-center rounded font-bold cursor-pointer select-none bg-[lightgrey]
                                 border border-2 border-transparent hover:border-red-800`}
                 onClick={()=>handleClick('DEL')}>
-                    Del
+                    ⌫
                 </div>
                 {keys.slice(19).map((key, index) => (
                     <div
                         key={key.key}
                         className={`
-                            aspect-[2/3] h-12 md:w-10 flex items-center justify-center rounded
+                            aspect-[2/3] h-11 md:w-10 flex items-center justify-center rounded
                             text-lg font-bold cursor-pointer select-none
                             border border-2 border-transparent hover:border-red-800
                             ${key.status === ResultType.CORRECT ? "bg-[darkseagreen]" : ""}
@@ -116,10 +116,10 @@ export default function Keyboard({request, onKeyClicked}){
                         {key.key}
                     </div>
                 ))}
-                <div className={`w-fit px-2 h-12 flex items-center justify-center rounded text-lg font-bold cursor-pointer select-none bg-[lightgrey]
+                <div className={`w-fit px-2 h-11 flex items-center justify-center rounded text-lg font-bold cursor-pointer select-none bg-[lightgrey]
                                 border border-2 border-transparent hover:border-red-800`}
                 onClick={()=>handleClick('ENTER')}>
-                    Ent
+                    Enter
                 </div>
             </div>
         </div>

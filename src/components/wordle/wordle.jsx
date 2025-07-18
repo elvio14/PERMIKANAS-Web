@@ -34,6 +34,7 @@ export default function Wordle({word, onSignal, onPanelResults}){
         console.log(word)
         const row = activeRow
         let answer = '';
+        let answerSet = new Set()
         panelValues[row].forEach((value) => {
             answer += value
         })
@@ -53,7 +54,7 @@ export default function Wordle({word, onSignal, onPanelResults}){
                 updated[row][index] = ResultType.CORRECT;
                 console.log(updated);
                 keyboardRequest.push({targetKey: value, newStatus: ResultType.CORRECT})
-            } else if (word.includes(value)) {    //Letter is present but in different place
+            } else if (word.includes(value) && !answerSet.has(value)) {    //Letter is present but in different place
                 updated[row][index] = ResultType.PRESENT;
                 console.log(updated)
                 keyboardRequest.push({targetKey: value, newStatus: ResultType.PRESENT})
@@ -63,6 +64,7 @@ export default function Wordle({word, onSignal, onPanelResults}){
                 keyboardRequest.push({targetKey: value, newStatus: ResultType.ABSENT})
             }
             setPanelResults(updated)
+            answerSet.add(value)
         });
         if(word === answer){
             onPanelResults(panelResults)
@@ -85,7 +87,7 @@ export default function Wordle({word, onSignal, onPanelResults}){
         console.log("Parent got key: " + key)
 
         if(key ==="ENTER"){
-            if(activeCol === 4){
+            if(panelValues[activeRow][4] !== ""){
                 checkAnswer()
             }
             return
@@ -138,7 +140,7 @@ export default function Wordle({word, onSignal, onPanelResults}){
     },[panelValues])
 
     return (
-        <div className="flex flex-col py-8 gap-1 m-4 w-fit items-center" >
+        <div className="flex flex-col py-4 md:py-8 gap-1 m-4 w-fit items-center" >
             <Prompt />
             {
                 panelValues.map((row, rowIndex) => (
