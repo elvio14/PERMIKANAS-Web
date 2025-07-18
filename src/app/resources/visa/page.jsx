@@ -97,7 +97,7 @@ export default function Article() {
         <div class="flex items-center pt-5">
           <img src="/Article_Image3.JPG" alt="Article1 Thumbnail" class="other-article-image"></img>
           <div class="w-2/3">
-          <h3><a href="src/app/resources/lapor/page.jsx" class="text-black font-bold hover:text-[#CD5A48]">Lapor Diri to KJRI</a></h3>
+          <h3><a href="src/app/resources/lapor/page.jsx" class="text-black font-bold hover:text-[#CD5A48]">Lapor Diri to the Indonesian Consulate</a></h3>
               <p class="text-secondary text-sm">Registering as an Indonesian Citizen living in Canada.</p>
           </div>
           </div>
