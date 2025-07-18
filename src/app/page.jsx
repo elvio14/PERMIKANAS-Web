@@ -8,7 +8,7 @@ import HeaderMobile from "@/components/headerMobile"
 import HomeMapMobile from "@/components/homeMapMobile"
 import HomeMobile from "@/components/homeMobile"
 import Loading from "@/components/loading"
-//import Sponsor from "@/components/sponsor"
+import RegisterEvent from "@/components/registerEvent"
 
 export default function App() {
   let mobile = useIsMobile()
@@ -22,9 +22,9 @@ export default function App() {
     <div className="overflow-y-scroll overflow-x-hidden">
       <HeaderMobile active="home"></HeaderMobile>
       <HomeMobile></HomeMobile>
+      <RegisterEvent></RegisterEvent>
       <HomeMapMobile></HomeMapMobile>
       <HomeEvents></HomeEvents>
-      {/* <Sponsor /> */}
     </div>
     //MOBILE
     : //----------------------------------------------------------------------------------------------------------------------------
@@ -32,9 +32,9 @@ export default function App() {
     <div className="w-[100vw]">
     <Header active="home"></Header>
     <Home/>
+    <RegisterEvent />
     <HomeMap />
     <HomeEvents />
-    {/* <Sponsor /> */}
     </div>
     }
   </>
