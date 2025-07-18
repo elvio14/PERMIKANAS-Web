@@ -4,6 +4,7 @@ import { authPromise, db } from "./firebase"
 
 import { setDoc, doc } from "firebase/firestore"
 import { query, where, collection, getDocs } from "firebase/firestore"
+import { Timestamp } from "firebase/firestore";
 
 async function createMember(member){
   try{
@@ -40,11 +41,23 @@ async function submitWordle(data){
 }
 
 async function getAllSubmissions() {
-  const snapshot = await db.collection("wordleSubmissions").get()
+  await authPromise;
+  const snapshot = await getDocs(collection(db, "wordleSubmissions"));
   const items = []
-  snapshot.forEach(doc => {
-    items.push({ id: doc.id, ...doc.data()})
-  })
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+    let timeAdded = null
+    if (data.timeAdded?.seconds) {
+      timeAdded = new Timestamp(data.timeAdded.seconds, data.timeAdded.nanoseconds).toDate();
+    }
+
+    items.push({
+      id: doc.id,
+      ...data,
+      timeAdded: timeAdded, // Convert Firestore Timestamp
+      
+    });
+  });
 
   return items
 }
