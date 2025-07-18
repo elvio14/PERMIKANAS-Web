@@ -12,7 +12,7 @@ export default function FooterJoin() {
                 <img className="h-[20rem] mt-[-6rem] ml-[8rem]" src="/footer_join.png" alt="illustration join our community" />
                 <div className="px-[4rem] py-8 flex flex-col gap-4">
                     <h2 className="manrope-h2 text-2xl text-[--main-1]">Register to our community of Indonesian Students!</h2>
-                    <h3 className="text-[--main-1] text-sm">By registering, you allow us to collect your information, which helps us plan events, improve our services, and deliver information.</h3>
+                    <h3 className="text-[--main-1] text-sm">By registering, you'll help us keep track of indonesian students in Canada so that we can improve our services.</h3>
                     {/* <div className="bg-white bg-opacity-25 mr-[9.8rem] h-[2rem] rounded-full flex">
                         <img src="/mail.svg" alt="mail icon" className="px-[1rem]"/>
                         <input type="text" className="text-[var(--main-1)] bg-transparent"></input>

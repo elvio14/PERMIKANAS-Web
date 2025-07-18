@@ -14,7 +14,7 @@ export default function Home() {
             <img className="ml-[-1.1rem]" src="/home_title.png" alt="title permika nasional" />
             <div>
               <h2 className="manrope-h2 text-xl my-2 text-[var(--main-5)]">Unite, Ignite, and Reach New Heights</h2>
-              <p>PERMIKA Nasional is a home away from home for Indonesian students across Canada. From your first step in Canada to building your future, we foster academic growth, professional excellence, and lifelong connections for all.</p>
+              <p>PERMIKA Nasional is more than a network—it’s a home away from home for Indonesian students across Canada.</p>
             </div>
             <button onClick={() => goToPage("/form")} className="text-[var(--main-5)] mt-4 px-8 py-3 rounded-full border-solid border-2 border-[var(--main-5)] hover:bg-[var(--main-5)] hover:text-white transition duration-300">Join Our Community</button>
           </div>

@@ -22,7 +22,7 @@ export default function HomeEvents() {
             <div className="md:px-[12rem] px-8 flex flex-col gap-8 text-center justify-center items-center">
                 <SubButton text="Events"></SubButton>
                 <h2 className="manrope-h2 md:text-4xl text-2xl text-[--main-7]">Connecting Indonesian students accross Canada</h2>
-                <span className="md:w-[50vw] text-center">We host fun, informative, and impactful social events, both nationally through PERMIKA Nasional and locally through our Chapters. Stay tuned for the next one!</span>
+                <span className="md:w-[50vw] text-center">We host fun, informative, and impactful social events, that foster our community of Indonesian students. Stay tuned for the next one!</span>
             </div>
             <div className="flex space-x-4 md:justify-center md:px-0 overflow-x-scroll px-8 py-8">
                 {slides.map((slide, index) => {
