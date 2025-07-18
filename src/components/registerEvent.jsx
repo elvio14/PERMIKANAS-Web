@@ -10,8 +10,8 @@ export default function Sponsor() {
             <h3 className="text-center px-16">Sign up using the form, don't miss out and secure your spot at our next event today</h3>
             
             <div className="w-full max-w-2xl bg-white rounded-2xl p-8 shadow-lg text-center">
-                <a href="https://docs.google.com/forms/d/1NwWWBKCSO3AbiCrfX_Q51bio4aInk-SAu7f0jJanDV4/viewform?edit_requested=true" target="_blank"><img src="/PDO_poster.webp"></img></a>
-                <p class="mt-5">Click here to sign up</p>
+                <a href="https://docs.google.com/forms/d/1NwWWBKCSO3AbiCrfX_Q51bio4aInk-SAu7f0jJanDV4/viewform?edit_requested=true" target="_blank"><img src="/PDO_poster.webp"></img>
+                <p class="mt-5">Click here to sign up</p></a>
             </div>
         </div>
     )
