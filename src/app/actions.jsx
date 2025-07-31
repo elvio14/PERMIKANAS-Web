@@ -61,6 +61,7 @@ async function getAllSubmissions() {
 
   return items
 }
+
 async function getWordleByNumber(number) {
   await authPromise;
   const q = query(
@@ -76,4 +77,59 @@ async function getWordleByNumber(number) {
   }
 }
 
-export {createMember, submitWordle, getAllSubmissions, getWordleByNumber} 
+async function worldeLogin(username,pass) {
+  await authPromise
+  const q = query(
+    collection(db, "worldeUsers"),
+    where("username", "==", username),
+    where("password","==",pass)
+  )
+  const querySnapshot = await getDocs(q)
+  if (!querySnapshot.empty) {
+    const docSnap = querySnapshot.docs[0]
+    return { id: docSnap.id}
+  } else {
+    return null
+  }
+}
+
+async function wordleSignup(username, pass){
+  await authPromise
+  const q = query(
+    collection(db, "worldeUsers"),
+    where("username", "==", username)
+  ) 
+  const querySnapshot = await getDocs(q)
+  if(querySnapshot.empty){
+    return null
+  }
+
+  const d = new Date()
+  const id = d.getTime().toString()
+  try{
+    await setDoc(doc(db, "wordleUsers", id), {
+      username: username,
+      lastWordleNumber: 0,
+      lastWordleState: "",
+      password: pass,
+      totalScore: 0
+    })
+    console.log("User doc written with docref: ", username)
+    return {id: id}
+  }catch(e){
+    console.error("Error adding document: ", e)
+    return null
+  }
+}
+
+async function getWordleUserData(id){
+  await authPromise
+  const docSnap = await getDocs(doc(db, "wordleUsers",id))
+  if (docSnap.exists()) {
+    return { id: docSnap.id, ...docSnap.data() }
+  } else {
+    return null
+  }
+}
+
+export {createMember, submitWordle, getAllSubmissions, getWordleByNumber, wordleSignup, worldeLogin, getWordleUserData} 

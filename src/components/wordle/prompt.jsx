@@ -15,9 +15,8 @@ export default function Prompt() {
     }, [])
 
     return (
-        <div className="py-2 md:py-4 flex flex-col gap-2 justify-center text-center">
-            <h2 className="manrope-h2 text-4xl">{prompt}</h2>
-            <p>{`( Kata Bahasa Indonesia )`}</p>
+        <div className="py-2 flex flex-col gap-1 justify-center text-center">
+            <h2 className="manrope-h2 text-2xl">{prompt}</h2>
         </div>
     )
 }

@@ -140,7 +140,7 @@ export default function Wordle({word, onSignal, onPanelResults}){
     },[panelValues])
 
     return (
-        <div className="flex flex-col py-4 md:py-8 gap-1 m-4 w-fit items-center" >
+        <div className="flex flex-col gap-1 mb-4 w-fit items-center" >
             <Prompt />
             {
                 panelValues.map((row, rowIndex) => (
