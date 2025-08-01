@@ -33,7 +33,7 @@ export default function ArticleLapor() {
   
               {/* Header Image */}
               <img
-                src="/article_lapor.webp"
+                src="/lapor_img1.webp"
                 alt="University campus in Canada"
                 className="rounded w-full"
               />
@@ -95,7 +95,7 @@ export default function ArticleLapor() {
                 </div>
             
                 <div className="flex items-center">
-                  <img src="/article_docs.webp" alt="Article1 Thumbnail" className="other-article-image"></img>
+                  <img src="/docs_img1.webp" alt="Article1 Thumbnail" className="other-article-image"></img>
                   <div className="w-2/3">
                   <h3><p onClick={() => goToPage("/resources/docs")} className="text-black font-bold hover:text-[#CD5A48] transition duration-300 cursor-pointer">Documents to Bring</p></h3>
                       <p className="text-secondary text-sm">Checklist for Documents to bring from Indonesia</p>

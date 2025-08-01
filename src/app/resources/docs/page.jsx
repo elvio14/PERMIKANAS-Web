@@ -23,7 +23,7 @@ export default function ArticleDocs() {
       {mobile ? <HeaderMobile active="resources"></HeaderMobile> : <Header active="resources"></Header>}
       <div className="article-container">
         <main className="container py-8">
-        <div className="flex gap-6 py-6">
+        <div className="flex gap-10 py-6">
           {/* Article Section */}
           <div className="md:w-3/4 w-full mb-24">
             <header>
@@ -36,7 +36,7 @@ export default function ArticleDocs() {
     
             {/* Header Image */}
             <img
-              src="/article_docs.webp"
+              src="/docs_img1.webp"
               alt="University campus in Canada"
               className="rounded w-full h-auto aspect-[2/1]"
             />
@@ -77,7 +77,7 @@ export default function ArticleDocs() {
 
 
               <div className="flex items-center gap-8 mt-8">
-              <img src="/docs_img.jpg" className="img-placeholder w-1/3 rounded"></img>
+              <img src="/docs_img2.webp" className="img-placeholder w-1/3 rounded"></img>
               <div className="w-2/3">
               <h2 className="article-subheader" id="section1">Other Resources</h2>
                 <ul className="mt-4">
@@ -118,9 +118,9 @@ export default function ArticleDocs() {
               </div> */}
 
               <div className="flex items-center pt-5">
-                <img src="/article_lapor.webp" alt="Article1 Thumbnail" className="other-article-image"></img>
+                <img src="/lapor_img1.webp" alt="Article1 Thumbnail" className="other-article-image"></img>
                 <div className="w-2/3">
-                  <h3><p onClick={() => goToPage("/resources/lapor")} className="text-black font-bold hover:text-[#CD5A48] cursor-pointer">Lapor Diri to KJRI</p></h3>
+                  <h3><p onClick={() => goToPage("/resources/lapor")} className="text-black font-bold hover:text-[#CD5A48] cursor-pointer">Lapor Diri to the Indonesian Consulate</p></h3>
                   <p className="text-secondary text-sm">Registering as an Indonesian Citizen living in Canada</p>
                 </div>
               </div>
