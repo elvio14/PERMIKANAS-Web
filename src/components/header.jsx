@@ -118,7 +118,7 @@ export default function Header({active = ""}){
                             <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/lapor")}>Documents to Bring</h3>
                             <h3 className='pl-4 py-2 cursor-pointer hover-bold' onClick={()=>goToPage("/resources/docs")}>Lapor Diri KJRI</h3>
                         </div>} 
-                        <SecondaryButton text='Resources' color='var(--main-7)' hoverable={false}></SecondaryButton>
+                        <SecondaryButton text='Resources' color='var(--main-7)' hoverable={false} onClick={()=>goToPage("/resources")}></SecondaryButton>
                         {dropdown && <div className='border-t-2 absolute w-[7rem]'></div>}
                     </div>
               {/* <SecondaryButton text='Events' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton> */} 
