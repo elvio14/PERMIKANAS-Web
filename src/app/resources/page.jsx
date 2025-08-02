@@ -21,7 +21,7 @@ export default function Resources() {
             <HeaderMobile active="resources"></HeaderMobile>
             <div className="pt-[6rem] mx-[2rem] flex flex-col gap-5 mb-20">
               <div className="text-center">
-                <div className="rounded-full border-2 border-[var(--main-2-b)] bg-[var(--main-2)] inline-flex justify-center px-8 py-1 text-xs mt-4">Blogs & Articles</div>
+                <div className="rounded-full border-2 border-none bg-[#EFD7AF] inline-block text-center px-8 py-1 text-xs mt-4">Blogs & Articles</div>
               </div>
               <div className="text-center">
                 <h1 className="manrope-h2 text-[#803124] text-4xl">Before & Upon Arrival</h1>
@@ -92,7 +92,7 @@ export default function Resources() {
             <Header active="resources"></Header>
             <div className="pt-[6rem] md:pb-[12rem] mx-[12rem] flex flex-col gap-8">
               <div className="text-center">
-                <div className="rounded-full border-2 border-[var(--main-2-b)] bg-[var(--main-2)] inline-flex justify-center px-8 py-1 text-xs md:text-sm">Blogs & Articles</div>
+                <div className="rounded-full border-2 border-none bg-[#EFD7AF] inline-block text-center px-8 py-1 text-xs md:text-sm">Blogs & Articles</div>
               </div>
 
               <div className="text-center">
