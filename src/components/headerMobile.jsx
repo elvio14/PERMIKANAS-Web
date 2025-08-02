@@ -50,7 +50,7 @@ export default function HeaderMobile({active = ""}) {
                         <h1 className="text-3xl text-[var(--main-1)]" onClick={() => goToPage("/")}>Home</h1>
                     </div>
                     <div className={`p-4 ${active == 'about' ? "bg-[var(--main-3-b)]" : "bg-transparent"}`}>
-                        <h1 className="text-3xl text-[var(--main-1)]" onClick={() => goToPage("/about")}>About Us</h1>
+                        <h1 className="text-3xl text-[var(--main-1)]" onClick={() => goToPage("/about")}>About</h1>
                     </div>
                     <div className={`p-4 ${active == 'resources' ? "bg-[var(--main-3-b)]" : "bg-transparent"}`}>
                         <h1 className="text-3xl text-[var(--main-1)]" onClick={() => toggleRes()}>Resources</h1>

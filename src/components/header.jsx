@@ -74,7 +74,7 @@ export default function Header({active = ""}){
             <div style={{paddingRight: '3rem'}}>
                 <nav className="flex gap-4 justify-center">
                     <SecondaryButton text='Home' color='white' isActive={activePage == "home"} onClick={()=>goToPage("/")}></SecondaryButton>
-                    <SecondaryButton text='About Us' color='white' isActive={activePage == "about"} onClick={()=>goToPage("/about")}></SecondaryButton>
+                    {/* <SecondaryButton text='About' color='white' isActive={activePage == "about"} onClick={()=>goToPage("/about")}></SecondaryButton> */}
                     <div onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave} className='relative'>
                         
                         {dropdown && <div className='absolute z-50 top-[2.5rem] pl-8 py-4 rounded-b-xl bg-[var(--main-3)] w-[14rem] text-white shadow-lg' onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave}>
@@ -86,8 +86,8 @@ export default function Header({active = ""}){
                         <SecondaryButton text='Resources' color='white' hoverable={false} onClick={()=>goToPage("/resources")}></SecondaryButton>
                         {dropdown && <div className='border-t-2 absolute z-50 w-[7rem]'></div>}
                     </div>
-                    <SecondaryButton text='Events' color='white' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton>
-                    <SecondaryButton text='Communities' color='white' isActive={activePage == "communities"} onClick={()=>goToPage("/communities ")}></SecondaryButton>
+                    {/* <SecondaryButton text='Events' color='white' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton> */} 
+                    {/* <SecondaryButton text='Communities' color='white' isActive={activePage == "communities"} onClick={()=>goToPage("/communities ")}></SecondaryButton> */}
 
                 </nav>
             </div>
@@ -108,8 +108,8 @@ export default function Header({active = ""}){
                 <img onClick={()=>goToPage("/")} src="/permikanas_logo_black.svg" alt="Permkanas Logo" className='w-[4rem] cursor-pointer'></img>
             </div>
             <nav className="flex gap-4 justify-center">
-              <SecondaryButton text='Home' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "home"} onClick={()=>goToPage("/")}></SecondaryButton>
-              <SecondaryButton text='About Us' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "about"} onClick={()=>goToPage("/about")}></SecondaryButton>
+              <SecondaryButton text='Home' color='var(--main-7)' bgActive='#FFEBEB' isActive={activePage == "home"} onClick={()=>goToPage("/")}></SecondaryButton>
+              {/* <SecondaryButton text='About' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "about"} onClick={()=>goToPage("/about")}></SecondaryButton> */}
               <div onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave} className='relative'>
                         
                         {dropdown && <div className='absolute top-[2.5rem] pl-8 py-4 rounded-b-xl bg-white w-[14rem] text-black shadow-lg' onMouseEnter={resourceMouseEnter} onMouseLeave={resourceMouseLeave}>
@@ -121,8 +121,8 @@ export default function Header({active = ""}){
                         <SecondaryButton text='Resources' color='var(--main-7)' hoverable={false}></SecondaryButton>
                         {dropdown && <div className='border-t-2 absolute w-[7rem]'></div>}
                     </div>
-              <SecondaryButton text='Events' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton>
-              <SecondaryButton text='Communities' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "communities"} onClick={()=>goToPage("/communities ")}></SecondaryButton>
+              {/* <SecondaryButton text='Events' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton> */} 
+              {/* <SecondaryButton text='Communities' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "communities"} onClick={()=>goToPage("/communities ")}></SecondaryButton> */} 
             </nav>
             <div className="flex justify-center relative">
                 <MainButton text='Contact Us' borderColor="var(--main-6)" handleClick={clickContact}></MainButton>

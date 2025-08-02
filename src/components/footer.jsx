@@ -66,7 +66,7 @@ export default function Footer() {
                         <img className="h-[8rem]" src="/permikanas_logo_white.svg" alt="permikanas logo" />
                     </div>
                     <div className="flex flex-col mt-28">
-                        {/* <p className="manrope-body-bold" onClick={() => goToPage("/about")}>About Us</p>
+                        {/* <p className="manrope-body-bold" onClick={() => goToPage("/about")}>About</p>
                         <p className="text-button">Visi Misi</p>
                         <p className="text-button">Our Team</p> */}
                     </div>

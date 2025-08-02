@@ -34,7 +34,7 @@ export default function Resources() {
               </div>
               <div className="flex flex-col gap-5">
                 <div className="w-full aspect-[2/1.3]">
-                  <img src="/Article_Image1.png" alt="Article Image" className="w-full h-full object-cover rounded-[12px]"/>
+                  <img src="/uni_img1.webp" alt="Article Image" className="w-full h-full object-cover rounded-[12px]"/>
                 </div>
                 <div>
                   <h1 className="font-['Inter'] font-medium text-2xl text-[#803124]">How to Start Your Application: Applying to Undergrad and Masters in Canada</h1>
@@ -50,7 +50,7 @@ export default function Resources() {
               </div>
               <div className="flex flex-col gap-5">
                 <div className="w-full aspect-[2/1.3]">
-                  <img src="/article_docs.png" alt="Documents to Bring" className="w-full h-full object-cover rounded-[12px]"/>
+                  <img src="/docs_img1.webp" alt="Documents to Bring" className="w-full h-full object-cover rounded-[12px]"/>
                 </div>
                 <div>
                   <Link href="/resources/docs">
@@ -68,7 +68,7 @@ export default function Resources() {
               </div>
               <div className="flex flex-col gap-5">
                 <div className="w-full aspect-[2/1.3]">
-                  <img src="/article_lapor.png" alt="Lapor Diri to the Indonesian Consulate" className="w-full h-full object-cover rounded-[12px]"/>
+                  <img src="/lapor_img1.webp" alt="Lapor Diri to the Indonesian Consulate" className="w-full h-full object-cover rounded-[12px]"/>
                 </div>
                 <div>
                   <Link href="/resources/lapor">
@@ -105,7 +105,7 @@ export default function Resources() {
 
               <div className="flex justify-center my-8">
                 <div className="relative w-full max-w-full h-auto">
-                  <img src="/Article_Image1.png" alt="Article Image" className="w-full h-auto rounded-[12px] object-cover" />
+                  <img src="/uni_img1.webp" alt="Article Image" className="w-full h-auto rounded-[12px] object-cover" />
                   <div className="absolute ml-4 mb-2 bottom-4 left-4 text-white p-4 rounded-md max-w-[80%]">
                     <p className="manrope-thin tracking-[0.2em] md:text-xs lg:text-base mb-3">FEATURED</p>
                     <h2 className="manrope-thin md:text-xl lg:text-4xl">How to Start Your Application:</h2>
@@ -124,7 +124,7 @@ export default function Resources() {
                   </div>
                   <div className="flex-1">
                     <div className="aspect-[2/1.3]">
-                      <img src="/article_docs.png" alt="Documents to Bring" className="w-full h-full object-cover rounded-[12px]" />
+                      <img src="/docs_img1.webp" alt="Documents to Bring" className="w-full h-full object-cover rounded-[12px]" />
                     </div>
                     <Link href="/resources/docs">
                       <h1 className="font-['Inter'] font-medium text-2xl mt-7 text-[#803124]">Documents to Bring</h1>
@@ -141,7 +141,7 @@ export default function Resources() {
                   </div>
                   <div className="flex-1">
                     <div className="aspect-[2/1.3]">
-                      <img src="/article_lapor.png" alt="Lapor Diri to the Indonesian Consulate" className="w-full h-full object-cover rounded-[12px]"/>
+                      <img src="/lapor_img1.webp" alt="Lapor Diri to the Indonesian Consulate" className="w-full h-full object-cover rounded-[12px]"/>
                     </div>
                     <Link href="/resources/lapor">
                       <h1 className="font-['Inter'] font-medium text-2xl mt-7 text-[#803124]">Lapor Diri to the Indonesian Consulate</h1>
