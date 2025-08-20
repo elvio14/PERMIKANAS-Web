@@ -3,7 +3,7 @@
 import { authPromise, db } from "./firebase"
 
 import { setDoc, doc } from "firebase/firestore"
-import { query, where, collection, getDocs } from "firebase/firestore"
+import { query, where, collection, getDocs, getDoc } from "firebase/firestore"
 import { Timestamp } from "firebase/firestore";
 
 async function createMember(member){
@@ -80,7 +80,7 @@ async function getWordleByNumber(number) {
 async function worldeLogin(username,pass) {
   await authPromise
   const q = query(
-    collection(db, "worldeUsers"),
+    collection(db, "wordleUsers"),
     where("username", "==", username),
     where("password","==",pass)
   )
@@ -124,7 +124,7 @@ async function wordleSignup(username, pass){
 
 async function getWordleUserData(id){
   await authPromise
-  const docSnap = await getDocs(doc(db, "wordleUsers",id))
+  const docSnap = await getDoc(doc(db, "wordleUsers",id))
   if (docSnap.exists()) {
     return { id: docSnap.id, ...docSnap.data() }
   } else {

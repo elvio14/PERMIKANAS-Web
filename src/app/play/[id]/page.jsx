@@ -2,7 +2,7 @@
 import Wordle from "@/components/wordle/wordle";
 import ResultImage from "@/components/wordle/resultImage";
 import { useState, useEffect } from "react";
-import { submitWordle, getAllSubmissions, getWordleByNumber } from "../../actions";
+import { submitWordle, getAllSubmissions, getWordleByNumber, getWordleUserData } from "../../actions";
 import { useRouter, useParams } from "next/navigation"
 import useIsMobile from "@/components/isMobile"
 import Loading from "@/components/loading"
@@ -18,7 +18,7 @@ export default function Play(){
     const params = useParams()
     if (params == null) return <Loading/>
     const {id} = params
-    const [username, setUsername] = useState("")
+    const [userData, setUserData] = useState("")
     const [gameStatus, setGameStatus] = useState("load");
     const [curWordle, setCurWordle] = useState({})
     const [curPanelResults, setCurPanelResults] = useState([])
@@ -51,12 +51,12 @@ export default function Play(){
 
     const handleSolved = async () => {
         const data = {
-            username: username,
+            username: userData.username,
             wordleNumber: curWordle.number,
             panelResults: JSON.stringify(curPanelResults),
             score: getScore() ,
-            chapter: "York",
-            city: "Toronto"
+            chapter: userData.chapter || "none",
+            city: userData.city || "none"
         }
         try{
             await submitWordle(data).then(()=> console.log(data))
@@ -86,7 +86,21 @@ export default function Play(){
             }
         }
 
+        const fetchUser = async () => {
+            try{
+                console.log("getting user data")
+                await getWordleUserData(id).then((user) => {
+                    setUserData(user)
+                    console.log("got user data: ")
+                    console.log(user)
+                })
+            }catch(err){
+                console.error(err)
+            }
+        }
+
         fetchWordle()
+        fetchUser()
     }, [])
 
     let mobile = useIsMobile()
@@ -98,7 +112,7 @@ export default function Play(){
 
         <div className="h-[100vh] mt-16 md:mt-2 mb-[12rem] flex flex-col items-center justify-center">
             {/* <SubButton text="Wordle"/> */}
-            <h2 className="manrope-body">username: {username}</h2>
+            <h2 className="manrope-body">username: {userData.username}</h2>
             {gameStatus === "play" && curWordle != null && 
                 <Wordle word={curWordle.word}
                 onSignal={handleSignalFromWordle}
