@@ -1,5 +1,5 @@
 import { MainButton } from "@/components/button";
-import { worldeLogin, wordleSignup } from "@/app/actions";
+import { wordleLogin, wordleSignup } from "@/app/actions";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -7,12 +7,31 @@ export default function Login() {
     const userInput = useRef(null)
     const passInput = useRef(null)
 
+    const [signupClicked, setSignupClick] = useState(false)
+
     const [status, setStatus] = useState("")
     const router = useRouter()
+
+    const chapters = [
+        {id: 'permikato', text: 'PERMIKA Toronto'},
+        {id: 'permikava', text: 'PERMIKA Vancouver'},
+        {id: 'isahumber', text: 'ISA Humber'},
+        {id: 'permikamon', text:'PERMIKA Montreal'},
+        {id: 'permikato', text: 'PERMIKATO'},
+        {id: 'permikato', text: 'PERMIKATO'},
+        {id: 'permikato', text: 'PERMIKATO'},
+        {id: 'permikato', text: 'PERMIKATO'},
+        {id: 'permikato', text: 'PERMIKATO'},
+        {id: 'permikato', text: 'PERMIKATO'},
+        {id: 'permikato', text: 'PERMIKATO'},
+        {id: 'permikato', text: 'PERMIKATO'},
+        {id: 'permikato', text: 'PERMIKATO'},
+    ]
+
     const handleLogin = async () => {
         setStatus("Logging in...")
         try{
-            const res = await worldeLogin(userInput.current.value, passInput.current.value)
+            const res = await wordleLogin(userInput.current.value, passInput.current.value)
             if(res != null){
                 setStatus("Login complete")
                 console.log(res)
@@ -53,10 +72,32 @@ export default function Login() {
             <label htmlFor="password">Password</label>
             <input ref={passInput} type="password" required name="password" id="password"
                 className="border border-black-600 p-2"></input>
-            <br></br>
-            <MainButton text="Login" handleClick={handleLogin} /> 
-            <MainButton text="Signup" handleClick={handleSignup}/>
-            <br></br>
+            <br />
+            
+            {
+                signupClicked ?
+                <>
+                    <div class="form-group">
+                        <label for="basic-select">Select Chapter:</label>
+                        <select id="basic-select" class="basic-select">
+                            <option value="">Select chapter...</option>
+                            {
+                                chapters.map((chapter) => 
+                                    (<option value={chapter.id}>{chapter.text}</option>)
+                                )
+                            }
+                        </select>
+                    </div>
+                    <MainButton text="Signup" handleClick={handleSignup} className="w-full" />
+                </>
+                :
+                <>
+                    <MainButton text="Login" handleClick={handleLogin} className="w-full" /> 
+                    <MainButton text="Signup" handleClick={() => setSignupClick(true)} className="w-full"/>
+                </>
+                
+            }
+            <br />
             <p>{status}</p>
         </div>
     )

@@ -5,15 +5,17 @@ import LetterBox from "./letterBox"
 import Keyboard from "./keyboard"
 import Prompt from "./prompt"
 
-export default function Wordle({word, onSignal, onPanelResults}){
+export default function Wordle({word, onSignal, onPanelResults, onPanelValues, lastState = null}){
     const [activeRow, setActiveRow] = useState(0)
     const [activeCol, setActiveCol] = useState(0)
     const [filledRow, setFilledRow] = useState(null)   //Last filled row
-    const [panelValues, setPanelValues] = useState(Array.from({ length: 6 }, () => Array(5).fill('')))
+    const [panelValues, setPanelValues] = useState(Array.from({ length: 6 }, () => Array(5).fill("")))
     const [panelResults, setPanelResults] = useState(Array.from({ length: 6 }, () => Array(5).fill(ResultType.BLANK)))
     const [notFoundRow, setNotFoundRow] = useState(null)
     const [kbbiSet, setKbbiSet] = useState(new Set())
+    const [kbbiAdded, setKBBIAdded] = useState(false)
     const [keyReq, setKeyReg] = useState(null)
+    const [lastStateDone, setLastStateDone] = useState(false)
 
     const [wordNotFound, setWordNotFound] = useState(false)
     useEffect(()=> {
@@ -30,9 +32,8 @@ export default function Wordle({word, onSignal, onPanelResults}){
         setKeyReg(req)
     }
 
-    const checkAnswer = () => {
-        console.log(word)
-        const row = activeRow
+    const checkAnswer = (row) => {
+        onPanelValues(panelValues)
         let answer = '';
         let answerSet = new Set()
         panelValues[row].forEach((value) => {
@@ -79,7 +80,6 @@ export default function Wordle({word, onSignal, onPanelResults}){
             setActiveRow(row+1)
             setActiveCol(0)
         }
-
         sendReqToKeyboard(keyboardRequest)
     }
 
@@ -88,7 +88,7 @@ export default function Wordle({word, onSignal, onPanelResults}){
 
         if(key ==="ENTER"){
             if(panelValues[activeRow][4] !== ""){
-                checkAnswer()
+                checkAnswer(activeRow)
             }
             return
         }
@@ -118,26 +118,60 @@ export default function Wordle({word, onSignal, onPanelResults}){
         }
     }
 
+    const handleLastState = () => {
+        if(lastState !== null){
+            console.log(lastState)
+            setPanelValues(lastState)
+        }
+    }
+
+    const handleLastStateCheck = () => {
+        for(let i = 0; i < 6; i++){
+            console.log("PanelValues[i][0] = " + panelValues[i][0])
+            if(panelValues[i][0] !== ""){
+                console.log("Check answer " + i)
+                checkAnswer(i)
+            }else{
+                break
+            }
+        }
+    }
+
     useEffect(() => {
         fetch('/kata5huruf.txt')
             .then(response => {
             if (!response.ok) {
-                throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
+                throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`)
             }
-            return response.text();
+            return response.text()
             })
             .then(text => {
-            const tokens = text.split('\n');
-            setKbbiSet(new Set(tokens));
-            console.log("KBBI set added");
-            console.log(kbbiSet);
+            const tokens = text.split('\n')
+            setKbbiSet(new Set(tokens))
+            console.log("KBBI set added")
+            console.log(kbbiSet)
+            setKBBIAdded(true)
             })
-            .catch(err => console.error("Error fetching KBBI data:", err));
-    }, []);
+            .catch(err => console.error("Error fetching KBBI data:", err))
+    }, [])
 
     useEffect(() => {
-        console.log("Panel values updated.")
+        console.log("Panel values updated." + panelValues)
     },[panelValues])
+
+    useEffect(() => {
+        console.log("Wodle last state: " + lastState)
+        if(lastState !== null && kbbiAdded){
+            handleLastState()
+            setLastStateDone(true)
+        }
+    }, [lastState, kbbiAdded])
+
+    useEffect(()=> {
+        if(lastStateDone){
+            handleLastStateCheck()
+        }
+    }, [lastStateDone])
 
     return (
         <div className="flex flex-col gap-1 mb-4 w-fit items-center" >

@@ -1,9 +1,7 @@
 "use server"
 
 import { authPromise, db } from "./firebase"
-
-import { setDoc, doc } from "firebase/firestore"
-import { query, where, collection, getDocs, getDoc } from "firebase/firestore"
+import { query, where, collection, getDocs, getDoc, setDoc,doc } from "firebase/firestore"
 import { Timestamp } from "firebase/firestore";
 
 async function createMember(member){
@@ -26,8 +24,10 @@ async function createMember(member){
 
 async function submitWordle(data){
   await authPromise;
+  const date = new Date()
+  const time = date.getTime().toString()
   try{
-    await setDoc(doc(db, "wordleSubmissions", data.username), {
+    await setDoc(doc(db, "wordleSubmissions", time), {
       username: data.username,
       wordleNumber: data.wordleNumber,
       panelResults: data.panelResults,
@@ -77,7 +77,7 @@ async function getWordleByNumber(number) {
   }
 }
 
-async function worldeLogin(username,pass) {
+async function wordleLogin(username,pass) {
   await authPromise
   const q = query(
     collection(db, "wordleUsers"),
@@ -96,11 +96,11 @@ async function worldeLogin(username,pass) {
 async function wordleSignup(username, pass){
   await authPromise
   const q = query(
-    collection(db, "worldeUsers"),
+    collection(db, "wordleUsers"),
     where("username", "==", username)
   ) 
   const querySnapshot = await getDocs(q)
-  if(querySnapshot.empty){
+  if(!querySnapshot.empty){
     return null
   }
 
@@ -111,6 +111,7 @@ async function wordleSignup(username, pass){
       username: username,
       lastWordleNumber: 0,
       lastWordleState: "",
+      lastWordleIsSolved: false,
       password: pass,
       totalScore: 0
     })
@@ -124,12 +125,45 @@ async function wordleSignup(username, pass){
 
 async function getWordleUserData(id){
   await authPromise
-  const docSnap = await getDoc(doc(db, "wordleUsers",id))
-  if (docSnap.exists()) {
-    return { id: docSnap.id, ...docSnap.data() }
-  } else {
-    return null
+  const ref = doc(db, "wordleUsers",id)
+  try{
+    const docSnap = await getDoc(ref)
+    if (docSnap.exists()) {
+      return { id: docSnap.id, ...docSnap.data() }
+    } else {
+      return null
+    }
+  }catch(err){
+    console.error("Error getting user." , err)
   }
 }
 
-export {createMember, submitWordle, getAllSubmissions, getWordleByNumber, wordleSignup, worldeLogin, getWordleUserData} 
+async function getAllUserData() {
+  await authPromise;
+  try {
+    const querySnap = await getDocs(collection(db, "wordleUsers"));
+
+    const users = querySnap.docs.map(docSnap => ({
+      id: docSnap.id,
+      ...docSnap.data(),
+    }))
+    return users;
+  } catch (err) {
+    console.error("Error getting all users:", err);
+    return []
+  }
+}
+
+async function updateUserData(id, data){
+  await authPromise
+  const ref = doc(db, "wordleUsers", id);
+  try {
+    await setDoc(ref, data, { merge: true })
+    console.log("User updated:", id)
+  } catch (err) {
+    console.error("Error updating user:", err)
+  }
+}
+
+export {createMember, submitWordle, getAllSubmissions, getWordleByNumber, 
+  wordleSignup, wordleLogin, getWordleUserData, updateUserData, getAllUserData} 
