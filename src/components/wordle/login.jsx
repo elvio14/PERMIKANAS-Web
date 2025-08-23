@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 export default function Login() {
     const userInput = useRef(null)
     const passInput = useRef(null)
+    const chapterInput = useRef(null)
+    const cityInput = useRef(null)
 
     const [signupClicked, setSignupClick] = useState(false)
 
@@ -13,21 +15,38 @@ export default function Login() {
     const router = useRouter()
 
     const chapters = [
-        {id: 'permikato', text: 'PERMIKA Toronto'},
-        {id: 'permikava', text: 'PERMIKA Vancouver'},
-        {id: 'isahumber', text: 'ISA Humber'},
-        {id: 'permikamon', text:'PERMIKA Montreal'},
-        {id: 'permikato', text: 'PERMIKATO'},
-        {id: 'permikato', text: 'PERMIKATO'},
-        {id: 'permikato', text: 'PERMIKATO'},
-        {id: 'permikato', text: 'PERMIKATO'},
-        {id: 'permikato', text: 'PERMIKATO'},
-        {id: 'permikato', text: 'PERMIKATO'},
-        {id: 'permikato', text: 'PERMIKATO'},
-        {id: 'permikato', text: 'PERMIKATO'},
-        {id: 'permikato', text: 'PERMIKATO'},
+        'PERMIKA Toronto',
+        'PERMIKA Vancouver',
+        'ISA Humber',
+        'PERMIKA Montreal',
+        'PERMIKA Okanagan',
+        'PERMIKA Calgary',
+        'PERMIKA Edmonton',
+        'PERMIKA Winnipeg',
     ]
-
+    const cities = [
+      "Burnaby",
+      "Calgary", 
+      "Edmonton",
+      "Fredericton",
+      "Halifax",
+      "Hamilton",
+      "Kingston",
+      "London",
+      "Montreal",
+      "Okanagan",
+      "Ottawa",
+      "Quebec City",
+      "Regina",
+      "Saskatoon",
+      "St. John's",
+      "Toronto",
+      "Vancouver",
+      "Victoria",
+      "Waterloo",
+      "Windsor",
+      "Winnipeg"
+    ]
     const handleLogin = async () => {
         setStatus("Logging in...")
         try{
@@ -49,7 +68,7 @@ export default function Login() {
     const handleSignup = async () => {
         setStatus("Signing up")
         try{
-            const res = await wordleSignup(userInput.current.value, passInput.current.value)
+            const res = await wordleSignup(userInput.current.value, passInput.current.value, chapterInput.current.value, cityInput.current.value)
             if(res != null){
                 setStatus("Signup complete")
                 console.log(res)
@@ -62,7 +81,7 @@ export default function Login() {
             setStatus("Login server error.")
             console.log(err.message)
         }
-    }
+    }   
 
     return (
         <div className="flex flex-col gap-4 my-4">
@@ -77,13 +96,22 @@ export default function Login() {
             {
                 signupClicked ?
                 <>
-                    <div class="form-group">
+                    <div className="flex flex-col gap-2">
                         <label for="basic-select">Select Chapter:</label>
-                        <select id="basic-select" class="basic-select">
-                            <option value="">Select chapter...</option>
+                        <select ref={chapterInput} className="p-2">
+                            <option value="">N/A</option>
                             {
                                 chapters.map((chapter) => 
-                                    (<option value={chapter.id}>{chapter.text}</option>)
+                                    (<option value={chapter}>{chapter}</option>)
+                                )
+                            }
+                        </select>
+                        <label for="basic-select">Select City:</label>
+                        <select ref={cityInput} className="p-2">
+                            <option value="">N/A</option>
+                            {
+                                cities.map((city) => 
+                                    (<option value={city}>{city}</option>)
                                 )
                             }
                         </select>

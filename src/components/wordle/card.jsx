@@ -15,9 +15,12 @@ export default function Card({data, index}){
         }
     }
     return (
-        <div style={{ backgroundColor: getBackgroundColor(index) }} className='grid grid-cols-[8fr_2fr_2fr_1fr] gap-2 p-4 w-full items-center text-[#6D501E]'>
+        <div style={{ backgroundColor: getBackgroundColor(index) }} className='grid grid-cols-[8fr_4fr_2fr_1fr] gap-2 p-4 w-full items-center'>
             <div className="flex flex-row justify-start items-center">
-                <div style={{backgroundColor: index > 3 ? 'transparent' : 'rgba(10,10,10,0.1'}} className="aspect-square px-4 py-2 bg-stone-500 bg-opacity-20 manrope-h2 text-xl text-white mr-2">{index}</div>
+                <div style={{
+                        backgroundColor: index > 3 ? 'transparent' : 'rgba(10,10,10,0.1',
+                        color: index > 3 ? '#6D501E' : 'white'
+                    }} className="aspect-square px-4 py-2 bg-stone-500 bg-opacity-20 manrope-h2 text-xl text-white mr-2">{index}</div>
                 <h2 className="manrope-h2">{data.username}</h2>
             </div>
             <div className="flex flex-row justify-start items-center">

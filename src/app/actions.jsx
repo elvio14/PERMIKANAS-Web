@@ -93,7 +93,7 @@ async function wordleLogin(username,pass) {
   }
 }
 
-async function wordleSignup(username, pass){
+async function wordleSignup(username, pass, chapter, city){
   await authPromise
   const q = query(
     collection(db, "wordleUsers"),
@@ -113,7 +113,9 @@ async function wordleSignup(username, pass){
       lastWordleState: "",
       lastWordleIsSolved: false,
       password: pass,
-      totalScore: 0
+      totalScore: 0,
+      city: city,
+      chapter: chapter
     })
     console.log("User doc written with docref: ", username)
     return {id: id}

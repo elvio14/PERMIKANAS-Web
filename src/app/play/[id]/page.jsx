@@ -10,6 +10,7 @@ import HeaderMobile from "@/components/headerMobile"
 import Header from "@/components/header"
 import SubButton from "@/components/subButton";
 import { ResultType } from "@/components/wordle/resultTypes";
+import { MainButton } from "@/components/button";
 
 
 export default function Play(){
@@ -181,13 +182,15 @@ export default function Play(){
                 <div className="w-[50vw] h-[50vh] p-8 flex flex-col items-center justify-center gap-8">
                     <h2 className="manrope-h2 text-xl">{solvedMessages[Math.floor(Math.random() * solvedMessages.length)]}</h2>
                     <ResultImage panelResults={curPanelResults} widthPixels={200}/>
+                    <MainButton text="See Leaderboard" handleClick={()=> goToPage('/play/leaderboard')}/>
                 </div>
             }
 
             {gameStatus === "failed" &&
-                <div className="bg-['papayawhip'] w-[50vw] flex flex-col items-center justify-center">
+                <div className="w-[50vw] h-[50vh] p-8 flex flex-col items-center justify-center gap-8">
                     <h2 className="manrope-h2 text-xl">Yah.. coba lagi besok!</h2>
                     <ResultImage panelResults={curPanelResults} widthPixels={200}/>
+                    <MainButton text="See Leaderboard" handleClick={()=> goToPage('/play/leaderboard')}/>
                 </div>
             }
         </div>
