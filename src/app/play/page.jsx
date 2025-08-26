@@ -8,16 +8,15 @@ import Login from "@/components/wordle/login"
 import { useRouter } from "next/navigation"
 
 export default function PlayHome(){
-
-    let mobile = useIsMobile()
-    if (mobile === undefined){
-      return (<div className="pb-[12rem]"><Loading/></div>)
-    }
-
     const router = useRouter()
     const goToPage = (path) => {
       console.log("Running goToPage " + path)
       router.push(path)
+    }
+
+    let mobile = useIsMobile()
+    if (mobile === undefined){
+      return (<div className="pb-[12rem]"><Loading/></div>)
     }
 
     return (

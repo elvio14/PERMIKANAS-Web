@@ -54,14 +54,14 @@ export default function Leaderboard() {
             <div
                 className="mt-8 py-4 justify-center items-center w-[60vw] max-h-[50vh] overflow-y-auto"
             >
-                <div className="pt-0 px-2 flex flex-col gap-4 ">
+                <div className="pt-0 px-2 flex flex-col gap-4 justify-center items-center">
                 {
                     userData && userDataSorted && userData.map((el, index) => (
                         <Card data={el} key={index} index={index+1}/>
                     ))
                 }
-                </div>
                 { !userDataSorted && <p>Loading leaderboard...</p>}
+                </div>
             </div>
         </div>
     )

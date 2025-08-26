@@ -17,7 +17,8 @@ export default function Play(){
     const params = useParams()
     if (params == null) return <Loading/>
     const {id} = params
-    const [userData, setUserData] = useState("")
+    const [userData, setUserData] = useState(null)
+    const [userDataFetched, setUserDataFetched] = useState(false)
     const [gameStatus, setGameStatus] = useState("load");
     const [curWordle, setCurWordle] = useState({})
     const [curWordleFetched, setCurWordleFetched] = useState(false)
@@ -40,11 +41,11 @@ export default function Play(){
     }
 
     const handlePanelResultsFromWordle = (panelResults) => {
-        console.log(JSON.stringify(panelResults))
+        console.log("PR from wordle.jsx: " + JSON.stringify(panelResults))
         setCurPanelResults(panelResults)
     }
 
-    const handleUpdateUserData = async (panelValues) => {
+    const handleUpdateUserData = async () => {
         if(lastWordleSolved){
             return
         }
@@ -55,13 +56,13 @@ export default function Play(){
         }
         const data = {
             lastWordleNumber: curWordle.number,
-            lastWordleState: panelValues,
+            lastWordleState: JSON.stringify(curPanelValues),
             lastWordleResults: JSON.stringify(curPanelResults),
             lastWordleIsSolved: isSolved,
             totalScore: score
         }
         try{
-            await updateUserData(id,data).then(() => console.log("Update userData: " + data))
+            await updateUserData(id,data).then(() => console.log("Updated userData: " + data))
         }catch(err){
             console.error(err)
         }
@@ -69,9 +70,6 @@ export default function Play(){
 
     const handlePanelValuesFromWordle = (panelValues) => {
         setCurPanelValues(panelValues)
-        const rs = JSON.stringify(panelValues)
-        console.log(rs)
-        handleUpdateUserData(rs)
     }
 
     const getScore = () => {
@@ -121,15 +119,25 @@ export default function Play(){
     }
 
     useEffect(()=> {
-        setScore(getScore())
+        console.log("useEffect[gameStatus]")
         if(gameStatus === "solved" && !lastWordleSolved){
-            handleUpdateUserData(JSON.stringify(curPanelValues))
+            console.log("gameStatus: " + gameStatus)
+            console.log("lastWordleSolved: " + lastWordleSolved)
+            setScore(getScore())
+            handleUpdateUserData()
             handleSolved()
         }
     }, [gameStatus])
 
     useEffect(() => {
+        if(!loading){
+            handleUpdateUserData()
+        }
+    }, [curPanelValues])
+
+    useEffect(() => {
         const fetchWordle = async () => {
+            console.log("fetchWordle()")
             try{
                 console.log("getting wordle")
                 const day = getDayOfYear()
@@ -140,7 +148,6 @@ export default function Play(){
                     setCurWordleFetched(true)
                     console.log("Got wordle:")
                     console.log(wordle)
-                    setLoading(false)
                 })
             }catch(err){
                 console.error(err)
@@ -156,14 +163,13 @@ export default function Play(){
                 console.log("getting user data")
                 await getWordleUserData(id).then((user) => {
                     setUserData(user)
-                    setLastWordleSolved(user.lastWordleSolved || false)
-                    setCurPanelResults(JSON.parse(user.lastWordleResults))
-                    console.log("got user data: ")
+                    setUserDataFetched(true)
+                    setLastWordleSolved(user.lastWordleIsSolved)
+                    console.log("fetchUser() got user data: ")
                     console.log(user)
-                    setLoading(false)
                 })
             }catch(err){
-                console.error(err)
+                console.error("error getWordleUserData: " + err)
             }
         }
 
@@ -171,15 +177,24 @@ export default function Play(){
     }, [curWordleFetched])
 
     useEffect(()=> {
-        if(userData){
-            if(userData.lastWordleIsSolved) {
-                setGameStatus("solved")
-                return
+        console.log("useEffect[userDataFetched]")
+        if(userDataFetched){
+            try{
+                setCurPanelResults(JSON.parse(userData.lastWordleResults))
+                console.log("useEffect[userData] lastWordleResults: " + userData.lastWordleResults)
+            }catch(err){
+                console.error("error parsing lastWordleResults: " + err)
+            }finally {
+                setLoading(false)
             }
             handleLastState()
-            setGameStatus("play")
+            if(userData.lastWordleIsSolved) {
+                setGameStatus("solved")
+            }else{
+                setGameStatus("play")
+            }
         }
-    }, [userData])
+    }, [userDataFetched])
 
     let mobile = useIsMobile()
     if (mobile === undefined){
@@ -193,7 +208,7 @@ export default function Play(){
     return (
         <>{mobile ? <HeaderMobile/> : <Header/>}
 
-        <div className="h-[100vh] mt-16 md:mt-2 mb-[12rem] flex flex-col items-center justify-center">
+        <div className="mt-16 md:mt-10 mb-[12rem] flex flex-col items-center justify-center">
             {/* <SubButton text="Wordle"/> */}
             <h2 className="manrope-body">username: <b>{userData.username}</b></h2>
             <h2 className="manrope-body">Wordle#<b>{curWordle.number}</b></h2>
@@ -203,19 +218,20 @@ export default function Play(){
                 onPanelResults={handlePanelResultsFromWordle}
                 onPanelValues={handlePanelValuesFromWordle}
                 lastState={lastState}
+                lastSolved={lastWordleSolved}
                 />}
             
             {gameStatus === "solved" && 
-                <div className="w-[50vw] h-[50vh] p-8 flex flex-col items-center justify-center gap-8">
+                <div className="w-[50vw] p-8 flex flex-col items-center justify-center gap-8">
                     <h2 className="manrope-h2 text-xl">{solvedMessages[Math.floor(Math.random() * solvedMessages.length)]}</h2>
                     <ResultImage panelResults={curPanelResults} widthPixels={200}/>
-                    <p className="manrope-h2">Score: </p><p className="manrope-h2 text-2xl">+{score}!</p>
+                    {!lastWordleSolved && <span><p className="manrope-h2">Score: </p><p className="manrope-h2 text-xl">+{score}!</p></span>}
                     <MainButton text="See Leaderboard" handleClick={()=> goToPage('/play/leaderboard')}/>
                 </div>
             }
 
             {gameStatus === "failed" &&
-                <div className="w-[50vw] h-[50vh] p-8 flex flex-col items-center justify-center gap-8">
+                <div className="w-[50vw] p-8 flex flex-col items-center justify-center gap-8">
                     <h2 className="manrope-h2 text-xl">Yah.. coba lagi besok!</h2>
                     <ResultImage panelResults={curPanelResults} widthPixels={200}/>
                     <MainButton text="See Leaderboard" handleClick={()=> goToPage('/play/leaderboard')}/>

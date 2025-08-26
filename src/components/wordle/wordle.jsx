@@ -5,7 +5,7 @@ import LetterBox from "./letterBox"
 import Keyboard from "./keyboard"
 import Prompt from "./prompt"
 
-export default function Wordle({word, onSignal, onPanelResults, onPanelValues, lastState = null}){
+export default function Wordle({word, onSignal, onPanelResults, onPanelValues, lastState = null, lastSolved = false}){
     const [activeRow, setActiveRow] = useState(0)
     const [activeCol, setActiveCol] = useState(0)
     const [filledRow, setFilledRow] = useState(null)   //Last filled row
@@ -68,13 +68,13 @@ export default function Wordle({word, onSignal, onPanelResults, onPanelValues, l
             answerSet.add(value)
         });
         if(word === answer){
-            onPanelResults(panelResults)
             onSignal("solved")
+            onPanelResults(panelResults)
             return
         }
         if(row > 4){    //Case: on last row
-            onPanelResults(panelResults)
             onSignal("failed")
+            onPanelResults(panelResults)
             return
         }else{
             setActiveRow(row+1)
@@ -167,10 +167,10 @@ export default function Wordle({word, onSignal, onPanelResults, onPanelValues, l
     }, [lastState, kbbiAdded])
 
     useEffect(()=> {
-        if(lastStateDone){
+        if(lastStateDone && !lastSolved){
             handleLastStateCheck()
         }
-    }, [lastStateDone])
+    }, [lastStateDone, lastSolved])
 
     return (
         <div className="flex flex-col gap-1 mb-4 w-fit items-center" >

@@ -4,6 +4,7 @@ export default function ResultImage({panelResults, widthPixels}) {
     const size = widthPixels / 5;
 
     return (
+        <div>
         <svg width={widthPixels} height={size * 6}>
             {panelResults && panelResults.map((panelRow, rowIndex) => (
                 panelRow.map((panel, index) => (
@@ -28,5 +29,6 @@ export default function ResultImage({panelResults, widthPixels}) {
             )
             )}
         </svg>
+        </div>
     )
 }
