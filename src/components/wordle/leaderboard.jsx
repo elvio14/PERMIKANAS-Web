@@ -2,12 +2,19 @@ import { getAllSubmissions, getAllUserData } from "@/app/actions"
 import { useEffect, useState } from "react"
 import Card from "./card"
 import SubButton from "../subButton"
+import { useRouter } from "next/navigation"
 
 export default function Leaderboard() { 
     const [data, setData] = useState(null)
     const [userData, setUserData] = useState(null)
-    const [userDataFetched, setUserDataFetched] = useState(false)
     const [userDataSorted, setUserDataSorted] = useState(false)
+    
+    const router = useRouter()
+    const goToPage = (path) => {
+      console.log("Running goToPage " + path)
+      router.push(path)
+    }
+
     const getSubmissions = async () => {
         try{
             await getAllSubmissions().then((fetched) => setData(fetched))
@@ -41,6 +48,7 @@ export default function Leaderboard() {
     return (
         <div className="flex flex-col items-center justify-center gap-2 py-8">
             <SubButton text="Wordle"/>
+            <a onClick={()=> goToPage("/play")}><h2>{"< back to game"}</h2></a>
             <h2 className="manrope-h2 text-4xl mt-8">Leaderboard</h2>
             <p>See who’s on top of their game with their Indo lingo!</p>
             <div

@@ -5,6 +5,7 @@ import Loading from "@/components/loading"
 import Header from "@/components/header"
 import HeaderMobile from "@/components/headerMobile"
 import Login from "@/components/wordle/login"
+import { useRouter } from "next/navigation"
 
 export default function PlayHome(){
 
@@ -12,12 +13,20 @@ export default function PlayHome(){
     if (mobile === undefined){
       return (<div className="pb-[12rem]"><Loading/></div>)
     }
+
+    const router = useRouter()
+    const goToPage = (path) => {
+      console.log("Running goToPage " + path)
+      router.push(path)
+    }
+
     return (
         <>
             {mobile ? <HeaderMobile/> : <Header/>}
             
-            <div className="h-[100vh] mt-16 md:mt-2 mb-[12rem] flex flex-col items-center justify-center">
+            <div className="h-[100vh] mt-16 md:mt-2 mb-[12rem] flex flex-col gap-4 items-center justify-center">
                 <SubButton text="Wordle"/>
+                <a onClick={()=> goToPage("/play/leaderboard")}><h2>{"View Leaderboard >"}</h2></a>
                 <Login/>
             </div>
         </>

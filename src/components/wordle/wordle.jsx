@@ -36,12 +36,12 @@ export default function Wordle({word, onSignal, onPanelResults, onPanelValues, l
         onPanelValues(panelValues)
         let answer = '';
         let answerSet = new Set()
+        let hasBlanks = false
         panelValues[row].forEach((value) => {
             answer += value
         })
         answer = answer.toLocaleLowerCase()
-
-        if (!kbbiSet.has(answer)) {
+        if (!kbbiSet.has(answer) && !hasBlanks) {
             console.log(answer + " not found in KBBI set");
             setWordNotFound(true)
             setNotFoundRow(row)
@@ -119,7 +119,7 @@ export default function Wordle({word, onSignal, onPanelResults, onPanelValues, l
     }
 
     const handleLastState = () => {
-        if(lastState !== null){
+        if(lastState !== null && lastState !== "[]"){
             console.log(lastState)
             setPanelValues(lastState)
         }
@@ -128,12 +128,11 @@ export default function Wordle({word, onSignal, onPanelResults, onPanelValues, l
     const handleLastStateCheck = () => {
         for(let i = 0; i < 6; i++){
             console.log("PanelValues[i][0] = " + panelValues[i][0])
-            if(panelValues[i][0] !== ""){
-                console.log("Check answer " + i)
-                checkAnswer(i)
-            }else{
+            if(panelValues[i][0] === ''){
                 break
             }
+            console.log("Check answer " + i)
+            checkAnswer(i)
         }
     }
 
