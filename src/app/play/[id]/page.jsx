@@ -143,7 +143,7 @@ export default function Play(){
                 const day = getDayOfYear()
                 const startDay = 236 //SET BASED ON ACTUAL WORDLE START DATE
                 const wordleToday = day - startDay
-                await getWordleByNumber(1).then((wordle) => {
+                await getWordleByNumber(wordleToday).then((wordle) => {
                     setCurWordle(wordle)
                     setCurWordleFetched(true)
                     console.log("Got wordle:")
