@@ -207,7 +207,7 @@ export default function Play(){
 
     return (
         <>{mobile ? <HeaderMobile/> : <Header/>}
-
+        <div className=""></div>
         <div className="mt-16 md:mt-10 mb-[12rem] flex flex-col items-center justify-center">
             {/* <SubButton text="Wordle"/> */}
             <h2 className="manrope-body">username: <b>{userData.username}</b></h2>
@@ -237,6 +237,7 @@ export default function Play(){
                     <MainButton text="See Leaderboard" handleClick={()=> goToPage('/play/leaderboard')}/>
                 </div>
             }
+            <a onClick={() => goToPage("/play")}>{"< exit"}</a>
         </div>
         </>
     )

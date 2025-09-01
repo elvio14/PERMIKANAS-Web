@@ -97,7 +97,7 @@ export default function Login() {
                 signupClicked ?
                 <>
                     <div className="flex flex-col gap-2">
-                        <label for="basic-select">Select Chapter:</label>
+                        <label htmlFor="basic-select">Select Chapter:</label>
                         <select ref={chapterInput} className="p-2">
                             <option value="">N/A</option>
                             {
@@ -106,7 +106,7 @@ export default function Login() {
                                 )
                             }
                         </select>
-                        <label for="basic-select">Select City:</label>
+                        <label htmlFor="basic-select">Select City:</label>
                         <select ref={cityInput} className="p-2">
                             <option value="">N/A</option>
                             {
@@ -116,12 +116,12 @@ export default function Login() {
                             }
                         </select>
                     </div>
-                    <MainButton text="Signup" handleClick={handleSignup} className="w-full" />
+                    <MainButton key="signup2" text="Signup" handleClick={handleSignup} className="w-full" />
                 </>
                 :
                 <>
                     <MainButton text="Login" handleClick={handleLogin} className="w-full" /> 
-                    <MainButton text="Signup" handleClick={() => setSignupClick(true)} className="w-full"/>
+                    <MainButton key="signup1" text="Signup" handleClick={() => setSignupClick(true)} className="w-full"/>
                 </>
                 
             }

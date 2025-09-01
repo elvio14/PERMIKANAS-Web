@@ -111,6 +111,7 @@ async function wordleSignup(username, pass, chapter, city){
       username: username,
       lastWordleNumber: 0,
       lastWordleState: "",
+      lastWordleResults: "",
       lastWordleIsSolved: false,
       password: pass,
       totalScore: 0,
