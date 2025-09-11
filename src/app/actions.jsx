@@ -110,8 +110,8 @@ async function wordleSignup(username, pass, chapter, city){
     await setDoc(doc(db, "wordleUsers", id), {
       username: username,
       lastWordleNumber: 0,
-      lastWordleState: "",
-      lastWordleResults: "",
+      lastWordleState: "[]",
+      lastWordleResults: "[]",
       lastWordleIsSolved: false,
       password: pass,
       totalScore: 0,

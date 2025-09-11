@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 export default function Login() {
     const userInput = useRef(null)
     const passInput = useRef(null)
+    const passInputConfirm = useRef(null)
     const chapterInput = useRef(null)
     const cityInput = useRef(null)
 
@@ -47,6 +48,10 @@ export default function Login() {
       "Windsor",
       "Winnipeg"
     ]
+
+    const confirmPassword = () => {
+        return passInput.current.value === passInputConfirm.current.value
+    }
     const handleLogin = async () => {
         setStatus("Logging in...")
         try{
@@ -66,6 +71,12 @@ export default function Login() {
     }
 
     const handleSignup = async () => {
+        setStatus("")
+        const passGood = confirmPassword()
+        if(!passGood){
+            setStatus("Passwords doesn't match!")
+            return
+        }
         setStatus("Signing up")
         try{
             const res = await wordleSignup(userInput.current.value, passInput.current.value, chapterInput.current.value, cityInput.current.value)
@@ -91,7 +102,16 @@ export default function Login() {
             <label htmlFor="password">Password</label>
             <input ref={passInput} type="password" required name="password" id="password"
                 className="border border-black-600 p-2"></input>
-            <br />
+            {
+            signupClicked &&
+            <>
+                <label htmlFor="password">Confirm Password</label>
+                <input ref={passInputConfirm} type="password" required name="password" id="passwordConfirm"
+                    className="border border-black-600 p-2"></input>
+                <br />
+            </>
+            }
+
             
             {
                 signupClicked ?
@@ -117,6 +137,7 @@ export default function Login() {
                         </select>
                     </div>
                     <MainButton key="signup2" text="Signup" handleClick={handleSignup} className="w-full" />
+                    <a onClick={() => setSignupClick(false)}>{"< login"}</a>
                 </>
                 :
                 <>

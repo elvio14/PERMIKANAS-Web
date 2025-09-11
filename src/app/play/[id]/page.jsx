@@ -20,7 +20,7 @@ export default function Play(){
     const [userData, setUserData] = useState(null)
     const [userDataFetched, setUserDataFetched] = useState(false)
     const [gameStatus, setGameStatus] = useState("load");
-    const [curWordle, setCurWordle] = useState({})
+    const [curWordle, setCurWordle] = useState(null)
     const [curWordleFetched, setCurWordleFetched] = useState(false)
     const [curPanelResults, setCurPanelResults] = useState(Array.from({ length: 6 }, () => Array(5).fill(ResultType.BLANK)))
     const [curPanelValues, setCurPanelValues] = useState(Array.from({ length: 6 }, () => Array(5).fill("")))
@@ -173,14 +173,16 @@ export default function Play(){
             }
         }
 
-        if(curWordleFetched){fetchUser()}
+        if(curWordleFetched && curWordle !== null){fetchUser()}
     }, [curWordleFetched])
 
     useEffect(()=> {
         console.log("useEffect[userDataFetched]")
         if(userDataFetched){
             try{
+                if(userData.lastWordleResults !== "[]"){
                 setCurPanelResults(JSON.parse(userData.lastWordleResults))
+                }
                 console.log("useEffect[userData] lastWordleResults: " + userData.lastWordleResults)
             }catch(err){
                 console.error("error parsing lastWordleResults: " + err)
