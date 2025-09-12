@@ -122,7 +122,7 @@ export default function Login() {
                             <option value="">N/A</option>
                             {
                                 chapters.map((chapter) => 
-                                    (<option value={chapter}>{chapter}</option>)
+                                    (<option key={chapter} value={chapter}>{chapter}</option>)
                                 )
                             }
                         </select>
@@ -131,7 +131,7 @@ export default function Login() {
                             <option value="">N/A</option>
                             {
                                 cities.map((city) => 
-                                    (<option value={city}>{city}</option>)
+                                    (<option key={city} value={city}>{city}</option>)
                                 )
                             }
                         </select>

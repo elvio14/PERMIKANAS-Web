@@ -1,8 +1,11 @@
 import { getAllSubmissions, getAllUserData } from "@/app/actions"
 import { useEffect, useState } from "react"
 import Card from "./card"
+import CardMobile from "./cardMobile"
 import SubButton from "../subButton"
 import { useRouter } from "next/navigation"
+import useIsMobile from "@/components/isMobile"
+import Loading from "@/components/loading"
 
 export default function Leaderboard() { 
     const [data, setData] = useState(null)
@@ -44,19 +47,24 @@ export default function Leaderboard() {
         getUserData();
     }, []);
 
-
+    let mobile = useIsMobile()
+    if (mobile === undefined){
+        return (<div className="pb-[12rem]"><Loading/></div>)
+    }
     return (
-        <div className="flex flex-col items-center justify-center gap-2 py-8">
+        <div className="flex flex-col items-center justify-center text-center gap-2 md:py-8 py-32 md:mx-2 px-2">
             <SubButton text="Wordle"/>
             <a onClick={()=> goToPage("/play")}><h2>{"< back to game"}</h2></a>
             <h2 className="manrope-h2 text-4xl mt-8">Leaderboard</h2>
             <p>See who’s on top of their game with their Indo lingo!</p>
             <div
-                className="mt-8 py-4 justify-center items-center w-[60vw] max-h-[50vh] overflow-y-auto"
+                className="mt-8 py-4 justify-center items-center md:w-[60vw] max-h-[50vh] w-[90vw] overflow-y-auto"
             >
                 <div className="pt-0 px-2 flex flex-col gap-4 justify-center items-center">
                 {
                     userData && userDataSorted && userData.map((el, index) => (
+                        mobile ?
+                        <CardMobile data={el} key={index} index={index+1}/> : 
                         <Card data={el} key={index} index={index+1}/>
                     ))
                 }

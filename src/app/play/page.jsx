@@ -21,8 +21,7 @@ export default function PlayHome(){
 
     return (
         <>
-            {mobile ? <HeaderMobile/> : <Header/>}
-            
+            {mobile ? <HeaderMobile active="wordle"/> : <Header active="wordle"/>}
             <div className="h-[100vh] mt-16 md:mt-2 mb-[12rem] flex flex-col gap-4 items-center justify-center">
                 <SubButton text="Wordle"/>
                 <a onClick={()=> goToPage("/play/leaderboard")}><h2>{"View Leaderboard >"}</h2></a>

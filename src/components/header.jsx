@@ -86,9 +86,9 @@ export default function Header({active = ""}){
                         <SecondaryButton text='Resources' color='white' hoverable={false} onClick={()=>goToPage("/resources")}></SecondaryButton>
                         {dropdown && <div className='border-t-2 absolute z-50 w-[7rem]'></div>}
                     </div>
-                    <SecondaryButton text='Events' color='white' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton>
-                    <SecondaryButton text='Communities' color='white' isActive={activePage == "communities"} onClick={()=>goToPage("/communities ")}></SecondaryButton>
-
+                    {/* <SecondaryButton text='Events' color='white' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton>
+                    <SecondaryButton text='Communities' color='white' isActive={activePage == "communities"} onClick={()=>goToPage("/communities ")}></SecondaryButton> */}
+                    <SecondaryButton text='Wordle Game' color='white' isActive={activePage == "wordle"} onClick={()=>goToPage("/play ")}></SecondaryButton> 
                 </nav>
             </div>
             <div className="flex justify-center relative">
@@ -121,8 +121,9 @@ export default function Header({active = ""}){
                         <SecondaryButton text='Resources' color='var(--main-7)' hoverable={false}></SecondaryButton>
                         {dropdown && <div className='border-t-2 absolute w-[7rem]'></div>}
                     </div>
-              <SecondaryButton text='Events' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton>
-              <SecondaryButton text='Communities' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "communities"} onClick={()=>goToPage("/communities ")}></SecondaryButton>
+              {/* <SecondaryButton text='Events' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "events"} onClick={()=>goToPage("/events")}></SecondaryButton>
+              <SecondaryButton text='Communities' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "communities"} onClick={()=>goToPage("/communities ")}></SecondaryButton> */}
+              <SecondaryButton text='Wordle Game' color='var(--main-7)' bgActive='#CD5A48' isActive={activePage == "wordle"} onClick={()=>goToPage("/play ")}></SecondaryButton>
             </nav>
             <div className="flex justify-center relative">
                 <MainButton text='Contact Us' borderColor="var(--main-6)" handleClick={clickContact}></MainButton>

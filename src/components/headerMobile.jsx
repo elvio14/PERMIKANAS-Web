@@ -62,11 +62,14 @@ export default function HeaderMobile({active = ""}) {
                             </div>
                         }
                     </div>
-                    <div className={`p-4 ${active == 'events' ? "bg-[var(--main-3-b)]" : "bg-transparent"}`}>
+                    {/* <div className={`p-4 ${active == 'events' ? "bg-[var(--main-3-b)]" : "bg-transparent"}`}>
                         <h1 className="text-3xl text-[var(--main-1)]" onClick={() => goToPage("/events")}>Events</h1>
                     </div>
                     <div className={`p-4 ${active == 'communities' ? "bg-[var(--main-3-b)]" : "bg-transparent"}`}>
                         <h1 className="text-3xl text-[var(--main-1)]" onClick={() => goToPage("/communities")}>Communities</h1>
+                    </div> */}
+                    <div className={`p-4 ${active == 'wordle' ? "bg-[var(--main-3-b)]" : "bg-transparent"}`}>
+                        <h1 className="text-3xl text-[var(--main-1)]" onClick={() => goToPage("/play")}>Wordle Game</h1>
                     </div>
                     <div className="mt-auto flex flex-col items-center">
                         {copyAlert && <p className="text-[var(--main-1)] p-2">Email address copied!</p>}

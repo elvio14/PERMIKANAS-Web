@@ -11,6 +11,7 @@ import Header from "@/components/header"
 import { ResultType } from "@/components/wordle/resultTypes";
 import { MainButton } from "@/components/button";
 
+const wordleStartDay = 250 //SET BASED ON ACTUAL WORDLE START DATE
 
 export default function Play(){
     const router = useRouter()
@@ -141,19 +142,21 @@ export default function Play(){
             try{
                 console.log("getting wordle")
                 const day = getDayOfYear()
-                const startDay = 236 //SET BASED ON ACTUAL WORDLE START DATE
-                const wordleToday = day - startDay
+                const wordleToday = day - wordleStartDay
                 await getWordleByNumber(wordleToday).then((wordle) => {
                     setCurWordle(wordle)
                     setCurWordleFetched(true)
                     console.log("Got wordle:")
                     console.log(wordle)
+                    if(wordle === null) {
+                        setGameStatus("nowordle")
+                        setLoading(false)
+                    }
                 })
             }catch(err){
                 console.error(err)
             }
         }
-        
         fetchWordle()
     }, [])
 
@@ -205,6 +208,15 @@ export default function Play(){
     
     if(loading){
       return (<Loading></Loading>)
+    }
+
+    if(gameStatus === "nowordle"){
+        return (
+            <div className="mt-16 md:mt-10 mb-[12rem] h-[100vh] flex flex-col items-center justify-center gap-8">
+                <h2 className="manrope-h2 text-xl">Mohon maaf tidak ada wordle hari ini... &#128531;</h2>
+                <MainButton text="See Leaderboard" handleClick={()=> goToPage('/play/leaderboard')}/>
+            </div>
+        )
     }
 
     return (
