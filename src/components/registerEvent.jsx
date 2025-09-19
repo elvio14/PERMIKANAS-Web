@@ -3,9 +3,9 @@ import Carousel from "./carousel";
 
 export default function Sponsor() {
     const images = [
-        {src: "/summit1.jpg", id: "summit1"},
-        {src: "/summit2.jpg", id: "summit2"},
-        {src: "/summit3.png", id: "summit3"}
+        {src: "/summit1.webp", id: "summit1"},
+        {src: "/summit2.webp", id: "summit2"},
+        {src: "/summit3.webp", id: "summit3"}
     ]
 
     return (
